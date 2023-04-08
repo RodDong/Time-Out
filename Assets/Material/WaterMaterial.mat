@@ -146,7 +146,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _AmbientOcclusion: 0.65
+    - _AmbientOcclusion: 0
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
@@ -178,7 +178,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _Focus: -100
-    - _FresnelPower: 10
+    - _FresnelPower: 5
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -210,7 +210,7 @@ Material:
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
-    - _RefractionColorIntensity: 9.04
+    - _RefractionColorIntensity: 9.14
     - _RefractionModel: 0
     - _RefractionScale: 1
     - _RefractionSpeed: 0
