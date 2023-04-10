@@ -210,9 +210,9 @@ Material:
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
-    - _RefractionColorIntensity: 9.14
+    - _RefractionColorIntensity: 4.79
     - _RefractionModel: 0
-    - _RefractionScale: 1
+    - _RefractionScale: 8.24
     - _RefractionSpeed: 0
     - _RefractionStrength: 1
     - _RenderQueueType: 4
