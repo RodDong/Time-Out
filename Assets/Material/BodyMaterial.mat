@@ -117,7 +117,8 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimIntensity: 0.5
-    - _RimWidth: 2.76
+    - _RimThreshHold: 1.06
+    - _RimWidth: 2.29
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

@@ -10,7 +10,8 @@ Material:
   m_Name: WaterMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 052d3fc6836a4fe479adf1f485527604, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -90,6 +91,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a705360e13c7415a99f8ba6d5775c6e9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 189ac92dfa801564bb7fed870d59d3fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_b918461b0d45418580057b556a5460fa_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 189ac92dfa801564bb7fed870d59d3fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ce73d2804613402c9130e7b991b3d38d_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 189ac92dfa801564bb7fed870d59d3fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ddefb929c82c498aab27c2767827138e_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 189ac92dfa801564bb7fed870d59d3fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -137,6 +154,7 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
+    - _AlphaClip: 1
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
@@ -146,15 +164,21 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _AmbientOcclusion: 0
+    - _AmbientOcclusion: 0.81
     - _Anisotropy: 0
+    - _Blend: 0
     - _BlendMode: 0
+    - _CastShadows: 1
     - _CoatMask: 0
     - _ColorMask: 15
     - _ConservativeDepthOffsetEnable: 0
+    - _Cull: 2
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
+    - _DecalMeshBiasType: 0
+    - _DecalMeshDepthBias: 0
+    - _DecalMeshViewBias: 0
     - _DepthFadeDis: 1
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
@@ -168,6 +192,7 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
+    - _DrawOrder: 0
     - _DstBlend: 10
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
@@ -178,7 +203,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _Focus: -100
-    - _FresnelPower: 5
+    - _FresnelPower: 4.57
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -208,11 +233,14 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RayTracing: 0
+    - _ReceiveShadows: 1
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
-    - _RefractionColorIntensity: 4.79
+    - _RefractionColorIntensity: -0.42
+    - _RefractionDepth: 0.54
+    - _RefractionDistortStrength: 0.08
     - _RefractionModel: 0
-    - _RefractionScale: 8.24
+    - _RefractionScale: 1
     - _RefractionSpeed: 0
     - _RefractionStrength: 1
     - _RenderQueueType: 4
@@ -224,7 +252,7 @@ Material:
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -241,6 +269,7 @@ Material:
     - _StencilWriteMaskMV: 40
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
+    - _Surface: 1
     - _SurfaceType: 1
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
@@ -260,17 +289,20 @@ Material:
     - _UseShadowThreshold: 0
     - _UseUIAlphaClip: 0
     - _WaterClarity: 0
+    - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 0
+    - _ZWriteControl: 0
     - _step: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.30153078, g: 0.46903127, b: 0.8301887, a: 0}
-    - _DeepWaterColor: {r: 0.094117574, g: 0.7529412, b: 1, a: 0}
+    - _DeepWaterColor: {r: 0, g: 0.73562217, b: 1, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -279,7 +311,7 @@ Material:
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 0, g: 1, b: 0.8759381, a: 0}
-    - _ShallowWaterColor: {r: 0.14117643, g: 0.88235295, b: 0.8039216, a: 0}
+    - _ShallowWaterColor: {r: 0.5019608, g: 0.72156864, b: 0.68235296, a: 0}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

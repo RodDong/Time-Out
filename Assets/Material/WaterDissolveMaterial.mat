@@ -56,14 +56,14 @@ Material:
     m_Ints: []
     m_Floats:
     - ReverseDissolve: 0
-    - _Dissolve: 0.44
-    - _Emission_Strength: 1
+    - _Dissolve: 0.17
+    - _Emission_Strength: 0.67
     - _QueueControl: 1
     - _QueueOffset: 43
-    - _RefractionColorIntensity: 1
+    - _RefractionColorIntensity: 1.12
     - _ReverseDissolve: 0
     - _normalTiling: 1
     m_Colors:
-    - _DeepWaterColor: {r: 0.09411765, g: 0.7529412, b: 1, a: 0}
-    - _ShallowWaterColor: {r: 0.14117643, g: 0.88235295, b: 0.8039216, a: 0}
+    - _DeepWaterColor: {r: 0.38959593, g: 0.5807974, b: 0.9716981, a: 0}
+    - _ShallowWaterColor: {r: 0, g: 1, b: 0.97916675, a: 0}
   m_BuildTextureStacks: []
