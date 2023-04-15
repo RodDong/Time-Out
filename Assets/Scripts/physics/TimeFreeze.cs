@@ -7,25 +7,16 @@ public class TimeFreeze : MonoBehaviour
 {
     private Rigidbody rb, savedrb;
     private GameObject[] gameObjects;
+    private List<GameObject> copiedObjects;
     private GameObject player, copyfolder, copy;
     [HideInInspector] public bool freezed;
     private CharacterController playerCtrl;
     private Vector3 playerLastPos, playerCurrPos, playerVelocity;
 
-    void Awake()
-    {
-        if (!player)
-        {
-            Debug.LogError("The player gameobject was not set");
-        }
-        if (!copyfolder)
-        {
-            Debug.LogError("The copyfolder gameobject was not set");
-        }
-    }
+
     void Start()
     {
-        
+        copiedObjects = new List<GameObject>();
         freezed = false;
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -41,6 +32,7 @@ public class TimeFreeze : MonoBehaviour
             copy = new GameObject();
             copy.transform.parent = copyfolder.transform;
             copy.name = gobj.name;
+            copiedObjects.Add(copy);
         }
 
         playerLastPos = player.transform.position;
@@ -49,34 +41,31 @@ public class TimeFreeze : MonoBehaviour
     void Freeze(GameObject gobj, int index)
     {
         Debug.Log("attempting to freeze");
-
-        if (!freezed) {
-            freezed = true;
-            // move the rigidbody component from object to copy
-            rb = gobj.GetComponent<Rigidbody>();
-            if (!rb || !copy) {Debug.LogWarning("null test failed");}
-            copy.AddComponentCopied(rb);
-            // save values only, stop its physics
-            copy.GetComponent<Rigidbody>().isKinematic = true;
-            Destroy(rb);
-            Debug.Log("freezed");
-        }
+    
+        // move the rigidbody component from object to copy
+        copy = copiedObjects[index];
+        rb = gobj.GetComponent<Rigidbody>();
+        if (!rb || !copy) {Debug.LogWarning("null test failed");}
+        copy.AddComponentCopied(rb);
+        // save values only, stop its physics
+        copy.GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(rb);
+        Debug.Log("freezed");
     }
 
-    void Unfreeze(GameObject gobj)
+    void Unfreeze(GameObject gobj, int index)
     {
         Debug.Log("attempting to unfreeze");
-        if (freezed) {
-            freezed = false;
-            // move the rigidbody component from copy to object
-            savedrb = copy.GetComponent<Rigidbody>();
-            if (!savedrb || !copy) {Debug.LogWarning("null test failed");}
-            gobj.AddComponentCopied(savedrb);
-            // resume physics on the unfreezed object
-            gobj.GetComponent<Rigidbody>().isKinematic = false;
-            Destroy(savedrb);
-            Debug.Log("unfreezed");
-        }
+
+        // move the rigidbody component from copy to object
+        copy = copiedObjects[index];
+        savedrb = copy.GetComponent<Rigidbody>();
+        if (!savedrb || !copy) {Debug.LogWarning("null test failed");}
+        gobj.AddComponentCopied(savedrb);
+        // resume physics on the unfreezed object
+        gobj.GetComponent<Rigidbody>().isKinematic = false;
+        Destroy(savedrb);
+        Debug.Log("unfreezed");
     }
 
     bool NearZeroVector(Vector3 v)
@@ -96,19 +85,29 @@ public class TimeFreeze : MonoBehaviour
 
         if (NearZeroVector(playerVelocity))
         {
-            if (freezed)
+            if (!freezed)
             {
+                freezed = true;
+                int i = 0;
                 foreach (var gobj in gameObjects)
                 {
-                    Freeze(gobj);
+                    Freeze(gobj, i);
+                    i++;
                 }
             }
             
         }
-        else {
-            foreach (var gobj in gameObjects)
+        else 
+        {
+            if (freezed)
             {
-                Freeze(gobj);
+                freezed = false;
+                int i = 0;
+                foreach (var gobj in gameObjects)
+                {
+                    Unfreeze(gobj, i);
+                    i++;
+                }
             }
         }
     }
