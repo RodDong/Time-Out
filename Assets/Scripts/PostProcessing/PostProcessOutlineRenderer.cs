@@ -1,7 +1,8 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
 
 public class PostProcessOutlineRenderer : PostProcessEffectRenderer<OutlineProcessSetting>
 {
@@ -15,3 +16,4 @@ public class PostProcessOutlineRenderer : PostProcessEffectRenderer<OutlineProce
         context.command.BlitFullscreenTriangle(context.source, context.destination, property, 0);
     }
 }
+*/
