@@ -92,11 +92,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_a705360e13c7415a99f8ba6d5775c6e9_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 189ac92dfa801564bb7fed870d59d3fa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8f0b418311660ca4382932e78597a4c4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_b918461b0d45418580057b556a5460fa_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 189ac92dfa801564bb7fed870d59d3fa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8f0b418311660ca4382932e78597a4c4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_ce73d2804613402c9130e7b991b3d38d_Texture_1:
@@ -252,6 +252,7 @@ Material:
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
+    - _Speed: 0.02
     - _SrcBlend: 5
     - _Stencil: 0
     - _StencilComp: 8
@@ -296,6 +297,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
+    - _normalTiling: 0.28
     - _step: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

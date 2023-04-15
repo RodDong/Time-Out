@@ -23,6 +23,9 @@
         },
         {
             "m_Id": "9ae093db38a946d7a88919bf249404b4"
+        },
+        {
+            "m_Id": "ac85d7aa819043e1995db85e40c1783d"
         }
     ],
     "m_Keywords": [],
@@ -2926,6 +2929,33 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "ac85d7aa819043e1995db85e40c1783d",
+    "m_Guid": {
+        "m_GuidSerialized": "4441661a-5075-4b91-aee7-06f21c9bef31"
+    },
+    "m_Name": "Float",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Float",
+    "m_DefaultReferenceName": "_Float",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DotProductNode",
     "m_ObjectId": "ade15a6476264c19a44248b7eafdedd7",
@@ -3829,6 +3859,9 @@
         },
         {
             "m_Id": "9ae093db38a946d7a88919bf249404b4"
+        },
+        {
+            "m_Id": "ac85d7aa819043e1995db85e40c1783d"
         }
     ]
 }
