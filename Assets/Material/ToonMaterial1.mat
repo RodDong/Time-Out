@@ -43,13 +43,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EmissionIntensity: 1.5
-    - _Float: 1.36
+    - _Float: 1.53
     - _Glossiness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RimIntensity: 0.5
-    - _RimThreshHold: 0.04
-    - _RimWidth: 1.48
+    - _RimThreshHold: 0.68
+    - _RimWidth: 1.99
     m_Colors:
     - _SpecularColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0}
     - _TintColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
