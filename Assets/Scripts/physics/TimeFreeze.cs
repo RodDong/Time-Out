@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class TimeFreeze : MonoBehaviour
 {
-    private Rigidbody rb, savedrb;
     private GameObject[] gameObjects;
     private List<GameObject> copiedObjects;
-    private GameObject player, copyfolder, copy;
+    private List<Vector3> savedVelocities;
+    private List<Vector3> savedAngularVelocities;
+    private GameObject player, copyfolder;
     [HideInInspector] public bool freezed;
     private CharacterController playerCtrl;
     private Vector3 playerLastPos, playerCurrPos, playerVelocity;
@@ -17,6 +18,8 @@ public class TimeFreeze : MonoBehaviour
     void Start()
     {
         copiedObjects = new List<GameObject>();
+        savedVelocities = new List<Vector3>();
+        savedAngularVelocities = new List<Vector3>();
         freezed = false;
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -29,10 +32,12 @@ public class TimeFreeze : MonoBehaviour
 
         foreach(GameObject gobj in gameObjects)
         {
-            copy = new GameObject();
+            var copy = new GameObject();
             copy.transform.parent = copyfolder.transform;
             copy.name = gobj.name;
             copiedObjects.Add(copy);
+            savedVelocities.Add(new Vector3());
+            savedAngularVelocities.Add(new Vector3());
         }
 
         playerLastPos = player.transform.position;
@@ -43,12 +48,16 @@ public class TimeFreeze : MonoBehaviour
         Debug.Log("attempting to freeze");
     
         // move the rigidbody component from object to copy
-        copy = copiedObjects[index];
-        rb = gobj.GetComponent<Rigidbody>();
+        var copy = copiedObjects[index];
+        Rigidbody rb = gobj.GetComponent<Rigidbody>();
         if (!rb || !copy) {Debug.LogWarning("null test failed");}
+
+        savedVelocities[index] = rb.velocity;
+        savedAngularVelocities[index] = rb.angularVelocity;
+        rb.isKinematic = true;
         copy.AddComponentCopied(rb);
         // save values only, stop its physics
-        copy.GetComponent<Rigidbody>().isKinematic = true;
+
         Destroy(rb);
         Debug.Log("freezed");
     }
@@ -58,12 +67,17 @@ public class TimeFreeze : MonoBehaviour
         Debug.Log("attempting to unfreeze");
 
         // move the rigidbody component from copy to object
-        copy = copiedObjects[index];
-        savedrb = copy.GetComponent<Rigidbody>();
+        var copy = copiedObjects[index];
+        Rigidbody savedrb = copy.GetComponent<Rigidbody>();
+
         if (!savedrb || !copy) {Debug.LogWarning("null test failed");}
+
+        savedrb.isKinematic = false;
+        savedrb.velocity = savedVelocities[index];
+        savedrb.angularVelocity = savedAngularVelocities[index];
+
         gobj.AddComponentCopied(savedrb);
         // resume physics on the unfreezed object
-        gobj.GetComponent<Rigidbody>().isKinematic = false;
         Destroy(savedrb);
         Debug.Log("unfreezed");
     }

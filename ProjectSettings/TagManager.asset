@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CopyPool
   - ControllableObjects
+  - Ground
   layers:
   - Default
   - TransparentFX
