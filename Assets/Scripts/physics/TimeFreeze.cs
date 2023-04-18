@@ -45,7 +45,7 @@ public class TimeFreeze : MonoBehaviour
 
     void Freeze(GameObject gobj, int index)
     {
-        Debug.Log("attempting to freeze");
+        // Debug.Log("attempting to freeze");
     
         // move the rigidbody component from object to copy
         var copy = copiedObjects[index];
@@ -59,12 +59,12 @@ public class TimeFreeze : MonoBehaviour
         // save values only, stop its physics
 
         Destroy(rb);
-        Debug.Log("freezed");
+        // Debug.Log("freezed");
     }
 
     void Unfreeze(GameObject gobj, int index)
     {
-        Debug.Log("attempting to unfreeze");
+        // Debug.Log("attempting to unfreeze");
 
         // move the rigidbody component from copy to object
         var copy = copiedObjects[index];
@@ -79,7 +79,7 @@ public class TimeFreeze : MonoBehaviour
         gobj.AddComponentCopied(savedrb);
         // resume physics on the unfreezed object
         Destroy(savedrb);
-        Debug.Log("unfreezed");
+        // Debug.Log("unfreezed");
     }
 
     bool NearZeroVector(Vector3 v)

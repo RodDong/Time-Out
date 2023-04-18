@@ -7,12 +7,6 @@ public class PressurePad : Triggerable
 
     private int count = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        triggered = false;
-    }
-
     private void OnTriggerEnter(Collider other) {
         if (count != 0 || other.tag == "Ground") { return; }
 

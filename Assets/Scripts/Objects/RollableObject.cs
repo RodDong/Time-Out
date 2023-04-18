@@ -5,6 +5,7 @@ using UnityEngine;
 public class RollableObject : MonoBehaviour
 {
     [SerializeField] Vector3 force;
+    [SerializeField] float maxVelocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,12 @@ public class RollableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Rigidbody rb = transform.GetComponent<Rigidbody>();
+        if (maxVelocity >= 0 && rb != null) {
+            if (rb.velocity.magnitude > maxVelocity) {
+                rb.velocity = Vector3.Normalize(rb.velocity) * maxVelocity;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision) {
