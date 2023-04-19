@@ -59,5 +59,17 @@ void ColorSobel_float(float2 UV, float Thickness, out float Out) {
     Out = (length(sobelR) + length(sobelG) + length(sobelB)) / 3.0;
 }
 
+void NormalSobel_float(float2 UV, float Thickness, out float Out) {
+    float2 sobel = 0;
+    [unroll] for (int i = 0; i < 9; i++) {
+        float depth = SHADERGRAPH_SAMPLE_SCENE_NORMAL(UV + sobelSamplePoints[i] * Thickness);
+        sobel += depth * float2(sobelXMatrix[i], sobelYMatrix[i]);
+    }
+    Out = length(sobel);
+}
+
+
+
+
 
 #endif
