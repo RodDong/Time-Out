@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   passMaterial: {fileID: -876546973899608171, guid: 31fd0294160e13b499238384ddc0e5ff, type: 3}
-  injectionPoint: 600
+  injectionPoint: 450
   requirements: 6
   passIndex: 0
 --- !u!114 &11400000
@@ -68,5 +68,5 @@ MonoBehaviour:
   m_RenderingMode: 1
   m_DepthPrimingMode: 0
   m_CopyDepthMode: 0
-  m_AccurateGbufferNormals: 1
+  m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1

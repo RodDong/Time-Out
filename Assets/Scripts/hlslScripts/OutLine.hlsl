@@ -53,10 +53,10 @@ void ColorSobel_float(float2 UV, float Thickness, out float Out) {
     }
     // Get the final sobel value
     // Combine the RGB values by taking the one with the largest sobel value
-    //Out = max(length(sobelR), max(length(sobelG), length(sobelB)));
+    Out = max(length(sobelR), max(length(sobelG), length(sobelB)));
     // This is an alternate way to combine the three sobel values by taking the average
     // See which one you like better
-    Out = (length(sobelR) + length(sobelG) + length(sobelB)) / 3.0;
+    //Out = (length(sobelR) + length(sobelG) + length(sobelB)) / 3.0;
 }
 
 void NormalSobel_float(float2 UV, float Thickness, out float Out) {
