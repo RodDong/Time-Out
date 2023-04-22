@@ -5,7 +5,8 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
     [SerializeField] Triggerable controller;
-    private float speed = 1;
+    [SerializeField] bool inverted;
+    private float speed = 2;
     private float closedYPos;
     private float openedYPos;
 
@@ -19,10 +20,12 @@ public class Gate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool triggered = inverted ? !controller.triggered : controller.triggered;
+
         Vector3 curPos = transform.position;
-        if (controller.triggered && curPos.y > openedYPos) {
+        if (triggered && curPos.y > openedYPos) {
             transform.position = new Vector3(curPos.x, curPos.y - speed * Time.deltaTime, curPos.z);
-        } else if (!controller.triggered && curPos.y < closedYPos) {
+        } else if (!triggered && curPos.y < closedYPos) {
             transform.position = new Vector3(curPos.x, curPos.y + speed * Time.deltaTime, curPos.z);
         }
     }
