@@ -41,4 +41,15 @@ public class testplayctrl : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit) {
+        if (hit.transform.tag == "Pushable Object") {
+            Rigidbody rb = hit.transform.GetComponent<Rigidbody>();
+            if (rb != null) {
+                Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, 0);
+                float pushPower = 1.0f;
+                rb.velocity = pushDir * pushPower;
+            }
+        }
+    }
 }

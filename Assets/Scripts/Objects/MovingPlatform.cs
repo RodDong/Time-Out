@@ -9,6 +9,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] Vector3 endPos;
     private float step;
     [SerializeField] float duration;
+    [SerializeField] bool repeat;
     private bool reversing;
 
     // Start is called before the first frame update
@@ -21,7 +22,13 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controller != null && !controller.triggered) { return; }
+        if (controller != null && !controller.triggered) {
+            return; 
+        }
+
+        if (step > duration && !repeat) {
+            return;
+        }
 
         if (step > duration) {
             reversing = true;
