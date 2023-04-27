@@ -61,5 +61,8 @@ crashlytics-build.properties
 .vscode/
 .vsconfig
 
+#ignore the level generating file
+levelTransformInfo.txt
+
 UserSettings/
 
