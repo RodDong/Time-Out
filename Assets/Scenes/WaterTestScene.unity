@@ -5725,7 +5725,10 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 41.084366, y: 2.5968447, z: 0, w: 0}
+        m_Name: FlameColor
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -5838,7 +5841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915717505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.96, y: 0.81, z: -2.71}
+  m_LocalPosition: {x: 1.96, y: 1.09, z: 0.706}
   m_LocalScale: {x: 1.5988315, y: 1.494752, z: 1.1582723}
   m_ConstrainProportionsScale: 0
   m_Children: []
