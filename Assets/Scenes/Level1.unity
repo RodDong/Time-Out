@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 0
 --- !u!65 &34661494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1500,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1046181269}
+  id: 6
   inverted: 0
 --- !u!65 &296346233
 BoxCollider:
@@ -1832,7 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 2115808995}
+  id: 0
   inverted: 0
 --- !u!65 &350807706
 BoxCollider:
@@ -1938,6 +1939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 0
 --- !u!65 &404447952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2124,6 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 5
 --- !u!65 &430971838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2681,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 430971837}
+  id: 5
   inverted: 0
 --- !u!65 &462663470
 BoxCollider:
@@ -3507,11 +3510,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260d800ce1a9d77449e9ca6184618722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 404447951}
   startingPos: {x: 0, y: 5, z: -4}
   endPos: {x: 0, y: 0.975, z: 10}
   duration: 60
   repeat: 0
+  id: 0
 --- !u!65 &637994187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5010,7 +5013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1622364966}
+  id: 0
   inverted: 0
 --- !u!65 &849580491
 BoxCollider:
@@ -5409,7 +5412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1220890151}
+  id: 3
   inverted: 0
 --- !u!65 &889648595
 BoxCollider:
@@ -6179,7 +6182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1999307812}
+  id: 7
   inverted: 0
 --- !u!65 &1011803841
 BoxCollider:
@@ -6497,6 +6500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 6
 --- !u!65 &1046181270
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6630,7 +6634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 2115808995}
+  id: 0
   inverted: 1
 --- !u!65 &1085252915
 BoxCollider:
@@ -6858,7 +6862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 430971837}
+  id: 5
   inverted: 1
 --- !u!65 &1173413626
 BoxCollider:
@@ -7176,6 +7180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 2
 --- !u!65 &1213321171
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7309,7 +7314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 34661493}
+  id: 0
   inverted: 0
 --- !u!65 &1215792261
 BoxCollider:
@@ -7501,6 +7506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 3
 --- !u!1 &1224238778
 GameObject:
   m_ObjectHideFlags: 0
@@ -9352,11 +9358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260d800ce1a9d77449e9ca6184618722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   startingPos: {x: -6, y: 0, z: -7}
   endPos: {x: -6, y: 0, z: 7}
   duration: 5
   repeat: 1
+  id: 0
 --- !u!65 &1421934455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9475,8 +9481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1904762623}
-  inverted: 1
+  id: 1
+  inverted: 0
 --- !u!65 &1446102883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10105,6 +10111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 4
 --- !u!65 &1524540390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10465,7 +10472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 34661493}
+  id: 0
   inverted: 1
 --- !u!65 &1591052237
 BoxCollider:
@@ -10571,6 +10578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 0
 --- !u!65 &1622364967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11476,7 +11484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1999307812}
+  id: 7
   inverted: 0
 --- !u!65 &1813350702
 BoxCollider:
@@ -11596,7 +11604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1046181269}
+  id: 6
   inverted: 1
 --- !u!65 &1848947554
 BoxCollider:
@@ -12294,6 +12302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 1
 --- !u!1 &1933715965
 GameObject:
   m_ObjectHideFlags: 0
@@ -12551,6 +12560,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980855293}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1983691035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1983691037}
+  - component: {fileID: 1983691036}
+  m_Layer: 0
+  m_Name: Event System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1983691036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983691035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06380bd62b54214ba594ecac090f66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1983691037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983691035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.311718, y: -1.8394098, z: 15.2196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1986420019
 GameObject:
   m_ObjectHideFlags: 0
@@ -12599,6 +12652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 0
 --- !u!65 &1986420022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12809,6 +12863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 7
 --- !u!65 &1999307813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12942,11 +12997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260d800ce1a9d77449e9ca6184618722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1213321170}
   startingPos: {x: -7, y: 0, z: 6}
   endPos: {x: 7, y: 0, z: 6}
   duration: 5
   repeat: 1
+  id: 2
 --- !u!65 &2048578506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13370,6 +13425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  id: 0
 --- !u!65 &2115808996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13503,7 +13559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e800897db823274a827d861750a4dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1524540389}
+  id: 4
   inverted: 0
 --- !u!65 &2121574690
 BoxCollider:

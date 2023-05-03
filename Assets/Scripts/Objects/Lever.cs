@@ -19,6 +19,12 @@ public class Lever : Triggerable
     private void OnTriggerStay(Collider other) {
         if (interactableTimer <= 0 && Input.GetKeyUp(KeyCode.E)) {
             triggered = !triggered;
+            if (triggered) {
+                GameEvents.current.TriggerEnter(id);
+            } else {
+                GameEvents.current.TriggerExit(id);
+            }
+
             interactableTimer = 0.5f;
 
             Vector3 curRotation = transform.rotation.eulerAngles;
