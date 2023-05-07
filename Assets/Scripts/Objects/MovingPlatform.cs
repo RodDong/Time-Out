@@ -10,6 +10,7 @@ public class MovingPlatform : MonoBehaviour
     private float step;
     [SerializeField] float duration;
     [SerializeField] bool repeat;
+    [SerializeField] bool inverted;
     private bool reversing;
     private bool triggered;
     public int id;
@@ -27,6 +28,7 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool triggered = inverted ^ this.triggered;
         if (id != 0 && !triggered) {
             return; 
         }
