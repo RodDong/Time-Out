@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class PushableObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null) {
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }   
+    private bool inContact;
+
+    void Start() {
+        inContact = false;
     }
 
-     [SerializeField] Vector3 force;
+    // Start is called before the first frame update
+    void Update()
+    {
+        if (inContact) {
+            Vector3 newPos = transform.localPosition + force * Time.deltaTime;
+            transform.localPosition = newPos;
+        }
+    }
 
-    private void OnCollisionStay(Collision collision) {
+    [SerializeField] Vector3 force;
+
+    private void OnCollisionEnter(Collision collision) {
         
         print("...");
         if (collision.gameObject.tag == "Player") {
-            
-            print("***");
-            transform.GetComponent<Rigidbody>().velocity = force;
+            inContact = true;
         }
     }
+
+    private void OnCollisionExit(Collision collision) {
+        
+        print("...");
+        if (collision.gameObject.tag == "Player") {
+            inContact = false;
+        }
+    }
+
 }
