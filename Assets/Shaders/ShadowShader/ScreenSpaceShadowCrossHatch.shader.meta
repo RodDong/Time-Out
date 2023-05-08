@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: b87e27413c48b3a4e8d90b5974aab9be
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _CrossHatch: {fileID: 2800000, guid: 926fd3ce8cc11fa4e8ec47d5b5edb381, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
