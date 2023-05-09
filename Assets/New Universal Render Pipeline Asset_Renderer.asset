@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   material: {fileID: 2100000, guid: 8f8eed2abf0dc7842bf1e5efbfb3ba22, type: 2}
+  copyShader: {fileID: -6465566751694194690, guid: c338be13d48055245bcdccac003b9764, type: 3}
 --- !u!114 &-2205217368125530062
 MonoBehaviour:
   m_ObjectHideFlags: 0
