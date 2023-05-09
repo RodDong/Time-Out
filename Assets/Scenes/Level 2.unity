@@ -229,111 +229,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21248921}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &25042321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 25042322}
-  - component: {fileID: 25042325}
-  - component: {fileID: 25042324}
-  - component: {fileID: 25042323}
-  m_Layer: 0
-  m_Name: Cube (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &25042322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25042321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.5, y: 0, z: 6}
-  m_LocalScale: {x: 3, y: 2, z: 3}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 406257013}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &25042323
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25042321}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &25042324
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25042321}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &25042325
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25042321}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &45436410
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +243,7 @@ GameObject:
   - component: {fileID: 45436413}
   - component: {fileID: 45436412}
   m_Layer: 0
-  m_Name: Gate
+  m_Name: Gate (Barrel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +413,7 @@ GameObject:
   - component: {fileID: 76365875}
   - component: {fileID: 76365879}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: PushableBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,7 +558,7 @@ GameObject:
   - component: {fileID: 83060515}
   - component: {fileID: 83060514}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Blocker 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -768,7 +663,7 @@ GameObject:
   - component: {fileID: 107604085}
   - component: {fileID: 107604084}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Blocker 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -874,7 +769,7 @@ GameObject:
   - component: {fileID: 153894935}
   - component: {fileID: 153894934}
   m_Layer: 0
-  m_Name: MovingPlatform (1)
+  m_Name: MovingPlatform 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -998,7 +893,7 @@ GameObject:
   - component: {fileID: 156215956}
   - component: {fileID: 156215955}
   m_Layer: 0
-  m_Name: Gate (2)
+  m_Name: Gate (Cube)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,111 +998,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156215953}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &158731884
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 158731885}
-  - component: {fileID: 158731888}
-  - component: {fileID: 158731887}
-  - component: {fileID: 158731886}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &158731885
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158731884}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.5, y: 0, z: 6}
-  m_LocalScale: {x: 3, y: 2, z: 3}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 406257013}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &158731886
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158731884}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &158731887
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158731884}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &158731888
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158731884}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &203440645
 GameObject:
@@ -1328,7 +1118,7 @@ GameObject:
   - component: {fileID: 211055118}
   - component: {fileID: 211055117}
   m_Layer: 0
-  m_Name: Ramp
+  m_Name: Ramp 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,7 +1225,7 @@ GameObject:
   - component: {fileID: 232629765}
   - component: {fileID: 232629764}
   m_Layer: 0
-  m_Name: Gate (3)
+  m_Name: Gate (Exit)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1555,7 +1345,7 @@ GameObject:
   - component: {fileID: 242557626}
   - component: {fileID: 242557625}
   m_Layer: 0
-  m_Name: Gate (4)
+  m_Name: Gate (Barrel 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1676,7 +1466,7 @@ GameObject:
   - component: {fileID: 255725565}
   - component: {fileID: 255725564}
   m_Layer: 0
-  m_Name: Barrel (1)
+  m_Name: Barrel
   m_TagString: ControllableObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1931,7 +1721,7 @@ GameObject:
   - component: {fileID: 292925013}
   - component: {fileID: 292925012}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Button (Gate (Barrel 1))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,7 +1841,7 @@ GameObject:
   - component: {fileID: 311439751}
   - component: {fileID: 311439750}
   m_Layer: 0
-  m_Name: PressurePad (2)
+  m_Name: PressurePad (Gate (Barrel 2,3))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2157,126 +1947,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311439748}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &326795283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 326795284}
-  - component: {fileID: 326795288}
-  - component: {fileID: 326795287}
-  - component: {fileID: 326795286}
-  - component: {fileID: 326795285}
-  m_Layer: 0
-  m_Name: PressurePad (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &326795284
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326795283}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 6, y: 0.2, z: 0}
-  m_LocalScale: {x: 2, y: 0.19999999, z: 3}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1826523457}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &326795285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326795283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0e20a724d55f8498895f95e2fa3374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggered: 0
-  id: 14
---- !u!65 &326795286
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326795283}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &326795287
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326795283}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -876546973899608171, guid: d9be20e5d4ac04a7f8c7bfd1c4330a4f, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &326795288
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326795283}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &390138062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +1961,7 @@ GameObject:
   - component: {fileID: 390138065}
   - component: {fileID: 390138064}
   m_Layer: 0
-  m_Name: PressurePad
+  m_Name: PressurePad (Gate (Exit))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,7 +2081,7 @@ GameObject:
   - component: {fileID: 395397059}
   - component: {fileID: 395397058}
   m_Layer: 0
-  m_Name: Gate (1)
+  m_Name: Gate (Barrel 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2530,7 +2200,7 @@ GameObject:
   - component: {fileID: 396301514}
   - component: {fileID: 396301513}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Blocker 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2670,8 +2340,6 @@ Transform:
   - {fileID: 232629763}
   - {fileID: 507737654}
   - {fileID: 83060513}
-  - {fileID: 158731885}
-  - {fileID: 25042322}
   - {fileID: 396301512}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2691,7 +2359,7 @@ GameObject:
   - component: {fileID: 420167051}
   - component: {fileID: 420167050}
   m_Layer: 0
-  m_Name: Barrel (4)
+  m_Name: Barrel 3
   m_TagString: ControllableObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2840,7 +2508,7 @@ GameObject:
   - component: {fileID: 446102578}
   - component: {fileID: 446102577}
   m_Layer: 0
-  m_Name: Lever (Gate) (1)
+  m_Name: Lever (MovingPlatform 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2959,7 +2627,7 @@ GameObject:
   - component: {fileID: 478507973}
   - component: {fileID: 478507972}
   m_Layer: 0
-  m_Name: Floor (5)
+  m_Name: Pit Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3065,7 +2733,7 @@ GameObject:
   - component: {fileID: 507737656}
   - component: {fileID: 507737655}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Blocker 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3276,7 +2944,7 @@ GameObject:
   - component: {fileID: 521941005}
   - component: {fileID: 521941004}
   m_Layer: 0
-  m_Name: Gate (6)
+  m_Name: Gate (Barrel 3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3395,7 +3063,7 @@ GameObject:
   - component: {fileID: 525411532}
   - component: {fileID: 525411531}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Blocker 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3500,7 +3168,7 @@ GameObject:
   - component: {fileID: 566557213}
   - component: {fileID: 566557212}
   m_Layer: 0
-  m_Name: Cube (10)
+  m_Name: Blocker 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3605,7 +3273,7 @@ GameObject:
   - component: {fileID: 579565759}
   - component: {fileID: 579565758}
   m_Layer: 0
-  m_Name: Cube (13)
+  m_Name: Blocker 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3712,7 +3380,7 @@ GameObject:
   - component: {fileID: 589761797}
   - component: {fileID: 589761796}
   m_Layer: 0
-  m_Name: Barrel (3)
+  m_Name: Barrel 2
   m_TagString: ControllableObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4070,7 +3738,7 @@ GameObject:
   - component: {fileID: 600837381}
   - component: {fileID: 600837380}
   m_Layer: 0
-  m_Name: Floor (4)
+  m_Name: Pit Wall
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4177,7 +3845,7 @@ GameObject:
   - component: {fileID: 611404905}
   - component: {fileID: 611404904}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Button (Gate (Barrel))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4403,7 +4071,7 @@ GameObject:
   - component: {fileID: 627589155}
   - component: {fileID: 627589154}
   m_Layer: 0
-  m_Name: PressurePad (Gate) (1)
+  m_Name: 'PressurePad (Gate (Exit)) '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4672,7 +4340,7 @@ GameObject:
   - component: {fileID: 656613485}
   - component: {fileID: 656613484}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: PushableBox 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4922,7 +4590,7 @@ GameObject:
   - component: {fileID: 786423796}
   - component: {fileID: 786423795}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Blocker 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5029,7 +4697,7 @@ GameObject:
   - component: {fileID: 820736870}
   - component: {fileID: 820736869}
   m_Layer: 0
-  m_Name: Barrel (1)
+  m_Name: Barrel 1
   m_TagString: ControllableObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5179,7 +4847,7 @@ GameObject:
   - component: {fileID: 829047852}
   - component: {fileID: 829047851}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: PushableBox 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5445,7 +5113,7 @@ GameObject:
   - component: {fileID: 900083486}
   - component: {fileID: 900083485}
   m_Layer: 0
-  m_Name: PressurePad (Gate)
+  m_Name: PressurePad (MovingPlatform)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5566,7 +5234,7 @@ GameObject:
   - component: {fileID: 918065541}
   - component: {fileID: 918065540}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: PushableBox 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5711,7 +5379,7 @@ GameObject:
   - component: {fileID: 948873848}
   - component: {fileID: 948873847}
   m_Layer: 0
-  m_Name: Ramp
+  m_Name: Ramp 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5817,7 +5485,7 @@ GameObject:
   - component: {fileID: 960734156}
   - component: {fileID: 960734155}
   m_Layer: 0
-  m_Name: Ramp (1)
+  m_Name: Ramp 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5923,7 +5591,7 @@ GameObject:
   - component: {fileID: 982564698}
   - component: {fileID: 982564697}
   m_Layer: 0
-  m_Name: Ramp (3)
+  m_Name: Ramp 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6030,7 +5698,7 @@ GameObject:
   - component: {fileID: 1086888819}
   - component: {fileID: 1086888818}
   m_Layer: 0
-  m_Name: PressurePad (2)
+  m_Name: PressurePad (Gate (Barrel))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6359,7 +6027,7 @@ GameObject:
   - component: {fileID: 1198484367}
   - component: {fileID: 1198484366}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Blocker 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6570,7 +6238,7 @@ GameObject:
   - component: {fileID: 1313106712}
   - component: {fileID: 1313106711}
   m_Layer: 0
-  m_Name: Ramp (3)
+  m_Name: Ramp 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6783,7 +6451,7 @@ GameObject:
   - component: {fileID: 1360666947}
   - component: {fileID: 1360666946}
   m_Layer: 0
-  m_Name: Gate (5)
+  m_Name: Gate (Exit 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7173,7 +6841,7 @@ GameObject:
   - component: {fileID: 1480336788}
   - component: {fileID: 1480336787}
   m_Layer: 0
-  m_Name: PressurePad
+  m_Name: PressurePad (Gate (Exit))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7292,7 +6960,7 @@ GameObject:
   - component: {fileID: 1506548864}
   - component: {fileID: 1506548863}
   m_Layer: 0
-  m_Name: Cube (11)
+  m_Name: Blocker 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7383,111 +7051,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506548861}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1520400121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1520400122}
-  - component: {fileID: 1520400125}
-  - component: {fileID: 1520400124}
-  - component: {fileID: 1520400123}
-  m_Layer: 0
-  m_Name: Cube (12)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1520400122
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520400121}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 1, z: 9.5}
-  m_LocalScale: {x: 4, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1745678096}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1520400123
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520400121}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1520400124
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520400121}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1520400125
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520400121}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1527607583
 GameObject:
@@ -7608,7 +7171,7 @@ GameObject:
   - component: {fileID: 1528112777}
   - component: {fileID: 1528112776}
   m_Layer: 0
-  m_Name: Cube (8)
+  m_Name: Blocker 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7849,7 +7412,7 @@ GameObject:
   - component: {fileID: 1564584523}
   - component: {fileID: 1564584522}
   m_Layer: 0
-  m_Name: Ramp (2)
+  m_Name: Ramp 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7955,7 +7518,7 @@ GameObject:
   - component: {fileID: 1580109492}
   - component: {fileID: 1580109491}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: Blocker 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8060,7 +7623,7 @@ GameObject:
   - component: {fileID: 1604719179}
   - component: {fileID: 1604719178}
   m_Layer: 0
-  m_Name: Floor (6)
+  m_Name: Pit Wall 2
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8318,7 +7881,7 @@ GameObject:
   - component: {fileID: 1630124969}
   - component: {fileID: 1630124968}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: PushableBox 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8464,7 +8027,7 @@ GameObject:
   - component: {fileID: 1643153357}
   - component: {fileID: 1643153356}
   m_Layer: 0
-  m_Name: Gate (7)
+  m_Name: Gate (Exit)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8584,7 +8147,7 @@ GameObject:
   - component: {fileID: 1687302911}
   - component: {fileID: 1687302910}
   m_Layer: 0
-  m_Name: MovingPlatform
+  m_Name: MovingPlatform 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8708,7 +8271,7 @@ GameObject:
   - component: {fileID: 1696585758}
   - component: {fileID: 1696585757}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Button (Gate (Barrel 2))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8828,7 +8391,7 @@ GameObject:
   - component: {fileID: 1718022410}
   - component: {fileID: 1718022409}
   m_Layer: 0
-  m_Name: Gate (6)
+  m_Name: Gate (Exit 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8994,7 +8557,6 @@ Transform:
   - {fileID: 292925011}
   - {fileID: 1506548862}
   - {fileID: 786423794}
-  - {fileID: 1520400122}
   - {fileID: 579565757}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -9012,7 +8574,7 @@ GameObject:
   - component: {fileID: 1775353043}
   - component: {fileID: 1775353042}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Blocker 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9118,7 +8680,7 @@ GameObject:
   - component: {fileID: 1777918158}
   - component: {fileID: 1777918157}
   m_Layer: 0
-  m_Name: Gate (4)
+  m_Name: Gate (Barrel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9475,7 +9037,7 @@ GameObject:
   - component: {fileID: 1816508411}
   - component: {fileID: 1816508410}
   m_Layer: 0
-  m_Name: Lever (Gate)
+  m_Name: Lever (MovingPlatform 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9729,7 +9291,6 @@ Transform:
   - {fileID: 2128818686}
   - {fileID: 107604083}
   - {fileID: 446102576}
-  - {fileID: 326795284}
   - {fileID: 1086888817}
   - {fileID: 1360666945}
   - {fileID: 1718022408}
@@ -9969,7 +9530,7 @@ GameObject:
   - component: {fileID: 1982147721}
   - component: {fileID: 1982147720}
   m_Layer: 0
-  m_Name: Ramp (2)
+  m_Name: Bottom of Ramp 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10120,7 +9681,7 @@ GameObject:
   - component: {fileID: 2058824439}
   - component: {fileID: 2058824438}
   m_Layer: 0
-  m_Name: Gate (5)
+  m_Name: Gate (Barrel 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10239,7 +9800,7 @@ GameObject:
   - component: {fileID: 2059890799}
   - component: {fileID: 2059890798}
   m_Layer: 0
-  m_Name: Ramp (1)
+  m_Name: Ramp 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10347,7 +9908,7 @@ GameObject:
   - component: {fileID: 2062231124}
   - component: {fileID: 2062231123}
   m_Layer: 0
-  m_Name: Cube (9)
+  m_Name: PushableBox 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10492,7 +10053,7 @@ GameObject:
   - component: {fileID: 2089207509}
   - component: {fileID: 2089207508}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Blocker 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10703,7 +10264,7 @@ GameObject:
   - component: {fileID: 2128818688}
   - component: {fileID: 2128818687}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Blocker 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
