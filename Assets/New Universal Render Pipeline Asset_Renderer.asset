@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   material: {fileID: 2100000, guid: 8f8eed2abf0dc7842bf1e5efbfb3ba22, type: 2}
-  copyShader: {fileID: -6465566751694194690, guid: c338be13d48055245bcdccac003b9764, type: 3}
+  copyMaterial: {fileID: 2100000, guid: 32cfdbe411e552d42938b53272c809bb, type: 2}
 --- !u!114 &-2205217368125530062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,5 +99,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32e72b6a3f58a24c9033e2b9275eea0, type: 3}
   m_Name: ScreenSpaceShadows
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   m_Shader: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd, type: 3}

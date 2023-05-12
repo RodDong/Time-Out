@@ -49,7 +49,7 @@ Shader "Unlit/ScreenSpaceShadowCrossHatch"
             // Screenspace shadowmap is only used for directional lights which use orthogonal projection.
             half realtimeShadow = MainLightRealtimeShadow(coords);
 
-            int intensity = 1 - step(0.6, realtimeShadow * 10);
+            int intensity = 1 - step(0.6, realtimeShadow * 0.66);
 
             return float4(1, 1, 1, 1) - float4(intensity * _SampleTexture2D_B, 0.0f, 0.0f, 0.0f);
         }
