@@ -7,7 +7,7 @@ public class Button : Triggerable
 
     private void OnTriggerStay(Collider other) {
         if (Input.GetKeyUp(KeyCode.E)) {
-            triggered = true;
+            GameEvents.current.TriggerEnter(id);
         }
     }
 }

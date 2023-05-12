@@ -17,9 +17,12 @@ public class FaceToCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 tempRotation = Camera.main.transform.eulerAngles;
         foreach (var child in children.Skip(1))
         {
-            child.rotation = Camera.main.transform.rotation;
+            tempRotation.x = child.eulerAngles.x;
+            tempRotation.z = child.eulerAngles.z;
+            child.eulerAngles = tempRotation;
         }
     }
 }
