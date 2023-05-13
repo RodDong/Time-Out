@@ -50,7 +50,7 @@ namespace SplineMesh {
             if (rate > 1) {
                 rate --;
             }
-            Contort();
+            //Contort();
         }
 
         private void Contort() {
@@ -79,5 +79,11 @@ namespace SplineMesh {
             meshBender.Mode = MeshBender.FillingMode.Once;
             meshBender.SetInterval(spline, 0);
         }
+
+        public void ScaleMesh(Vector3 scale)
+        {
+            meshBender.Source = meshBender.Source.Scale(scale.x, scale.y, scale.z);
+        }
+
     }
 }
