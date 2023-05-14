@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour
                 // move horizontally 
                 rb.position += moveDirection * speed * Time.fixedDeltaTime;
                 // snap to ground
-                //rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.05f, rb.position.z);
                 rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f, rb.position.z);
+                //rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
             case SlopeLevel.slope:
                 // move along slope
