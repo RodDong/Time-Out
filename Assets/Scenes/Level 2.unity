@@ -7348,14 +7348,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554725337}
-  m_LocalRotation: {x: 0.04988977, y: -0.9334203, z: 0.14321794, w: 0.3251557}
-  m_LocalPosition: {x: 4.47, y: 3.07, z: 5.71}
+  m_LocalRotation: {x: 0.0746798, y: -0.8602884, z: 0.13199608, w: 0.4867278}
+  m_LocalPosition: {x: 8.49, y: 4.13, z: 2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 17.446, y: -141.589, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.446, y: -121, z: 0}
 --- !u!114 &1554725341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9309,6 +9309,7 @@ GameObject:
   - component: {fileID: 1855114354}
   - component: {fileID: 1855114353}
   - component: {fileID: 1855114351}
+  - component: {fileID: 1855114358}
   - component: {fileID: 1855114350}
   - component: {fileID: 1855114356}
   - component: {fileID: 1855114357}
@@ -9336,7 +9337,7 @@ CharacterController:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
@@ -9352,7 +9353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855114349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a3b75361c043c4ebd7f4bcbcc29385, type: 3}
   m_Name: 
@@ -9445,9 +9446,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1855114357
 CapsuleCollider:
@@ -9472,6 +9473,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1855114358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855114349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b005621e29f93ab478bb490cc0e3fb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  maxSlopeAngle: 45
+  playerHeight: 2
 --- !u!1 &1933715965
 GameObject:
   m_ObjectHideFlags: 0
