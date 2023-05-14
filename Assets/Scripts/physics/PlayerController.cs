@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
                 // move horizontally 
                 rb.position += moveDirection * speed * Time.fixedDeltaTime;
                 // snap to ground
-                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.05f, rb.position.z);
+                //rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.05f, rb.position.z);
+                rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
             case SlopeLevel.slope:
                 // move along slope
@@ -84,13 +85,16 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(rb.position, Vector3.down, out slopeHit, playerHeight * 5f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            if (angle < maxSlopeAngle)
+            if (angle != 0)
             {
-                return SlopeLevel.slope;
-            }
-            else if (angle != 0)
-            {
-                return SlopeLevel.wall;
+                if (angle < maxSlopeAngle)
+                {
+                    return SlopeLevel.slope;
+                }
+                else
+                {
+                    return SlopeLevel.wall;
+                }
             }
         }
 
