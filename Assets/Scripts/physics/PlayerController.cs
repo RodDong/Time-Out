@@ -55,14 +55,7 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
-        if(moveHorizontal > 0)
-        {
-            faceRight = true;
-        }
-        else if(moveHorizontal < 0)
-        {
-            faceRight = false;
-        }
+        faceRight = moveHorizontal > 0;
 
         spriteRenderer.flipX = (faceRight ^ defaultIsRight);
 
