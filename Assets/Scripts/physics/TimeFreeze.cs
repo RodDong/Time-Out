@@ -11,9 +11,11 @@ public class TimeFreeze : MonoBehaviour
     private List<Vector3> savedAngularVelocities;
     private GameObject player, copyfolder;
     [HideInInspector] public bool freezed;
-    private CharacterController playerCtrl;
+    // private CharacterController playerCtrl;
+    // private Rigidbody playerRb;
     private Vector3 playerLastPos, playerCurrPos, playerVelocity;
 
+    //private const bool USES_DEFAULT_CTRL = false;
 
     void Start()
     {
@@ -28,9 +30,10 @@ public class TimeFreeze : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("ControllableObjects");
 
         
-        playerCtrl = player.GetComponent<CharacterController>();
+        //playerCtrl = player.GetComponent<CharacterController>();
+        // playerRb = player.GetComponent<Rigidbody>();
 
-        foreach(GameObject gobj in gameObjects)
+        foreach (GameObject gobj in gameObjects)
         {
             var copy = new GameObject();
             copy.transform.parent = copyfolder.transform;
@@ -91,10 +94,10 @@ public class TimeFreeze : MonoBehaviour
 
     bool NearZeroMag(float n) { return -0.001f < n && n < 0.001f; }
 
-    void Update()
+    void FixedUpdate()
     {
         playerCurrPos = player.transform.position;
-        playerVelocity = (playerCurrPos - playerLastPos) / Time.deltaTime;
+        playerVelocity = (playerCurrPos - playerLastPos) / Time.fixedDeltaTime;
         playerLastPos = playerCurrPos;
 
         if (NearZeroVector(playerVelocity))
