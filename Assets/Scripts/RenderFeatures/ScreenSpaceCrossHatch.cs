@@ -34,11 +34,6 @@ public class ScreenSpaceCrossHatch : ScriptableRendererFeature
             crossHatchPass.ConfigureInput(ScriptableRenderPassInput.Color);
         }
     }
-
-    protected override void Dispose(bool disposing)
-    {
-        CoreUtils.Destroy(copyMaterial);
-    }
 }
 
 class CrossHatchPass : ScriptableRenderPass

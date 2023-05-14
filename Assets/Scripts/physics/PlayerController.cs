@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     public float playerHeight;
     private Vector3 moveDirection, newPos;
 
+    [SerializeField] private bool defaultIsRight = false;
+    [SerializeField] private bool faceRight;
+
+    private SpriteRenderer spriteRenderer;
+
     public enum SlopeLevel
     {
         ground,     // flat ground, deg = 0
@@ -26,7 +31,10 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (!rb) Debug.LogError("failed to get player rb");
+        if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
+        faceRight = defaultIsRight;
     }
 
     void Start()
@@ -46,6 +54,17 @@ public class PlayerController : MonoBehaviour
     {
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
+
+        if(moveHorizontal > 0)
+        {
+            faceRight = true;
+        }
+        else if(moveHorizontal < 0)
+        {
+            faceRight = false;
+        }
+
+        spriteRenderer.flipX = (faceRight ^ defaultIsRight);
 
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
 
