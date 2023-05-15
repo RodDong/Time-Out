@@ -30,31 +30,18 @@ namespace SplineMesh {
         private void OnEnable() {
             rate = 0;
             Init();
-#if UNITY_EDITOR
-            EditorApplication.update += EditorUpdate;
-#endif
-        }
-
-        void OnDisable() {
-#if UNITY_EDITOR
-            EditorApplication.update -= EditorUpdate;
-#endif
         }
 
         private void OnValidate() {
             Init();
         }
 
-        void EditorUpdate() {
-            rate += Time.deltaTime / DurationInSecond;
-            if (rate > 1) {
-                rate --;
-            }
-            //Contort();
+        void Update() {
+
         }
 
-        private void Contort() {
-            if (generated != null) {
+        public void Contort(float rate) {
+            if (generated != null && rate < 1.0f) {
                 meshBender.SetInterval(spline, spline.Length * rate);
                 meshBender.ComputeIfNeeded();
             }
