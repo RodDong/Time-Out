@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool defaultIsRight = false;
     [SerializeField] private bool faceRight;
-
+    private bool isMoving;
+    
     private SpriteRenderer spriteRenderer;
 
     public enum SlopeLevel
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         slope,      // 0 < deg <= maxSlopeAngle
         wall        // deg > maxSlopeAngle
     }
+    public bool GetIsMoving() { return isMoving; }
 
     private void Awake()
     {
@@ -35,12 +37,6 @@ public class PlayerController : MonoBehaviour
         if (!rb) Debug.LogError("failed to get player rb");
         if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
         faceRight = defaultIsRight;
-    }
-
-    void Start()
-    {
-        //playerHeight = GetComponent<CapsuleCollider>().height;
-        //Debug.Log("player height get:" + playerHeight);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -54,6 +50,8 @@ public class PlayerController : MonoBehaviour
     {
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
+
+        isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
 
         faceRight = moveHorizontal > 0;
 
