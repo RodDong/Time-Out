@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5785e7a7c74c9524fb981b3c7c912870, type: 3}
   m_Name: ScreenSpaceCrossHatch
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   material: {fileID: 2100000, guid: 8f8eed2abf0dc7842bf1e5efbfb3ba22, type: 2}
   copyMaterial: {fileID: 2100000, guid: 32cfdbe411e552d42938b53272c809bb, type: 2}
 --- !u!114 &-2205217368125530062
@@ -48,9 +48,8 @@ MonoBehaviour:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
   m_RendererFeatures:
   - {fileID: -2205217368125530062}
-  - {fileID: 8038110761248711810}
   - {fileID: -2905275794492212975}
-  m_RendererFeatureMap: 32205bc87c7e65e18264794d261b8d6f1139c0c60e63aed7
+  m_RendererFeatureMap: 32205bc87c7e65e11139c0c60e63aed7
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -87,17 +86,3 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
---- !u!114 &8038110761248711810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32e72b6a3f58a24c9033e2b9275eea0, type: 3}
-  m_Name: ScreenSpaceShadows
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  m_Shader: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd, type: 3}
