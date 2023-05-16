@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float playerHeight;
     private Vector3 moveDirection, newPos;
+    private Vector3 m_Forward;
 
     [SerializeField] private bool defaultIsRight = false;
     [SerializeField] private bool faceRight;
@@ -37,6 +38,44 @@ public class PlayerController : MonoBehaviour
         if (!rb) Debug.LogError("failed to get player rb");
         if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
         faceRight = defaultIsRight;
+        playerHeight = GetComponent<Transform>().localScale.y;
+    }
+
+    private void Start()
+    {
+        Camera m_Cam = Camera.main;
+        Vector3 m_Cam_forward = m_Cam.transform.forward;
+        Vector3 m_Cam_forward_abs = new Vector3(Mathf.Abs(m_Cam_forward.x), 
+                                                Mathf.Abs(m_Cam_forward.y), 
+                                                Mathf.Abs(m_Cam_forward.z));
+        if(m_Cam_forward_abs.x >= m_Cam_forward_abs.z)
+        {
+            //forward is roughly x
+            if(m_Cam_forward.x > 0)
+            {
+                m_Forward = Vector3.right;
+            }
+            else
+            {
+                m_Forward = Vector3.left;
+            }
+            
+
+        }
+        else if(m_Cam_forward_abs.z >= m_Cam_forward_abs.x)
+        {
+            //forward is roughly z
+            if (m_Cam_forward.z > 0)
+            {
+                m_Forward = Vector3.forward;
+            }
+            else
+            {
+                m_Forward = Vector3.back;
+            }
+        }
+
+        Debug.Log(m_Forward);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -48,12 +87,30 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        moveHorizontal = Input.GetAxis("Horizontal");
-        moveVertical = Input.GetAxis("Vertical");
+        if(m_Forward == Vector3.forward)
+        {
+            moveHorizontal = Input.GetAxis("Horizontal");
+            moveVertical = Input.GetAxis("Vertical");
+        }else if(m_Forward == Vector3.back)
+        {
+            moveHorizontal = -Input.GetAxis("Horizontal");
+            moveVertical = -Input.GetAxis("Vertical");
+        }
+        else if(m_Forward == Vector3.right)
+        {
+            moveVertical = -Input.GetAxis("Horizontal");
+            moveHorizontal = Input.GetAxis("Vertical");
+        }
+        else if(m_Forward == Vector3.left)
+        {
+            moveVertical = Input.GetAxis("Horizontal");
+            moveHorizontal = -Input.GetAxis("Vertical");
+        }
+        
 
         isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
 
-        faceRight = moveHorizontal > 0;
+        faceRight = Input.GetAxis("Horizontal") >= 0;
 
         spriteRenderer.flipX = (faceRight ^ defaultIsRight);
 
@@ -71,7 +128,7 @@ public class PlayerController : MonoBehaviour
                 // move horizontally 
                 rb.position += moveDirection * speed * Time.fixedDeltaTime;
                 // snap to ground
-                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f, rb.position.z);
+                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z);
                 //rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
             case SlopeLevel.slope:

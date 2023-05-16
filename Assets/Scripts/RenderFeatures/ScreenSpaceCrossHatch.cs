@@ -72,8 +72,8 @@ class CrossHatchPass : ScriptableRenderPass
         //desc.graphicsFormat = GraphicsFormat.R8G8B8A8_UNorm;
 
 
-        RenderingUtils.ReAllocateIfNeeded(ref m_RenderTexture, desc, FilterMode.Point, TextureWrapMode.Clamp, name: "_ScreenSpaceTexture");
-        RenderingUtils.ReAllocateIfNeeded(ref m_CopyScreen, desc, FilterMode.Point, TextureWrapMode.Clamp, name: "_ScreenSpaceTexture");
+        RenderingUtils.ReAllocateIfNeeded(ref m_RenderTexture, desc, FilterMode.Point, TextureWrapMode.Repeat, name: "_ScreenSpaceTexture");
+        RenderingUtils.ReAllocateIfNeeded(ref m_CopyScreen, desc, FilterMode.Point, TextureWrapMode.Repeat, name: "_ScreenSpaceTexture");
 
     }
 

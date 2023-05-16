@@ -110,7 +110,7 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorThickness: 0.39
+    - _ColorThickness: 0.5
     - _ColorThreshHold: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -121,12 +121,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Float: 0.0005
+    - _Float: 0.0003
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NormalThickness: 2.53
+    - _NormalThickness: 1
     - _NormalThreshHold: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -137,7 +137,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strength: 1.28
+    - _Strength: 5
     - _Surface: 0
     - _Thickness: 0.001
     - _ThreshHold: 0.1
