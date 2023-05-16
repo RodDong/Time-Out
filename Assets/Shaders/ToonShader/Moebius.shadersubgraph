@@ -1457,8 +1457,8 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_filter": 0,
-    "m_wrap": 2,
+    "m_filter": 2,
+    "m_wrap": 0,
     "m_aniso": 0
 }
 
@@ -2959,8 +2959,8 @@
     "m_ShaderOutputName": "Tiling",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 6.0,
-        "y": 6.0
+        "x": 5.0,
+        "y": 5.0
     },
     "m_DefaultValue": {
         "x": 0.0,

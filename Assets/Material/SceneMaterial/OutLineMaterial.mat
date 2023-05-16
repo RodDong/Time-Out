@@ -111,7 +111,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorThickness: 0.5
-    - _ColorThreshHold: 1
+    - _ColorThreshHold: 0.5
     - _Cull: 2
     - _Cutoff: 0.5
     - _DeothThreshold: 0.019
@@ -121,12 +121,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Float: 0.0003
+    - _Float: 0.00024
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NormalThickness: 1
+    - _NormalThickness: 1.5
     - _NormalThreshHold: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -137,7 +137,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strength: 5
+    - _Strength: 2.5
     - _Surface: 0
     - _Thickness: 0.001
     - _ThreshHold: 0.1
