@@ -18,11 +18,7 @@ public class MainMenu : MonoBehaviour
     {
         // Load the last visited scene here.
         // If no scene has been visited yet, load a default scene.
-        if (PlayerPrefs.GetString("Level 3", "") == "visited")
-        {
-            SceneManager.LoadScene("Level 3");
-        } 
-        else if (PlayerPrefs.GetString("Level 2", "") == "visited")
+        if (PlayerPrefs.GetString("Level 2", "") == "visited")
         {
             SceneManager.LoadScene("Level 2");
         }

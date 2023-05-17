@@ -8,7 +8,7 @@ public static class FileHandler {
 
     public static void SaveToJSON<T> (List<T> toSave, string filename) {
         Debug.Log (GetPath (filename));
-        string content = JsonHelper.ToJson<T> (toSave.ToArray ());
+        string content = JsonHelper.ToJson<T>(toSave.ToArray());
         WriteFile (GetPath (filename), content);
     }
 
@@ -24,7 +24,7 @@ public static class FileHandler {
             return new List<T> ();
         }
 
-        List<T> res = JsonHelper.FromJson<T> (content).ToList ();
+        List<T> res = JsonHelper.FromJson<T>(content).ToList();
 
         return res;
 
@@ -66,26 +66,29 @@ public static class FileHandler {
     }
 }
 
-public static class JsonHelper {
-    public static T[] FromJson<T> (string json) {
-        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>> (json);
-        return wrapper.Items;
-    }
+// public static class JsonHelper {
+//     public static T[] FromJson<T> (string json) 
+//     {
+//         Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
+//         return wrapper.Items;
+//     }
 
-    public static string ToJson<T> (T[] array) {
-        Wrapper<T> wrapper = new Wrapper<T> ();
-        wrapper.Items = array;
-        return JsonUtility.ToJson (wrapper);
-    }
+//     public static string ToJson<T> (T[] array) 
+//     {
+//         Wrapper<T> wrapper = new Wrapper<T> ();
+//         wrapper.Items = array;
+//         return JsonUtility.ToJson(wrapper);
+//     }
 
-    public static string ToJson<T> (T[] array, bool prettyPrint) {
-        Wrapper<T> wrapper = new Wrapper<T> ();
-        wrapper.Items = array;
-        return JsonUtility.ToJson (wrapper, prettyPrint);
-    }
+//     public static string ToJson<T>(T[] array, bool prettyPrint) 
+//     {
+//         Wrapper<T> wrapper = new Wrapper<T>();
+//         wrapper.Items = array;
+//         return JsonUtility.ToJson(wrapper, prettyPrint);
+//     }
 
-    [Serializable]
-    private class Wrapper<T> {
-        public T[] Items;
-    }
-}
+//     [Serializable]
+//     private class Wrapper<T> {
+//         public T[] Items;
+//     }
+// }

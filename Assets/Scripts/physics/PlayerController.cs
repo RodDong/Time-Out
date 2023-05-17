@@ -23,8 +23,9 @@ public class PlayerController : MonoBehaviour
     
     private SpriteRenderer spriteRenderer;
 
-    public enum SlopeLevel
+    public enum ESlopeLevel
     {
+        none,
         ground,     // flat ground, deg = 0
         slope,      // 0 < deg <= maxSlopeAngle
         wall        // deg > maxSlopeAngle
@@ -124,14 +125,18 @@ public class PlayerController : MonoBehaviour
         // Update the position of the player
         switch (OnSlope())
         {
-            case SlopeLevel.ground:
+            case ESlopeLevel.none:
+                // fall 
+                rb.position += moveDirection * speed * Time.fixedDeltaTime;
+                break;
+            case ESlopeLevel.ground:
                 // move horizontally 
                 rb.position += moveDirection * speed * Time.fixedDeltaTime;
                 // snap to ground
                 rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z);
                 //rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
-            case SlopeLevel.slope:
+            case ESlopeLevel.slope:
                 // move along slope
                 rb.position += GetSlopeMoveDirection() * speed * Time.fixedDeltaTime;
                 // snap to slope, leave a bit of gap
@@ -146,27 +151,31 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private SlopeLevel OnSlope()
+    private ESlopeLevel OnSlope()
     {
         // raycast downwards from center of player 
-        if (Physics.Raycast(rb.position, Vector3.down, out slopeHit, playerHeight * 5f))
+        if (Physics.Raycast(rb.position, Vector3.down, out slopeHit, playerHeight * 0.5f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             if (angle != 0)
             {
                 if (angle < maxSlopeAngle)
                 {
-                    return SlopeLevel.slope;
+                    return ESlopeLevel.slope;
+                }
+                else if (angle == 0)
+                {
+                    return ESlopeLevel.ground;
                 }
                 else
                 {
-                    return SlopeLevel.wall;
+                    return ESlopeLevel.wall;
                 }
             }
         }
 
-        // angle = 0 or dist > 5 * playerheight
-        return SlopeLevel.ground;
+        // dist > 0.5 * playerheight, fall
+        return ESlopeLevel.none;
     }
 
 
