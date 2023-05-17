@@ -9,15 +9,18 @@ public class MeshDeformerInput : MonoBehaviour {
 	Rigidbody playerRb;
 	RaycastHit hit;
 
+	private bool isPressed = false;
+
     private void Start()
     {
 		m_player = GameObject.FindGameObjectWithTag("Player");
+		if(m_player == null) { Debug.LogWarning("Player is not present in scene"); }
 		playerRb = m_player.GetComponent<Rigidbody>();
 	}
 
     void Update () {
-
-        if (Physics.Raycast(playerRb.position, Vector3.down, out hit)) {
+		isPressed = Physics.Raycast(playerRb.position, Vector3.down, out hit);
+        if (isPressed) {
 			HandleInput();
 		}
 	}
@@ -30,5 +33,10 @@ public class MeshDeformerInput : MonoBehaviour {
 			point += hit.normal * forceOffset;
 			deformer.AddDeformingForce(point, force);
 		}
+	}
+
+	public bool GetIsPressed()
+	{
+		return isPressed;
 	}
 }

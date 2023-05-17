@@ -272,11 +272,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5597002278806442958, guid: baf7464cc67d52f45b5564a85629aff4, type: 3}
 --- !u!114 &205992905
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8655a3dd7c3e4934184c883930fb5a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 2
+  force: 30
   forceOffset: 0.1
 --- !u!23 &205992907
 MeshRenderer:
