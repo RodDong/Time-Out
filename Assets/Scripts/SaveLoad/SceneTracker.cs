@@ -25,7 +25,7 @@ public class SceneTracker : MonoBehaviour
         string lastScene = SceneManager.GetActiveScene().name;
         if (lastScene != "Main Menu test" && lastScene != "Main Menu")
         {
-            PlayerPrefs.SetString("lastScene", lastScene);
+            PlayerPrefs.SetString(lastScene, "visited");
             PlayerPrefs.Save(); // Save immediately after setting
         }
     }

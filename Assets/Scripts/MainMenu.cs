@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
         // Load your first game scene here.
         // You might also want to clear PlayerPrefs here, 
         // or at least the "lastScene" setting, to start fresh.
-        PlayerPrefs.DeleteKey("lastScene");
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Level 1");
     }
 
@@ -18,8 +18,14 @@ public class MainMenu : MonoBehaviour
     {
         // Load the last visited scene here.
         // If no scene has been visited yet, load a default scene.
-        string lastScene = PlayerPrefs.GetString("lastScene", "Level 1");
-        SceneManager.LoadScene(lastScene);
+        if (PlayerPrefs.GetString("Level 2", "") == "visited")
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level 1");
+        }
     }
 }
 
