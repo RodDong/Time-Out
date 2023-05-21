@@ -97,7 +97,6 @@ public class MCBlob : MonoBehaviour
     private int pctr = 0;
 
     [SerializeField] private SphereCollider[] BlobObjectsLocations;
-    [SerializeField] private GameObject guide;
 
     //Unity and Sample Specific
     void Start()
@@ -106,6 +105,20 @@ public class MCBlob : MonoBehaviour
         {
             BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
         }
+
+        Vector3 center = Vector3.zero;
+
+        for(int i = 0; i < BlobObjectsLocations.Length; i++)
+        {
+            center += BlobObjectsLocations[i].transform.localPosition;
+        }
+
+        center /= BlobObjectsLocations.Length;
+
+        Debug.Log(center);
+
+        GetComponent<SphereCollider>().center = center;
+
         UpdateBlobs();
     }
 
