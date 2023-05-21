@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5785e7a7c74c9524fb981b3c7c912870, type: 3}
   m_Name: ScreenSpaceCrossHatch
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   material: {fileID: 2100000, guid: 8f8eed2abf0dc7842bf1e5efbfb3ba22, type: 2}
   copyMaterial: {fileID: 2100000, guid: 32cfdbe411e552d42938b53272c809bb, type: 2}
 --- !u!114 &-2205217368125530062
@@ -81,7 +81,7 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
-  m_RenderingMode: 1
+  m_RenderingMode: 0
   m_DepthPrimingMode: 0
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0

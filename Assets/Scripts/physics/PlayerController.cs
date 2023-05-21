@@ -113,6 +113,16 @@ public class PlayerController : MonoBehaviour
 
         spriteRenderer.flipX = (faceRight ^ defaultIsRight);
 
+        if (faceRight)
+        {
+            spriteRenderer.material.SetInt("_BumpScale", -1);
+        }
+        else
+        {
+            spriteRenderer.material.SetInt("_BumpScale", 1);
+        }
+        
+
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
 
 

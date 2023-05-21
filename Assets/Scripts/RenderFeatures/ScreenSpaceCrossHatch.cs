@@ -15,7 +15,7 @@ public class ScreenSpaceCrossHatch : ScriptableRendererFeature
     public override void Create()
     {
         crossHatchPass = new CrossHatchPass(material, copyMaterial);
-        crossHatchPass.renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
+        crossHatchPass.renderPassEvent = RenderPassEvent.BeforeRenderingTransparents;
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
@@ -47,7 +47,7 @@ class CrossHatchPass : ScriptableRenderPass
     {
         _material = material;
         _copyMaterial = copyMaterial;
-        renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+        renderPassEvent = RenderPassEvent.BeforeRenderingTransparents;
         tempTextureHandle.Init("_TempBlitMaterialTexture");
     }
 
