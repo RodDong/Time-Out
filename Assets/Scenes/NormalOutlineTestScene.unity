@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18063188, g: 0.22613093, b: 0.30711, a: 1}
+  m_IndirectSpecularColor: {r: 0.1831391, g: 0.22880471, b: 0.30658174, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1083,14 +1083,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990727816}
-  m_LocalRotation: {x: -0.4139023, y: -0.035906367, z: 0.18131982, w: -0.89135784}
+  m_LocalRotation: {x: -0.3434108, y: 0.10205842, z: 0.14223969, w: -0.9227248}
   m_LocalPosition: {x: 22.64, y: 1.86, z: -6.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 48.668, y: -367.49, z: -26.387}
+  m_LocalEulerAnglesHint: {x: 37.208, y: -381.048, z: -24.683}
 --- !u!114 &990727819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,7 +1542,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 2e791b95d994dc043bfab7bd424b0d53, type: 3}
+  - {fileID: 2100000, guid: 6db740ebf4161704ebf789aca124a544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1563,7 +1563,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e74ab6d4109b944e822f3eb850d9cf4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 671aeda858faa4a47bf263d51e9a303d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

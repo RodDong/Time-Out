@@ -6,39 +6,36 @@ using UnityEngine;
 
 public class WaterMeshGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] GameObject waterParent;
     private Transform[] waterParticles;
-    private KdTree<MeshFilter> waterParticleMesheFilters = new KdTree<MeshFilter>();
     private KdTree<Transform> waterObjects = new KdTree<Transform>();
     private List<Transform> notVisitedParticles = new List<Transform>();
-    
+
     void Start()
     {
         waterParticles = waterParent.GetComponentsInChildren<Transform>();
 
-        for(int i = 1; i < waterParticles.Length; i++)
+        for (int i = 1; i < waterParticles.Length; i++)
         {
             MeshFilter curMeshFilter = waterParticles[i].gameObject.GetComponent<MeshFilter>();
             if (curMeshFilter != null)
             {
-                waterParticleMesheFilters.Add(curMeshFilter);
                 waterObjects.Add(waterParticles[i].transform);
             }
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         waterObjects.UpdatePositions();
         notVisitedParticles = waterObjects.ToList();
-        for (int i = 0; i < notVisitedParticles.Count; i++)
+        for (int i = 0; i < waterObjects.Count; i++)
         {
-            GameObject closestParticle = waterObjects.FindClosest(notVisitedParticles[i].position).gameObject;
-            notVisitedParticles.RemoveAll(particle => particle.name == notVisitedParticles[i].name);
-            Debug.Log(closestParticle.name);
+            GameObject closestParticle = waterObjects.FindClosest(waterObjects[i].position).gameObject;
+            notVisitedParticles.RemoveAll(particle => particle.name == waterObjects[i].name);
+            //Debug.DrawLine(waterObjects[i].GetComponent<MeshFilter>().sharedMesh.vertices[0], closestParticle.GetComponent<MeshFilter>().sharedMesh.vertices[0], Color.red);
+
             Debug.DrawLine(waterObjects[i].transform.position, closestParticle.transform.position, Color.red);
         }
+
     }
 }
