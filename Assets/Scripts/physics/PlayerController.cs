@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,9 +35,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (!rb) Debug.LogError("failed to get player rb");
-        if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
+        //if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
         faceRight = defaultIsRight;
-        playerHeight = GetComponent<Transform>().localScale.y;
+        playerHeight = GetComponent<CapsuleCollider>().height;
     }
 
     private void Start()
@@ -133,7 +131,7 @@ public class PlayerController : MonoBehaviour
                 // move horizontally 
                 rb.position += moveDirection * speed * Time.fixedDeltaTime;
                 // snap to ground
-                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z);
+                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, rb.position.z);
                 //rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
             case ESlopeLevel.slope:
@@ -157,20 +155,17 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(rb.position, Vector3.down, out slopeHit, playerHeight * 0.5f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            if (angle != 0)
+            if (angle == 0)
             {
-                if (angle < maxSlopeAngle)
-                {
-                    return ESlopeLevel.slope;
-                }
-                else if (angle == 0)
-                {
-                    return ESlopeLevel.ground;
-                }
-                else
-                {
-                    return ESlopeLevel.wall;
-                }
+                return ESlopeLevel.ground;
+            }
+            else if (angle <= maxSlopeAngle)
+            {
+                return ESlopeLevel.slope;
+            }
+            else
+            {
+                return ESlopeLevel.wall;
             }
         }
 
