@@ -241,7 +241,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionColorIntensity: -0.42
     - _RefractionDepth: 0.54
-    - _RefractionDistortStrength: 4.82
+    - _RefractionDistortStrength: 0.2
     - _RefractionModel: 0
     - _RefractionScale: 1
     - _RefractionSpeed: 0
@@ -300,7 +300,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _normalTiling: 1.55
+    - _normalTiling: 0.1
     - _step: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
