@@ -1,46 +1,45 @@
-﻿/**
-* Metaball implementation by Brian R. Cowan http://www.briancowan.net/ 
-* Metaball tables at http://local.wasp.uwa.edu.au/~pbourke/geometry/polygonise/
-* Examples at http://www.briancowan.net/unity/fx
-*
-* Code provided as-is. You agree by using this code that I am not liable for any damage
-* it could possibly cause to you, your machine, or anything else. And the code is not meant
-* to be used for any medical uses or to run nuclear reactors or robots or such and so. 
-* 
-* Should be easily portable to any other language, all Unity Specific code is labeled so,
-* adapt it to any other environment. To use, attach the script to an empty object with a
-* Mesh Renderer and Mesh Filter. The created cubes will be one unit in size in XYZ.
-* Modify Update() and Start() to change the amount and movement and size of the blobs.
-*
-* Id love to see any project you use the code in.
-*
-* Mail any comments to: brian@briancowan.net (Vector or Vector426 on #otee-unity)
-*
-* Cheers & God bless
-*/
-
-/**
-*There is a small bug in this code that produces 1 to 4 overlapping triangles 
-*mostly in the centre of the mesh, sometimes on a side resulting in a white patch
-*it appears in other shapes than Metaballs.
-*if it's too hard to fix the code, scanning duplicate triangles is possible
-*the duplicates occur in the 1st 4 triangles and anywhere after
-*it seems the code doesn't check duplicates for the 1st 4 triangles
-*the above issue is probably relate to the march() function doCube 1x time
-*and then sending recurse() function docube in the same space
-* so perhaps delete   if(doCube(cube)) {  condition in march() and just recurse
-*also it processes 278700 pts instead of 32768 pts if made to march all spaces
-*/
-
-/*Unity Specific*/
-using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
-[ExecuteInEditMode]
-public class MCBlob : MonoBehaviour
+public class GenerateMetaBalls : MonoBehaviour
 {
+   
+    [SerializeField] int row;
+    [SerializeField] float radius;
+    [SerializeField] GameObject metaBallPrefab;
+
+    public void GenerateBalls()
+    {
+        Transform parent_Transform;
+        Vector3 topLeftPos, curPos;
+        parent_Transform = GetComponent<Transform>();
+        parent_Transform.localScale = new Vector3(radius, radius, radius);
+        topLeftPos = new Vector3(-row * radius + radius, 0.0f, row * radius - radius);
+        curPos = topLeftPos;
+
+        for (int i = 0; i < row; i++)
+        {
+            curPos.z = topLeftPos.z;
+            for (int j = 0; j < row; j++)
+            {
+                if (j == row / 2 && i == row / 2)
+                {
+                    curPos.z -= radius * 2;
+                    continue;
+                }
+
+                GameObject curSphere = Instantiate(metaBallPrefab, parent_Transform);
+                curSphere.transform.localPosition = curPos;
+                curPos.z -= radius * 2;
+
+            }
+            curPos.x += radius * 2;
+        }
+    }
+
     /*Amount of cubes in X/Y/Z directions, Dimension will always be from -.5f to .5f in XYZ
       remember to call Regen() if changing!
     */
@@ -102,6 +101,9 @@ public class MCBlob : MonoBehaviour
     //Unity and Sample Specific
     void Start()
     {
+
+        GenerateBalls();
+
         if (BlobObjectsLocations.Length == 0)
         {
             BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
@@ -225,7 +227,7 @@ public class MCBlob : MonoBehaviour
 
         public int px, py, pz;
 
-        private MCBlob mcblob;
+        private GenerateMetaBalls mcblob;
 
         public int cntr;
 
@@ -233,7 +235,7 @@ public class MCBlob : MonoBehaviour
         public float[] index;
 
 
-        public mcPoint(float x, float y, float z, int px, int py, int pz, MCBlob thismcblob)
+        public mcPoint(float x, float y, float z, int px, int py, int pz, GenerateMetaBalls thismcblob)
         {
             this.index = new float[3];
             index[0] = x; index[1] = y; index[2] = z;
@@ -1037,6 +1039,4 @@ public class MCBlob : MonoBehaviour
         0x69c, 0x795, 0x49f, 0x596, 0x29a, 0x393, 0x99 , 0x190,
         0xf00, 0xe09, 0xd03, 0xc0a, 0xb06, 0xa0f, 0x905, 0x80c,
         0x70c, 0x605, 0x50f, 0x406, 0x30a, 0x203, 0x109, 0x0   };
-
-
 }
