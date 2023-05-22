@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         if (!rb) Debug.LogError("failed to get player rb");
         //if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
         faceRight = defaultIsRight;
-        playerHeight = GetComponent<CapsuleCollider>().height;
+        playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
     }
 
     private void Start()
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(m_Forward == Vector3.forward)
+        if (m_Forward == Vector3.forward)
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             moveVertical = Input.GetAxis("Vertical");
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             moveVertical = Input.GetAxis("Horizontal");
             moveHorizontal = -Input.GetAxis("Vertical");
         }
-        
+
 
         isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
 
@@ -129,28 +129,39 @@ public class PlayerController : MonoBehaviour
         // Normalize the movement vector to ensure it's unit length
         //moveDirection = moveDirection.normalized;
 
+
         if (!rb) Debug.LogError("no player rb");
         // Update the position of the player
+        rb.useGravity = true;
         switch (OnSlope())
         {
             case ESlopeLevel.none:
                 // fall 
-                rb.position += moveDirection * speed * Time.fixedDeltaTime;
+                rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
                 break;
             case ESlopeLevel.ground:
+                // move along slope
+                rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
+                // snap to slope, leave a bit of gap
+                //rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.0f, rb.position.z);
+                //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, rb.position.z));
                 // move horizontally 
-                rb.position += moveDirection * speed * Time.fixedDeltaTime;
-                // snap to ground
-                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, rb.position.z);
+                //transform.position += moveDirection * speed * Time.fixedDeltaTime;
+                //// snap to ground
+                //transform.position = new Vector3(transform.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, transform.position.z);
+                //float transformy = transform.position.y;
+                //float rby = rb.position.y;
+                //Debug.Log("y supposed pos:" + supposedy);
                 //rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
             case ESlopeLevel.slope:
+                rb.useGravity = false;
                 // move along slope
-                rb.position += GetSlopeMoveDirection() * speed * Time.fixedDeltaTime;
+                rb.MovePosition(rb.position + GetSlopeMoveDirection() * speed * Time.fixedDeltaTime);
                 // snap to slope, leave a bit of gap
-                rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z);
+                //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z));
                 break;
-            default: return;
+            default: break;
         }
         //rb.velocity = moveDirection * speed;
         //rb.AddForce(moveDirection * speed, ForceMode.VelocityChange);
@@ -162,7 +173,7 @@ public class PlayerController : MonoBehaviour
     private ESlopeLevel OnSlope()
     {
         // raycast downwards from center of player 
-        if (Physics.Raycast(rb.position, Vector3.down, out slopeHit, playerHeight * 0.5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 5f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             if (angle == 0)
