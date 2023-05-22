@@ -167,7 +167,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _AmbientOcclusion: 0.81
+    - _AmbientOcclusion: 1
     - _Anisotropy: 0
     - _Blend: 0
     - _BlendMode: 0
@@ -206,7 +206,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _Focus: -100
-    - _FresnelPower: 14.02
+    - _FresnelPower: 6.42
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -241,7 +241,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionColorIntensity: -0.42
     - _RefractionDepth: 0.54
-    - _RefractionDistortStrength: 0.08
+    - _RefractionDistortStrength: 4.82
     - _RefractionModel: 0
     - _RefractionScale: 1
     - _RefractionSpeed: 0
@@ -255,7 +255,7 @@ Material:
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
-    - _Speed: 0.02
+    - _Speed: 0.6
     - _SrcBlend: 5
     - _Stencil: 0
     - _StencilComp: 8
@@ -300,14 +300,14 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _normalTiling: 0.28
+    - _normalTiling: 1.55
     - _step: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.30153078, g: 0.46903127, b: 0.8301887, a: 0}
-    - _DeepWaterColor: {r: 0, g: 0.73562217, b: 1, a: 0}
+    - _DeepWaterColor: {r: 0, g: 0.7372546, b: 1, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -316,7 +316,7 @@ Material:
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 0, g: 1, b: 0.8759381, a: 0}
-    - _ShallowWaterColor: {r: 0.5019608, g: 0.72156864, b: 0.68235296, a: 0}
+    - _ShallowWaterColor: {r: 0.29792634, g: 0.6132076, b: 0.46682703, a: 0}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
