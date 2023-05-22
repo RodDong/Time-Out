@@ -34,6 +34,10 @@
 
 /*Unity Specific*/
 using UnityEngine;
+using System.Linq;
+
+[RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
 
 public class OriginalMCBlob : MonoBehaviour
 {

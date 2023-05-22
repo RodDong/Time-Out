@@ -16,7 +16,7 @@ public class GenerateMetaBalls : MonoBehaviour
         Transform parent_Transform;
         Vector3 topLeftPos, curPos;
         parent_Transform = GetComponent<Transform>();
-        parent_Transform.localScale = new Vector3(radius, radius, radius);
+        //parent_Transform.localScale = new Vector3(radius, radius, radius);
         topLeftPos = new Vector3(-row * radius + radius, 0.0f, row * radius - radius);
         curPos = topLeftPos;
 
@@ -38,6 +38,9 @@ public class GenerateMetaBalls : MonoBehaviour
             }
             curPos.x += radius * 2;
         }
+
+        /*GameObject curSphere = Instantiate(metaBallPrefab, parent_Transform);
+        curSphere.transform.localPosition = topLeftPos;*/
     }
 
     /*Amount of cubes in X/Y/Z directions, Dimension will always be from -.5f to .5f in XYZ
