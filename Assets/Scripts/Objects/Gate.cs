@@ -17,7 +17,7 @@ public class Gate : MonoBehaviour
     void Start()
     {
         closedYPos = transform.position.y;
-        openedYPos = closedYPos - transform.localScale.y;
+        openedYPos = closedYPos - transform.GetComponent<Renderer>().bounds.size.y;
         opened = false;
 
         GameEvents.current.onTriggerEnter += Open;

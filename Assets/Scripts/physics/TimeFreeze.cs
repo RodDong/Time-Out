@@ -28,6 +28,10 @@ public class TimeFreeze : MonoBehaviour
         copyfolder = GameObject.FindGameObjectWithTag("CopyPool");
 
         gameObjects = GameObject.FindGameObjectsWithTag("ControllableObjects");
+        GameObject[] waterBalls = GameObject.FindGameObjectsWithTag("WaterBall");
+        foreach  (var waterBall in waterBalls) {
+            gameObjects.Append(waterBall);
+        }
 
         
         //playerCtrl = player.GetComponent<CharacterController>();
@@ -127,5 +131,9 @@ public class TimeFreeze : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AddControlableObject(GameObject gameObject) {
+        gameObjects.Append(gameObject);
     }
 }

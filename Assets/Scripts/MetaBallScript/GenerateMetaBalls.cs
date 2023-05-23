@@ -32,7 +32,6 @@ public class GenerateMetaBalls : MonoBehaviour
                 GameObject curSphere = Instantiate(metaBallPrefab, parent_Transform);
                 curSphere.transform.localPosition = curPos;
                 curPos.z -= radius * 2;
-
             }
             curPos.x += radius * 2;
         }
