@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RopeNode : MonoBehaviour
+public class RopeNode : Triggerable
 {
     enum State
     {
@@ -64,6 +64,7 @@ public class RopeNode : MonoBehaviour
             {
                 m_Material.color = Color.black;
             }
+            GameEvents.current.TriggerEnter(id);
         }
         else if(m_state == State.Default)
         {
