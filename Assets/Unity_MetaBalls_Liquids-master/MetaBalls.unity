@@ -3072,6 +3072,7 @@ MonoBehaviour:
   row: 5
   radius: 0.05
   metaBallPrefab: {fileID: 2928613404069158726, guid: 55f2c2645f42a6141b12ba0438d5867d, type: 3}
+  metaBallPrefab2: {fileID: 0}
   isoLevel: 3.52
   BlobObjectsLocations: []
 --- !u!54 &1636045165
@@ -3528,6 +3529,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 167455518}
+    - target: {fileID: 957620545663719119, guid: 0510f7a2eb7a8034597914697ffc7122, type: 3}
+      propertyPath: row
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 957620545663719119, guid: 0510f7a2eb7a8034597914697ffc7122, type: 3}
+      propertyPath: isoLevel
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 957620545663719119, guid: 0510f7a2eb7a8034597914697ffc7122, type: 3}
+      propertyPath: metaBallPrefab2
+      value: 
+      objectReference: {fileID: 555080681316744124, guid: a0c4e2c6ade9f5e418df0d7fa61a05a9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -10,7 +10,6 @@ public class GenerateMetaBalls : MonoBehaviour
     [SerializeField] int row;
     [SerializeField] float radius;
     [SerializeField] GameObject metaBallPrefab;
-
     public void GenerateBalls()
     {
         Transform parent_Transform;
@@ -30,7 +29,6 @@ public class GenerateMetaBalls : MonoBehaviour
                     curPos.z -= radius * 2;
                     continue;
                 }
-
                 GameObject curSphere = Instantiate(metaBallPrefab, parent_Transform);
                 curSphere.transform.localPosition = curPos;
                 curPos.z -= radius * 2;
@@ -99,7 +97,9 @@ public class GenerateMetaBalls : MonoBehaviour
     /*Current frame counter*/
     private int pctr = 0;
 
-    [SerializeField] private SphereCollider[] BlobObjectsLocations;
+    [SerializeField] public SphereCollider[] BlobObjectsLocations;
+
+    
 
     //Unity and Sample Specific
     void Start()

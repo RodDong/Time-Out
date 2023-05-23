@@ -109,16 +109,16 @@ public class MCBlob : MonoBehaviour
 
         BlobObjectsLocations = BlobObjectsLocations.Skip(1).ToArray();
 
-        Vector3 center = Vector3.zero;
+        // Vector3 center = Vector3.zero;
 
-        for (int i = 0; i < BlobObjectsLocations.Length; i++)
-        {
-            center += BlobObjectsLocations[i].transform.localPosition;
-        }
+        // for (int i = 0; i < BlobObjectsLocations.Length; i++)
+        // {
+        //     center += BlobObjectsLocations[i].transform.localPosition;
+        // }
 
-        center /= BlobObjectsLocations.Length;
+        // center /= BlobObjectsLocations.Length;
 
-        GetComponent<SphereCollider>().center = center;
+        // GetComponent<SphereCollider>().center = center;
 
         UpdateBlobs();
     }
@@ -155,6 +155,13 @@ public class MCBlob : MonoBehaviour
     //Unity and Sample specific
     void LateUpdate()
     {
+        BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
+        print(BlobObjectsLocations.Length);
+        
+
+        BlobObjectsLocations = BlobObjectsLocations.Skip(1).ToArray();
+        
+
         UpdateBlobs();
         doFrame();
     }
