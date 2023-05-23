@@ -16,7 +16,9 @@ public class RopeNode : Triggerable
     private Material m_Material;
     [SerializeField] private float timer = 2.0f;
     [SerializeField] private GameObject fireAnimation;
+    [SerializeField] private float igniteTime = 1.5f;
     public List<RopeNode> nodes = new List<RopeNode>();
+    private TimeFreeze tf;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +48,7 @@ public class RopeNode : Triggerable
             if (timer <= 0)
             {
                 m_state = State.Burnt;
-            }else if(timer <= 1.0f)
+            }else if(timer <= igniteTime)
             {
                 foreach(RopeNode node in nodes)
                 {
@@ -80,12 +82,16 @@ public class RopeNode : Triggerable
 
     void Start()
     {
+        tf = GameObject.FindGameObjectWithTag("CopyPool").GetComponent<TimeFreeze>();
         m_state = State.Default;
         m_Material = GetComponent<Renderer>().material;
     }
 
     void Update()
     {
+        if (tf.freezed) {
+            return;
+        }
         UpdateRopeNodeState();
     }
 }
