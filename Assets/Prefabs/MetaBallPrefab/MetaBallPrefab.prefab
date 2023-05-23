@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2344521945724378394}
   - component: {fileID: 7954536058470769461}
   - component: {fileID: 4852191719938431331}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: MetaBallPrefab
   m_TagString: WaterBall
   m_Icon: {fileID: 0}

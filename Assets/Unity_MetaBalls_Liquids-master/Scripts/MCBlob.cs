@@ -97,7 +97,7 @@ public class MCBlob : MonoBehaviour
     /*Current frame counter*/
     private int pctr = 0;
 
-    [SerializeField] private SphereCollider[] BlobObjectsLocations;
+    [SerializeField] public SphereCollider[] BlobObjectsLocations;
 
     //Unity and Sample Specific
     void Start()
@@ -156,7 +156,6 @@ public class MCBlob : MonoBehaviour
     void LateUpdate()
     {
         BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
-        print(BlobObjectsLocations.Length);
         
 
         BlobObjectsLocations = BlobObjectsLocations.Skip(1).ToArray();
