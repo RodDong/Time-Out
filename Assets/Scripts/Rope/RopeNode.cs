@@ -15,6 +15,7 @@ public class RopeNode : MonoBehaviour
     private bool isInteractable = false;
     private Material m_Material;
     [SerializeField] private float timer = 2.0f;
+    [SerializeField] private GameObject fireAnimation;
     public List<RopeNode> nodes = new List<RopeNode>();
 
     private void OnTriggerEnter(Collider other)
@@ -40,10 +41,7 @@ public class RopeNode : MonoBehaviour
     {
         if(m_state == State.Burning)
         {
-            if (m_Material)
-            {
-                m_Material.color = Color.red;
-            }
+            fireAnimation.SetActive(true);
 
             if (timer <= 0)
             {
@@ -62,6 +60,7 @@ public class RopeNode : MonoBehaviour
         {
             if (m_Material)
             {
+                fireAnimation.SetActive(false);
                 m_Material.color = Color.black;
             }
         }
