@@ -161,6 +161,9 @@ public class PlayerController : MonoBehaviour
                 // snap to slope, leave a bit of gap
                 //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z));
                 break;
+            case ESlopeLevel.wall:
+                rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
+                break;
             default: break;
         }
         //rb.velocity = moveDirection * speed;

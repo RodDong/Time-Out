@@ -16,7 +16,7 @@ public class WallBreak : MonoBehaviour
             frac.transform.localScale = transform.localScale;
             foreach(Rigidbody rb in frac.GetComponentsInChildren<Rigidbody>())
             {
-                Vector3 force = (rb.transform.right).normalized * 200;
+                Vector3 force = (rb.transform.right).normalized * 500;
                 rb.AddForce(force);
             }
 
