@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1866223170497038576}
   - component: {fileID: 6217266305163281025}
   - component: {fileID: 8395703667407497241}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4761892634967611929}
   - component: {fileID: 7374884903382463035}
   - component: {fileID: -5461973057594356172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RopeNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   m_Children:
   - {fileID: 1866223170497038576}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4800576082302905684
 MeshFilter:
