@@ -12,14 +12,12 @@ public class PlayerController : MonoBehaviour
     private RaycastHit slopeHit;
 
     public float playerHeight;
-    private Vector3 moveDirection, newPos;
+    private Vector3 moveDirection;
     private Vector3 m_Forward;
 
-    [SerializeField] private bool defaultIsRight = false;
-    [SerializeField] private bool faceRight;
     private bool isMoving;
-    
-    private SpriteRenderer spriteRenderer;
+    private float _currentVelocity;
+    [SerializeField] private float smoothTime = 0.05f;
 
     public enum ESlopeLevel
     {
@@ -33,10 +31,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         if (!rb) Debug.LogError("failed to get player rb");
-        //if (!spriteRenderer) Debug.LogError("failed to get player spriteRenderer");
-        faceRight = defaultIsRight;
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
     }
 
@@ -74,6 +69,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        transform.Rotate(0, 0, 0);
+
         Debug.Log(m_Forward);
     }
 
@@ -84,7 +81,7 @@ public class PlayerController : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (m_Forward == Vector3.forward)
         {
@@ -108,23 +105,15 @@ public class PlayerController : MonoBehaviour
 
 
         isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
-
-        faceRight = Input.GetAxis("Horizontal") >= 0;
-
-        spriteRenderer.flipX = (faceRight ^ defaultIsRight);
-
-        if (faceRight)
-        {
-            spriteRenderer.material.SetInt("_BumpScale", -1);
-        }
-        else
-        {
-            spriteRenderer.material.SetInt("_BumpScale", 1);
-        }
         
 
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
 
+        if (moveDirection.sqrMagnitude == 0) return;
+
+        var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
+        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
+        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
         // Normalize the movement vector to ensure it's unit length
         //moveDirection = moveDirection.normalized;

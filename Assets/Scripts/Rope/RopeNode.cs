@@ -71,6 +71,7 @@ public class RopeNode : Triggerable
         {
             if (isInteractable && Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log(1);
                 ignite();
             }
         }

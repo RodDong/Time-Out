@@ -4,9 +4,6 @@
     "m_ObjectId": "a195bd121c2a4fb5beedcede5a06df45",
     "m_Properties": [
         {
-            "m_Id": "aaa3cd68cdc845b8a1c8bfeb4de28690"
-        },
-        {
             "m_Id": "c0ff59c9f1fb4073b01d99dfe79c4fbe"
         },
         {
@@ -2643,34 +2640,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "aaa3cd68cdc845b8a1c8bfeb4de28690",
-    "m_Guid": {
-        "m_GuidSerialized": "0e42fc18-4046-42dd-bc75-90cc84c6f4b3"
-    },
-    "m_Name": "RimIntensity",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "RimIntensity",
-    "m_DefaultReferenceName": "_RimIntensity",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.5,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "ab44f337ab5d42a9b916ed1311e75ecf",
@@ -3623,9 +3592,6 @@
     "m_ObjectId": "fec6279ef30d49318d1f3e10d3a32191",
     "m_Name": "",
     "m_ChildObjectList": [
-        {
-            "m_Id": "aaa3cd68cdc845b8a1c8bfeb4de28690"
-        },
         {
             "m_Id": "c0ff59c9f1fb4073b01d99dfe79c4fbe"
         },
