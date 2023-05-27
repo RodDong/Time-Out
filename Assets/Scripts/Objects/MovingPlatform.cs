@@ -15,9 +15,12 @@ public class MovingPlatform : MonoBehaviour
     private bool triggered;
     public int id;
 
+    private TimeFreeze tf;
+
     // Start is called before the first frame update
     void Start()
     {
+        tf = FindObjectOfType<TimeFreeze>();
         step = 0;
         reversing = false;
 
@@ -28,6 +31,9 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tf.freezed)
+            return;
+
         bool triggered = inverted ^ this.triggered;
         if (id != 0 && !triggered) {
             return; 
