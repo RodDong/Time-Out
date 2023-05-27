@@ -24,7 +24,7 @@ public class Rope : MonoBehaviour
 
                 GameObject prevNode = keyNodes[i].gameObject;
 
-                int numRopeNodes = (int)(distance / RopeNodeSize);
+                int numRopeNodes = (int)(distance / RopeNodeSize) + 1;
 
                 for (int j = 1; j < numRopeNodes; j++)
                 {

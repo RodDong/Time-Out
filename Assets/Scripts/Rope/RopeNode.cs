@@ -48,7 +48,7 @@ public class RopeNode : Triggerable
             if (timer <= 0)
             {
                 m_state = State.Burnt;
-            }else if(timer <= igniteTime)
+            } else if (timer <= igniteTime)
             {
                 foreach(RopeNode node in nodes)
                 {

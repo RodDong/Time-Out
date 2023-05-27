@@ -20,8 +20,6 @@ public class MetaBallTimeFreeze : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(frozen);
-        print(tf.freezed);
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         if (tf.freezed && !frozen) {
             velocity = rb.velocity;

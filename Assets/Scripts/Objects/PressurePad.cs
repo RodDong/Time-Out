@@ -12,7 +12,7 @@ public class PressurePad : Triggerable
         count++;
 
         Vector3 v = transform.position;
-        Vector3 s = transform.localScale;
+        Vector3 s = gameObject.GetComponent<Renderer>().bounds.size;
         transform.position = new Vector3(v.x, v.y - s.y / 2, v.z);
 
         GameEvents.current.TriggerEnter(id);
