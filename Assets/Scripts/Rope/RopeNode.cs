@@ -8,6 +8,7 @@ public class RopeNode : Triggerable
     {
         Burning,
         Burnt,
+        PutOut,
         Default
     }
 
@@ -22,12 +23,20 @@ public class RopeNode : Triggerable
 
     private void OnTriggerEnter(Collider other)
     {
-        isInteractable = true;
+        if (other.gameObject.tag == "Player") {
+           isInteractable = true;
+        }
+
+        if (other.gameObject.tag == "WaterBall" && m_state == State.Burning) {
+            m_state = State.PutOut;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isInteractable = false;
+        if (other.gameObject.tag == "Player") {
+           isInteractable = false;
+        }
     }
 
     public void ignite()
@@ -67,11 +76,13 @@ public class RopeNode : Triggerable
             }
             GameEvents.current.TriggerEnter(id);
         }
+        else if (m_state == State.PutOut) {
+            m_Material.color = Color.gray;
+        }
         else if(m_state == State.Default)
         {
-            if (isInteractable && Input.GetKeyDown(KeyCode.E))
+            if (isInteractable && Input.GetKey(KeyCode.E))
             {
-                Debug.Log(1);
                 ignite();
             }
         }

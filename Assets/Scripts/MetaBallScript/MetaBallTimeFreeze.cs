@@ -8,6 +8,7 @@ public class MetaBallTimeFreeze : MonoBehaviour
     private Vector3 velocity;
     private Vector3 angularVelocity;
     private bool frozen;
+    private RigidbodyConstraints initialContraints;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class MetaBallTimeFreeze : MonoBehaviour
         angularVelocity = gameObject.GetComponent<Rigidbody>().angularVelocity;
         tf = GameObject.FindAnyObjectByType<TimeFreeze>();
         frozen = true;
+        initialContraints = gameObject.GetComponent<Rigidbody>().constraints;
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class MetaBallTimeFreeze : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeAll;
             frozen = true;
         } else if (frozen && !tf.freezed) {
-            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = initialContraints;
             rb.velocity = velocity;
             rb.angularVelocity = angularVelocity;
             frozen = false;

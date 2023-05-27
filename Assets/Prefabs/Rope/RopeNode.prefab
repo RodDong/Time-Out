@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866223170497038576}
   - component: {fileID: 6217266305163281025}
+  - component: {fileID: 8395703667407497241}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8395703667407497241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254061298802871853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69e574e5802f5d44822f8be80bbeaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7097883256637109787
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,9 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   id: 0
-  timer: 2
+  timer: 0.2
   fireAnimation: {fileID: 1254061298802871853}
-  igniteTime: 1.8
+  igniteTime: 0.1
   nodes: []
 --- !u!135 &-5461973057594356172
 SphereCollider:

@@ -83,33 +83,54 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        moveVertical = 0.0f;
+        moveHorizontal = 0.0f;
+        if (Input.GetKey(KeyCode.W)) {
+            moveVertical += 1.0f;
+        }
+        if (Input.GetKey(KeyCode.A)) {
+            moveHorizontal -= 1.0f;
+        }
+        if (Input.GetKey(KeyCode.S)) {
+            moveVertical -= 1.0f;
+        }
+        if (Input.GetKey(KeyCode.D)) {
+            moveHorizontal += 1.0f;
+        } 
+
         if (m_Forward == Vector3.forward)
         {
-            moveHorizontal = Input.GetAxis("Horizontal");
-            moveVertical = Input.GetAxis("Vertical");
-        }else if(m_Forward == Vector3.back)
+            // Do Nothing
+        }
+        else if(m_Forward == Vector3.back)
         {
-            moveHorizontal = -Input.GetAxis("Horizontal");
-            moveVertical = -Input.GetAxis("Vertical");
+            moveHorizontal = -moveHorizontal;
+            moveVertical = -moveVertical;
         }
         else if(m_Forward == Vector3.right)
         {
-            moveVertical = -Input.GetAxis("Horizontal");
-            moveHorizontal = Input.GetAxis("Vertical");
+            var temp = moveVertical;
+            moveVertical = -moveHorizontal;
+            moveHorizontal = temp;
         }
         else if(m_Forward == Vector3.left)
         {
-            moveVertical = Input.GetAxis("Horizontal");
-            moveHorizontal = -Input.GetAxis("Vertical");
+            var temp = moveVertical;
+            moveVertical = moveHorizontal;
+            moveHorizontal = -temp;
         }
-
 
         isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
         
+        
+        if (Input.GetKey(KeyCode.E)) {
+            isMoving = true;
+        }
 
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
 
-        if (moveDirection.sqrMagnitude == 0) return;
+        // if (moveDirection.sqrMagnitude == 0) return;
 
         var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
@@ -117,7 +138,6 @@ public class PlayerController : MonoBehaviour
 
         // Normalize the movement vector to ensure it's unit length
         //moveDirection = moveDirection.normalized;
-
 
         if (!rb) Debug.LogError("no player rb");
         // Update the position of the player

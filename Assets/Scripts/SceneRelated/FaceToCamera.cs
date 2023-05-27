@@ -6,23 +6,19 @@ using UnityEngine;
 
 public class FaceToCamera : MonoBehaviour
 {
-    Transform[] children;
 
     // Start is called before the first frame update
     void Start()
     {
-        children = transform.GetComponentsInChildren<Transform>();   
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 tempRotation = Camera.main.transform.eulerAngles;
-        foreach (var child in children.Skip(1))
-        {
-            tempRotation.x = child.eulerAngles.x;
-            tempRotation.z = child.eulerAngles.z;
-            child.eulerAngles = tempRotation;
-        }
+        tempRotation.x = transform.eulerAngles.x;
+        tempRotation.z = transform.eulerAngles.z;
+        transform.eulerAngles = tempRotation;
+        
     }
 }

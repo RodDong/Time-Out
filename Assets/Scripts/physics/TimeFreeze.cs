@@ -103,8 +103,10 @@ public class TimeFreeze : MonoBehaviour
         playerCurrPos = player.transform.position;
         playerVelocity = (playerCurrPos - playerLastPos) / Time.fixedDeltaTime;
         playerLastPos = playerCurrPos;
+        
+        bool playerIsMoving = player.GetComponent<PlayerController>().GetIsMoving();
 
-        if (NearZeroVector(playerVelocity))
+        if (NearZeroVector(playerVelocity) && !playerIsMoving)
         {
             if (!freezed)
             {
