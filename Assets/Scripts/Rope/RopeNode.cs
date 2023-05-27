@@ -77,7 +77,11 @@ public class RopeNode : Triggerable
             GameEvents.current.TriggerEnter(id);
         }
         else if (m_state == State.PutOut) {
-            m_Material.color = Color.gray;
+            if (m_Material)
+            {
+                fireAnimation.SetActive(false);
+                m_Material.color = Color.gray;
+            }
         }
         else if(m_state == State.Default)
         {
