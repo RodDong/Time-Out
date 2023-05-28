@@ -132,9 +132,9 @@ public class PlayerController : MonoBehaviour
 
         // if (moveDirection.sqrMagnitude == 0) return;
 
-        var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
+        /*var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
-        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);*/
 
         // Normalize the movement vector to ensure it's unit length
         //moveDirection = moveDirection.normalized;
