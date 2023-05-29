@@ -15,10 +15,24 @@ public class FaceToCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 tempRotation = Camera.main.transform.eulerAngles;
-        tempRotation.x = transform.eulerAngles.x;
-        tempRotation.z = transform.eulerAngles.z;
-        transform.eulerAngles = tempRotation;
+        foreach(var cam in Camera.allCameras)
+        {
+            if (cam.isActiveAndEnabled)
+            {
+                Vector3 objToCam = cam.transform.position - transform.position;
+                Vector3 normal = transform.forward;
+                objToCam.y = normal.y;
+
+                transform.forward = objToCam;
+
+  /*              Vector3 tempRotation = cam.transform.eulerAngles;
+                tempRotation.x = transform.eulerAngles.x;
+                tempRotation.z = transform.eulerAngles.z;
+                transform.eulerAngles = tempRotation;*/
+                break;
+            }
+        }
+        
         
     }
 }

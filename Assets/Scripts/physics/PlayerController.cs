@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        transform.Rotate(0, 0, 0);
+        //transform.Rotate(0, 0, 0);
 
         Debug.Log(m_Forward);
     }
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
 
-        // if (moveDirection.sqrMagnitude == 0) return;
+        if (moveDirection.sqrMagnitude == 0) return;
 
         var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
@@ -146,11 +146,11 @@ public class PlayerController : MonoBehaviour
         {
             case ESlopeLevel.none:
                 // fall 
-                rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
                 break;
             case ESlopeLevel.ground:
                 // move along slope
-                rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
                 // snap to slope, leave a bit of gap
                 //rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.0f, rb.position.z);
                 //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, rb.position.z));
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
             case ESlopeLevel.slope:
                 rb.useGravity = false;
                 // move along slope
-                rb.MovePosition(rb.position + GetSlopeMoveDirection() * speed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + GetSlopeMoveDirection() * speed * Time.deltaTime);
                 // snap to slope, leave a bit of gap
                 //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z));
                 break;
