@@ -6,9 +6,9 @@
             <ui:Label tabindex="-1" text="TIME OUT" display-tooltip-when-elided="true" name="Label" enable-rich-text="true" style="align-items: center; align-self: center; top: -10px; font-size: 90px; height: 50%; width: 30%; -unity-text-align: middle-center; -unity-font: url(&apos;project://database/Assets/UI/Sofia/TTF/SofiaProUltraLight-Italic.ttf?fileID=12800000&amp;guid=23b094cc058f7c14f96451383bfa5431&amp;type=3#SofiaProUltraLight-Italic&apos;); display: flex; visibility: visible; overflow: visible; color: rgb(0, 0, 0); -unity-font-definition: url(&apos;project://database/Assets/UI/Sofia/TTF/SofiaProBlack%20SDF.asset?fileID=11400000&amp;guid=ab4747d334a9d894ba33a56899274e2c&amp;type=2#SofiaProBlack SDF&apos;); -unity-font-style: normal;" />
         </ui:VisualElement>
         <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 25%; height: 100%; flex-direction: column; align-items: center; justify-content: space-around; top: auto; bottom: auto; margin-bottom: 0; transform-origin: center; scale: 1 1; min-height: 0; min-width: 0; align-self: center; flex-shrink: 1; width: 100%;">
-            <ui:Button text="START" display-tooltip-when-elided="true" class="button" style="width: 30%; -unity-font-style: normal;" />
-            <ui:Button text="HELP" display-tooltip-when-elided="true" class="button" style="width: 30%; -unity-font-style: normal;" />
-            <ui:Button text="CREDIT" display-tooltip-when-elided="true" class="button" style="width: 30%; -unity-font-style: normal;" />
+            <ui:Button text="START" display-tooltip-when-elided="true" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
+            <ui:Button text="HELP" display-tooltip-when-elided="true" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
+            <ui:Button text="CREDIT" display-tooltip-when-elided="true" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
         </ui:VisualElement>
         <ui:VisualElement name="Spacing" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 20%; flex-basis: 25%;" />
     </ui:VisualElement>

@@ -8,7 +8,7 @@
     border-bottom-color: rgba(0, 0, 0, 0);
 }
 
-.button {
+.menuopt {
     background-color: rgb(255, 255, 255);
     width: 30%;
     height: 25%;
@@ -17,7 +17,7 @@
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
     -unity-font: url('project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
-    font-size: 52px;
+    font-size: 54px;
     -unity-text-align: middle-center;
     -unity-font-style: normal;
     -unity-font-definition: url('project://database/Assets/UI/Sofia/TTF/SofiaProBlack%20SDF.asset?fileID=11400000&guid=ab4747d334a9d894ba33a56899274e2c&type=2#SofiaProBlack SDF');
@@ -69,4 +69,11 @@
     margin-left: 10px;
     margin-right: 10px;
     flex-shrink: 0;
+}
+
+.textfont {
+    font-size: 80px;
+    -unity-font: url('project://database/Assets/UI/Sofia/OTF/Sofia%20Pro%20Black%20Az.otf?fileID=12800000&guid=dc9ba3bcc97170f48bca1ac378b22497&type=3#Sofia Pro Black Az');
+    -unity-font-definition: url('project://database/Assets/UI/Sofia/TTF/SofiaProBlack%20SDF.asset?fileID=11400000&guid=ab4747d334a9d894ba33a56899274e2c&type=2#SofiaProBlack SDF');
+    -unity-text-align: middle-center;
 }
