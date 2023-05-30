@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: dc9ba3bcc97170f48bca1ac378b22497
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sofia Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 23b094cc058f7c14f96451383bfa5431, type: 3}
+  - {fileID: 12800000, guid: 62cc73313d03bf041ba45327fd712af3, type: 3}
+  - {fileID: 12800000, guid: 2516ca9433f66ca49aa49dff28f67a7b, type: 3}
+  - {fileID: 12800000, guid: 95ca8c439fa2cbe46b24e0ae3b31b0d4, type: 3}
+  - {fileID: 12800000, guid: 0a871a7a89ad7da46abe9473d4e541e7, type: 3}
+  - {fileID: 12800000, guid: 41eb880525abef549a1e144a0760df1f, type: 3}
+  - {fileID: 12800000, guid: 8c51f3bd1bc0e4b4cb3b4906d6d95640, type: 3}
+  - {fileID: 12800000, guid: d54149eb3c604fa49a0f5f57ea1de642, type: 3}
+  - {fileID: 12800000, guid: 78fbb244c168a0a4791cf486896396cb, type: 3}
+  - {fileID: 12800000, guid: bbb72201b706b814e81df272ea98d26e, type: 3}
+  - {fileID: 12800000, guid: 555f3a2d113c1084e968a12263cfbd26, type: 3}
+  - {fileID: 12800000, guid: c4aabdc76fbb1a242a01b94b6297fea1, type: 3}
+  - {fileID: 12800000, guid: a61b5c9c70e32f74ab43891e0568daf4, type: 3}
+  - {fileID: 12800000, guid: c035f32f2c8db334695e7ef19267a231, type: 3}
+  - {fileID: 12800000, guid: e1a49eebbacf44444b385e11c5a8ee77, type: 3}
+  - {fileID: 12800000, guid: 4988c24154211ff4f94815466b64727d, type: 3}
+  - {fileID: 12800000, guid: 85cce80de35e7cc46add135b5500c63c, type: 3}
+  - {fileID: 12800000, guid: 932d91228b01c1344ab31e20ad922cde, type: 3}
+  - {fileID: 12800000, guid: d92e26e5f9e825148a7b8b8a165e5bd6, type: 3}
+  - {fileID: 12800000, guid: f10789531ac44c84fa3021782b36f597, type: 3}
+  - {fileID: 12800000, guid: ab3215e00737d1c40a039e5ebe98ddd3, type: 3}
+  - {fileID: 12800000, guid: 7324bd331d0496040a47e6fd57f6c742, type: 3}
+  - {fileID: 12800000, guid: 44d64ebbede8efc419ba326709d5184e, type: 3}
+  - {fileID: 12800000, guid: 8790b71df074bb94e93df3d07736bfd6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
