@@ -26,6 +26,7 @@ public class RollableObject : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
             transform.GetComponent<Rigidbody>().velocity = force;
+            print(">......................");
         }
     }
 }

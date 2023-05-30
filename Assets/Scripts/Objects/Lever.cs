@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Lever : Triggerable
 {
+    public Color color;
     private float rotationAngle = 30;
     private float speed = 60;
     private float interactableTimer = 0;
     [SerializeField] GameObject LeverStick;
+    [SerializeField] GameObject LeverBase;
     private bool inRange = false;
+
+    void Start() {
+        LeverBase.GetComponent<Renderer>().material.color = color;
+    }
 
     void Update()
     {

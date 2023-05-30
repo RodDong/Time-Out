@@ -5,6 +5,14 @@ using UnityEngine;
 public class PressurePad : Triggerable
 {
     private int count = 0;
+    [SerializeField] Color color;
+
+    [SerializeField] GameObject padBase;
+
+    void Start() {
+        padBase.GetComponent<Renderer>().material.color = color;
+    }
+
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Ground") {
