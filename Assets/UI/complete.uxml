@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheets/mainmenu.uss?fileID=7433441132597879392&amp;guid=4c94c10c78d68394aa06b6bf93d8c8e0&amp;type=3#mainmenu" />
+    <ui:VisualElement name="bg" class="background" style="flex-grow: 1; background-color: rgb(255, 255, 255);">
+        <ui:VisualElement name="title" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;">
+            <ui:Label tabindex="-1" text="LEVEL COMPLETE!" display-tooltip-when-elided="true" name="title" class="textfont" style="align-self: center; top: 40%; font-size: 84px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="options" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; align-items: center;">
+            <ui:Button text="CONTINUE" display-tooltip-when-elided="true" name="contbutton" class="button menuopt" style="top: 35%; font-size: 54px; height: 15%;" />
+            <ui:Button text="BACK TO MENU" display-tooltip-when-elided="true" name="backbutton" class="button menuopt" style="top: 35%; font-size: 54px; height: 15%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
