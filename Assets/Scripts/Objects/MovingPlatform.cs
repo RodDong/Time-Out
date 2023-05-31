@@ -46,8 +46,10 @@ public class MovingPlatform : MonoBehaviour
         }
 
         if (step > duration) {
+            step = duration;
             reversing = true;
         } else if (step < 0) {
+            step = 0;
             reversing = false;
         }
 
@@ -67,14 +69,16 @@ public class MovingPlatform : MonoBehaviour
             triggered = false;
         }
     }
+
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.transform.tag == "Barrel")
+        if(collision.transform.tag == "Barrel" && !tf.freezed && triggered)
         {
             Vector3 movingDirection = (endPos - startingPos).normalized;
+            float dist = (endPos - startingPos).magnitude;
             collision.transform.position += movingDirection
-                                            * step / duration * Time.deltaTime
-                                            * addhesiveness * 2;
+                              * dist/duration * Time.deltaTime
+                              * addhesiveness * (reversing ? -1 : 1);
         }
     }
 }
