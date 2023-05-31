@@ -6,6 +6,13 @@ public class Button : Triggerable
 {
     private bool inRange = false;
 
+    [SerializeField] Color color;
+    [SerializeField] GameObject buttonBase;
+
+    void Start() {
+        buttonBase.GetComponent<Renderer>().material.color = color;
+    }
+
     private void Update() {
         if (inRange && Input.GetKeyUp(KeyCode.E)) {
             GameEvents.current.TriggerEnter(id);

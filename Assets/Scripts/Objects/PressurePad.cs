@@ -5,28 +5,46 @@ using UnityEngine;
 public class PressurePad : Triggerable
 {
     private int count = 0;
+    [SerializeField] Color color;
+
+    [SerializeField] GameObject padBase;
+
+    void Start() {
+        padBase.GetComponent<Renderer>().material.color = color;
+    }
+
 
     private void OnTriggerEnter(Collider other) {
-        if (count != 0 || other.tag == "Ground") { return; }
+        if (other.tag == "Ground") {
+             return; 
+        }
 
         count++;
 
-        Vector3 v = transform.position;
-        Vector3 s = transform.localScale;
-        transform.position = new Vector3(v.x, v.y - s.y / 2, v.z);
+        if (count == 1) {
+            
+            Vector3 v = transform.position;
+            Vector3 s = transform.localScale;
+            transform.position = new Vector3(v.x, v.y - s.y / 2, v.z);
 
-        GameEvents.current.TriggerEnter(id);
+            GameEvents.current.TriggerEnter(id);
+        }
+
     }
 
     private void OnTriggerExit(Collider other) {
-        if (count == 0) { return; }
 
-        triggered = false;
         count--;
-        Vector3 v = transform.position;
-        Vector3 s = transform.localScale;
-        transform.position = new Vector3(v.x, v.y + s.y / 2, v.z);
 
-        GameEvents.current.TriggerExit(id);
+        if (count == 0) {
+            
+            triggered = false;
+            
+            Vector3 v = transform.position;
+            Vector3 s = transform.localScale;
+            transform.position = new Vector3(v.x, v.y + s.y / 2, v.z);
+
+            GameEvents.current.TriggerExit(id);
+        }
     }
 }
