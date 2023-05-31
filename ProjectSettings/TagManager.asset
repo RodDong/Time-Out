@@ -8,6 +8,7 @@ TagManager:
   - ControllableObjects
   - Ground
   - WaterBall
+  - Barrel
   layers:
   - Default
   - TransparentFX

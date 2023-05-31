@@ -17,6 +17,8 @@ public class MovingPlatform : MonoBehaviour
 
     private TimeFreeze tf;
 
+    [SerializeField] private float addhesiveness = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,16 @@ public class MovingPlatform : MonoBehaviour
     private void Stop(int id) {
         if (id == this.id) {
             triggered = false;
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.transform.tag == "Barrel")
+        {
+            Vector3 movingDirection = (endPos - startingPos).normalized;
+            collision.transform.position += movingDirection
+                                            * step / duration * Time.deltaTime
+                                            * addhesiveness * 2;
         }
     }
 }
