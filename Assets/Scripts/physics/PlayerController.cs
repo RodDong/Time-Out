@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        CalibrateCameraOrientation();
+    }
+
+    public void CalibrateCameraOrientation() {
         Camera m_Cam = Camera.main;
         Vector3 m_Cam_forward = m_Cam.transform.forward;
         Vector3 m_Cam_forward_abs = new Vector3(Mathf.Abs(m_Cam_forward.x), 
