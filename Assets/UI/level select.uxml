@@ -54,8 +54,8 @@
                 </ui:VisualElement>
             </ui:Button>
         </ui:VisualElement>
-        <ui:VisualElement name="back" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 25%;">
-            <ui:Label tabindex="-1" text="BACK" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 54px; -unity-font: url(&apos;project://database/Assets/UI/Sofia/OTF/Sofia%20Pro%20Black%20Az.otf?fileID=12800000&amp;guid=dc9ba3bcc97170f48bca1ac378b22497&amp;type=3#Sofia Pro Black Az&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Sofia/TTF/SofiaProBlack%20SDF.asset?fileID=11400000&amp;guid=ab4747d334a9d894ba33a56899274e2c&amp;type=2#SofiaProBlack SDF&apos;); align-self: center; justify-content: space-around; top: 30%;" />
+        <ui:VisualElement name="back" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 25%; align-items: center;">
+            <ui:Button text="BACK" display-tooltip-when-elided="true" name="backbutton" class="menuopt" style="top: 30%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

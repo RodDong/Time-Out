@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float _currentVelocity;
     [SerializeField] private float smoothTime = 0.05f;
 
+    private Animator m_animator;
+
     public enum ESlopeLevel
     {
         none,
@@ -32,12 +34,13 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         if (!rb) Debug.LogError("failed to get player rb");
-        playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
+        playerHeight = GetComponent<BoxCollider>().size.y * transform.localScale.y;
     }
 
     private void Start()
     {
         CalibrateCameraOrientation();
+        m_animator = GetComponent<Animator>();
     }
 
     public void CalibrateCameraOrientation() {
@@ -74,8 +77,6 @@ public class PlayerController : MonoBehaviour
         }
 
         //transform.Rotate(0, 0, 0);
-
-        Debug.Log(m_Forward);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -134,8 +135,15 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
 
-        if (moveDirection.sqrMagnitude == 0) return;
-
+        if (moveDirection.sqrMagnitude == 0)
+        {
+            m_animator.Play("Idle");
+            return;
+        }
+        else
+        {
+            m_animator.Play("Walk");
+        }
         var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
         transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
