@@ -66,3 +66,12 @@ levelTransformInfo.txt
 
 UserSettings/
 
+#ignore FMOD
+Assets/FMODStudioCache.asset
+Assets/FMODStudioCache.asset.meta
+Fmod.log
+Fmod_editor.log
+Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.assets.meta
+Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.assets
+
+

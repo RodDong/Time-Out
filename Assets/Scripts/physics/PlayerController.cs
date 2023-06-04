@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator m_animator;
 
+    private EventInstance playerWalkGrass;
+
     public enum ESlopeLevel
     {
         none,
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         CalibrateCameraOrientation();
         m_animator = GetComponent<Animator>();
+        //playerWalkGrass = AudioManager.instance.CreateEventInstance(FModEvents.instace.playerWalkGrass);
     }
 
     public void CalibrateCameraOrientation() {
@@ -89,37 +93,85 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        UpdateMoveDirection();
+
+        //UpdateSound();
+
+        UpdatePlayerAnimation();
+
+        UpdatePlayerTransform();
+
+        //UpdateSound();
+    }
+
+
+    private ESlopeLevel OnSlope()
+    {
+        // raycast downwards from center of player 
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 5f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            if (angle == 0)
+            {
+                return ESlopeLevel.ground;
+            }
+            else if (angle <= maxSlopeAngle)
+            {
+                return ESlopeLevel.slope;
+            }
+            else
+            {
+                return ESlopeLevel.wall;
+            }
+        }
+
+        // dist > 0.5 * playerheight, fall
+        return ESlopeLevel.none;
+    }
+
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+    private void UpdateMoveDirection()
+    {
         moveVertical = 0.0f;
         moveHorizontal = 0.0f;
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.W))
+        {
             moveVertical += 1.0f;
         }
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A))
+        {
             moveHorizontal -= 1.0f;
         }
-        if (Input.GetKey(KeyCode.S)) {
+        if (Input.GetKey(KeyCode.S))
+        {
             moveVertical -= 1.0f;
         }
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D))
+        {
             moveHorizontal += 1.0f;
-        } 
+        }
 
         if (m_Forward == Vector3.forward)
         {
             // Do Nothing
         }
-        else if(m_Forward == Vector3.back)
+        else if (m_Forward == Vector3.back)
         {
             moveHorizontal = -moveHorizontal;
             moveVertical = -moveVertical;
         }
-        else if(m_Forward == Vector3.right)
+        else if (m_Forward == Vector3.right)
         {
             var temp = moveVertical;
             moveVertical = -moveHorizontal;
             moveHorizontal = temp;
         }
-        else if(m_Forward == Vector3.left)
+        else if (m_Forward == Vector3.left)
         {
             var temp = moveVertical;
             moveVertical = moveHorizontal;
@@ -127,14 +179,18 @@ public class PlayerController : MonoBehaviour
         }
 
         isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
-        
-        
-        if (Input.GetKey(KeyCode.E)) {
+
+
+        if (Input.GetKey(KeyCode.E))
+        {
             isMoving = true;
         }
 
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
+    }
 
+    private void UpdatePlayerAnimation()
+    {
         if (moveDirection.sqrMagnitude == 0)
         {
             m_animator.Play("Idle");
@@ -144,12 +200,13 @@ public class PlayerController : MonoBehaviour
         {
             m_animator.Play("Walk");
         }
+    }
+
+    private void UpdatePlayerTransform()
+    {
         var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
         transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
-
-        // Normalize the movement vector to ensure it's unit length
-        //moveDirection = moveDirection.normalized;
 
         if (!rb) Debug.LogError("no player rb");
         // Update the position of the player
@@ -187,41 +244,23 @@ public class PlayerController : MonoBehaviour
                 break;
             default: break;
         }
-        //rb.velocity = moveDirection * speed;
-        //rb.AddForce(moveDirection * speed, ForceMode.VelocityChange);
-        //newPos = rb.position + moveDirection * speed * Time.fixedDeltaTime;
-        //rb.MovePosition(newPos);
     }
 
-
-    private ESlopeLevel OnSlope()
+    private void UpdateSound()
     {
-        // raycast downwards from center of player 
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 5f))
+        if(isMoving && OnSlope() != ESlopeLevel.none)
         {
-            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            if (angle == 0)
+            PLAYBACK_STATE playBackState;
+            playerWalkGrass.getPlaybackState(out playBackState);
+            if (playBackState.Equals(PLAYBACK_STATE.STOPPED))
             {
-                return ESlopeLevel.ground;
-            }
-            else if (angle <= maxSlopeAngle)
-            {
-                return ESlopeLevel.slope;
-            }
-            else
-            {
-                return ESlopeLevel.wall;
+                playerWalkGrass.start();
             }
         }
-
-        // dist > 0.5 * playerheight, fall
-        return ESlopeLevel.none;
-    }
-
-
-    private Vector3 GetSlopeMoveDirection()
-    {
-        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+        else
+        {
+            playerWalkGrass.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 
 }
