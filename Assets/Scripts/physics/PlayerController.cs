@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
     private ESlopeLevel OnSlope()
     {
         // raycast downwards from center of player 
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 1f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             if (angle == 0)
@@ -210,6 +210,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                print("WALL");
                 return ESlopeLevel.wall;
             }
         }
