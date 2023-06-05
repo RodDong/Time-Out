@@ -60,17 +60,6 @@ class CrossHatchPass : ScriptableRenderPass
             ? GraphicsFormat.R8_UNorm
             : GraphicsFormat.B8G8R8A8_UNorm;
 
-        if (SystemInfo.IsFormatSupported(GraphicsFormat.R8G8B8A8_UNorm, FormatUsage.Render))
-        {
-            // The R8G8B8A8_UNorm format is supported for rendering. You can safely use it here.
-            //Debug.Log("Yes");
-        }
-        else
-        {
-            // The R8G8B8A8_UNorm format isn't supported for rendering. You'll need to use a different format.
-        }
-        //desc.graphicsFormat = GraphicsFormat.R8G8B8A8_UNorm;
-
 
         RenderingUtils.ReAllocateIfNeeded(ref m_RenderTexture, desc, FilterMode.Point, TextureWrapMode.Repeat, name: "_ScreenSpaceTexture");
         RenderingUtils.ReAllocateIfNeeded(ref m_CopyScreen, desc, FilterMode.Point, TextureWrapMode.Repeat, name: "_ScreenSpaceTexture");

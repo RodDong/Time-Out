@@ -14,8 +14,12 @@ public class CameraManager : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Camera.main.transform.position = associateCamera.transform.position;
-        Camera.main.transform.eulerAngles = associateCamera.transform.eulerAngles;
-        player.CalibrateCameraOrientation();
+        if(other.tag == "Player")
+        {
+            Camera.main.transform.position = associateCamera.transform.position;
+            Camera.main.transform.eulerAngles = associateCamera.transform.eulerAngles;
+            player.CalibrateCameraOrientation();
+        }
     }
+        
 }

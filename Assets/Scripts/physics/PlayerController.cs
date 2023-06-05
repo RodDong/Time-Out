@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         CalibrateCameraOrientation();
         m_animator = GetComponent<Animator>();
-        //playerWalkGrass = AudioManager.instance.CreateEventInstance(FModEvents.instace.playerWalkGrass);
+        playerWalkGrass = AudioManager.instance.CreateEventInstance(FModEvents.instance.playerWalkGrass);
     }
 
     public void CalibrateCameraOrientation() {
@@ -95,13 +95,21 @@ public class PlayerController : MonoBehaviour
 
         UpdateMoveDirection();
 
-        //UpdateSound();
+        UpdateSound();
 
-        UpdatePlayerAnimation();
+        if (moveDirection.sqrMagnitude == 0)
+        {
+            m_animator.Play("Idle");
+            return;
+        }
+        else
+        {
+            m_animator.Play("Walk");
+        }
 
         UpdatePlayerTransform();
 
-        //UpdateSound();
+        UpdateSound();
     }
 
 
@@ -189,19 +197,6 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
     }
 
-    private void UpdatePlayerAnimation()
-    {
-        if (moveDirection.sqrMagnitude == 0)
-        {
-            m_animator.Play("Idle");
-            return;
-        }
-        else
-        {
-            m_animator.Play("Walk");
-        }
-    }
-
     private void UpdatePlayerTransform()
     {
         var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
@@ -220,24 +215,11 @@ public class PlayerController : MonoBehaviour
             case ESlopeLevel.ground:
                 // move along slope
                 rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
-                // snap to slope, leave a bit of gap
-                //rb.position = new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.0f, rb.position.z);
-                //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, rb.position.z));
-                // move horizontally 
-                //transform.position += moveDirection * speed * Time.fixedDeltaTime;
-                //// snap to ground
-                //transform.position = new Vector3(transform.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.1f, transform.position.z);
-                //float transformy = transform.position.y;
-                //float rby = rb.position.y;
-                //Debug.Log("y supposed pos:" + supposedy);
-                //rb.position = new Vector3(rb.position.x, slopeHit.point.y, rb.position.z);
                 break;
             case ESlopeLevel.slope:
                 rb.useGravity = false;
                 // move along slope
                 rb.MovePosition(rb.position + GetSlopeMoveDirection() * speed * Time.deltaTime);
-                // snap to slope, leave a bit of gap
-                //rb.MovePosition(new Vector3(rb.position.x, slopeHit.point.y + playerHeight * 0.5f + 0.3f, rb.position.z));
                 break;
             case ESlopeLevel.wall:
                 rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
@@ -248,10 +230,12 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateSound()
     {
-        if(isMoving && OnSlope() != ESlopeLevel.none)
+        if(!(moveHorizontal == 0.0f && moveVertical == 0.0f) 
+            && OnSlope() != ESlopeLevel.none)
         {
             PLAYBACK_STATE playBackState;
             playerWalkGrass.getPlaybackState(out playBackState);
+
             if (playBackState.Equals(PLAYBACK_STATE.STOPPED))
             {
                 playerWalkGrass.start();
