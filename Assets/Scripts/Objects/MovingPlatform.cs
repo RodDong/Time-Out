@@ -74,6 +74,10 @@ public class MovingPlatform : MonoBehaviour
     {
         if(collision.transform.tag == "Barrel" && !tf.freezed && triggered)
         {
+            if (step > duration && !repeat)
+            {
+                return;
+            }
             Vector3 movingDirection = (endPos - startingPos).normalized;
             float dist = (endPos - startingPos).magnitude;
             collision.transform.position += movingDirection
