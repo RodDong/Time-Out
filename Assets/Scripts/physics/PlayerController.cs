@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using FMOD.Studio;
+using Unity.Burst.CompilerServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class PlayerController : MonoBehaviour
 
     private Animator m_animator;
 
-    private EventInstance playerWalkGrass;
+    private EventInstance playerWalkGrass, 
+                          playerWalkWater, 
+                          playerWalkStair,
+                          playerWalkStone,
+                          playerWalkSand;
 
     public enum ESlopeLevel
     {
@@ -37,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         if (!rb) Debug.LogError("failed to get player rb");
-        playerHeight = GetComponent<BoxCollider>().size.y * transform.localScale.y;
+        playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
     }
 
     private void Start()
@@ -45,6 +50,10 @@ public class PlayerController : MonoBehaviour
         CalibrateCameraOrientation();
         m_animator = GetComponent<Animator>();
         playerWalkGrass = AudioManager.instance.CreateEventInstance(FModEvents.instance.playerWalkGrass);
+        playerWalkWater = AudioManager.instance.CreateEventInstance(FModEvents.instance.playerWalkWater);
+        playerWalkStair = AudioManager.instance.CreateEventInstance(FModEvents.instance.playerWalkStair);
+        playerWalkStone = AudioManager.instance.CreateEventInstance(FModEvents.instance.playerWalkStone);
+        playerWalkSand = AudioManager.instance.CreateEventInstance(FModEvents.instance.playerWalkSand);
     }
 
     public void CalibrateCameraOrientation() {
@@ -233,18 +242,89 @@ public class PlayerController : MonoBehaviour
         if(!(moveHorizontal == 0.0f && moveVertical == 0.0f) 
             && OnSlope() != ESlopeLevel.none)
         {
-            PLAYBACK_STATE playBackState;
-            playerWalkGrass.getPlaybackState(out playBackState);
-
-            if (playBackState.Equals(PLAYBACK_STATE.STOPPED))
+            PLAYBACK_STATE walkGrassPlayBackState,
+                           walkWaterPlayBackState,
+                           walkStairPlayBackState,
+                           walkStonePlayBackState,
+                           walkSandPlayBackState;
+            playerWalkGrass.getPlaybackState(out walkGrassPlayBackState);
+            playerWalkWater.getPlaybackState(out walkWaterPlayBackState);
+            playerWalkStair.getPlaybackState(out walkStairPlayBackState);
+            playerWalkStone.getPlaybackState(out walkStonePlayBackState);
+            playerWalkSand.getPlaybackState(out walkSandPlayBackState);
+            switch (GetGroundTag())
             {
-                playerWalkGrass.start();
+                case "Ground":
+                    if (walkGrassPlayBackState.Equals(PLAYBACK_STATE.STOPPED))
+                    {
+                        playerWalkWater.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStair.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStone.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkSand.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkGrass.start();
+                    }
+                    break;
+                case "River":
+                    if (walkWaterPlayBackState.Equals(PLAYBACK_STATE.STOPPED))
+                    {
+                        playerWalkGrass.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStair.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStone.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkSand.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkWater.start();
+                    }
+                    break;
+                case "Stair":
+                    if (walkStairPlayBackState.Equals(PLAYBACK_STATE.STOPPED))
+                    {
+                        playerWalkGrass.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkWater.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStone.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkSand.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStair.start();
+                    }
+                    break;
+                case "Stone":
+                    if (walkStonePlayBackState.Equals(PLAYBACK_STATE.STOPPED))
+                    {
+                        playerWalkGrass.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkWater.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStair.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkSand.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStone.start();
+                    }
+                    break;
+                case "Sand":
+                    if (walkSandPlayBackState.Equals(PLAYBACK_STATE.STOPPED))
+                    {
+                        playerWalkGrass.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkWater.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStair.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkStone.stop(STOP_MODE.ALLOWFADEOUT);
+                        playerWalkSand.start();
+                    }
+                    break;
+                default:
+                    break;
             }
+
+            
         }
         else
         {
+            playerWalkStair.stop(STOP_MODE.ALLOWFADEOUT);
             playerWalkGrass.stop(STOP_MODE.ALLOWFADEOUT);
+            playerWalkWater.stop(STOP_MODE.ALLOWFADEOUT);
+            playerWalkStone.stop(STOP_MODE.ALLOWFADEOUT);
+            playerWalkSand.stop(STOP_MODE.ALLOWFADEOUT);
         }
+    }
+
+    private string GetGroundTag()
+    {
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, 5f);
+        return hit.transform.tag;
     }
 
 }

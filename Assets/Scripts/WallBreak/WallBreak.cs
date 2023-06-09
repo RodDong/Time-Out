@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using FMOD.Studio;
 
 public class WallBreak : MonoBehaviour
 {
@@ -9,7 +10,13 @@ public class WallBreak : MonoBehaviour
     [SerializeField] VisualEffect explosion;
     [SerializeField] GameObject Wall;
     [SerializeField] public float velocityRequiredForDestruction;
-    // Update is called once per frame
+    private EventInstance wallBreak;
+
+    private void Start()
+    {
+        wallBreak = AudioManager.instance.CreateEventInstance(FModEvents.instance.wallBreak);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         print(collision.gameObject.transform.GetComponent<Rigidbody>().velocity.magnitude);
@@ -24,6 +31,7 @@ public class WallBreak : MonoBehaviour
             }
 
             explosion.Play();
+            wallBreak.start();
             Destroy(Wall);
             Destroy(gameObject);
         }

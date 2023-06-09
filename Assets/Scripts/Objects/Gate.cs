@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
 
 public class Gate : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Gate : MonoBehaviour
     private float speed = 2;
     private float closedYPos;
     private float openedYPos;
+    private EventInstance gateOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class Gate : MonoBehaviour
 
         GameEvents.current.onTriggerEnter += Open;
         GameEvents.current.onTriggerExit += Close;
+        gateOpen = AudioManager.instance.CreateEventInstance(FModEvents.instance.gateOpen);
     }
 
     // Update is called once per frame
@@ -33,8 +36,10 @@ public class Gate : MonoBehaviour
         Vector3 curPos = transform.position;
         if (triggered && curPos.y > openedYPos) {
             transform.position = new Vector3(curPos.x, curPos.y - speed * Time.deltaTime, curPos.z);
+            UpdateSound();
         } else if (!triggered && curPos.y < closedYPos) {
             transform.position = new Vector3(curPos.x, curPos.y + speed * Time.deltaTime, curPos.z);
+            UpdateSound();
         }
     }
 
@@ -48,5 +53,16 @@ public class Gate : MonoBehaviour
         if (id == this.id) {
             opened = false;
         }
+    }
+
+    private void UpdateSound()
+    {
+        PLAYBACK_STATE gatePlayBackState;
+        gateOpen.getPlaybackState(out gatePlayBackState);
+
+        if (gatePlayBackState.Equals(PLAYBACK_STATE.STOPPED)){
+            gateOpen.start();
+        }
+        
     }
 }

@@ -9,6 +9,10 @@ TagManager:
   - Ground
   - WaterBall
   - Barrel
+  - River
+  - Stair
+  - Sand
+  - Stone
   layers:
   - Default
   - TransparentFX

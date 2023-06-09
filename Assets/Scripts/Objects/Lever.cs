@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
 
 public class Lever : Triggerable
 {
@@ -12,8 +13,11 @@ public class Lever : Triggerable
     [SerializeField] GameObject LeverBase;
     private bool inRange = false;
 
+    private EventInstance lever;
+
     void Start() {
         LeverBase.GetComponent<Renderer>().material.color = color;
+        lever = AudioManager.instance.CreateEventInstance(FModEvents.instance.lever);
     }
 
     void Update()
@@ -44,13 +48,19 @@ public class Lever : Triggerable
             else
             {
                 Vector3 curRotation = LeverStick.transform.rotation.eulerAngles;
+
+                PLAYBACK_STATE buttonPlayBackState;
+                lever.getPlaybackState(out buttonPlayBackState);
+
                 if (triggered)
                 {
                     LeverStick.transform.eulerAngles = new Vector3(curRotation.x, curRotation.y, -90);
+                    lever.start();
                 }
                 else
                 {
                     LeverStick.transform.eulerAngles = new Vector3(curRotation.x, curRotation.y, 0);
+                    lever.start();
                 }
 
             }

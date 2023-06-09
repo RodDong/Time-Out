@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RopeNode : Triggerable
 {
-    enum State
+    public enum State
     {
         Burning,
         Burnt,
@@ -30,6 +31,11 @@ public class RopeNode : Triggerable
         if (other.gameObject.tag == "WaterBall" && m_state == State.Burning) {
             m_state = State.PutOut;
         }
+    }
+
+    public State GetNodeState()
+    {
+        return m_state;
     }
 
     private void OnTriggerExit(Collider other)
