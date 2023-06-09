@@ -20,8 +20,21 @@ public class UICtrlMain : MonoBehaviour
     [HideInInspector]
     public List<UnityEngine.UIElements.Button> lvlsltIcons;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
+    {
+        main.SetActive(true);
+        lvlslt.SetActive(true);
+        complete.SetActive(true);
+        pause.SetActive(true);
+        help.SetActive(true);
+
+        SetInteractive(lvlslt, false);
+        SetInteractive(complete, false);
+        SetInteractive(pause, false);
+        SetInteractive(help, false);
+    }
+
+    void Awake()
     {
         // Find UI children gameobjects
         main = transform.Find("main").gameObject;
@@ -35,12 +48,10 @@ public class UICtrlMain : MonoBehaviour
         complete.SetActive(true);
         pause.SetActive(true);
         help.SetActive(true);
+    }
 
-        SetInteractive(lvlslt, false);
-        SetInteractive(complete, false);
-        SetInteractive(pause, false);
-        SetInteractive(help, false);
-
+    void Start() 
+    { 
         // Get button UI elements
         VisualElement mainRoot = main.GetComponent<UIDocument>().rootVisualElement;
         mainStart = mainRoot.Q<UnityEngine.UIElements.Button>("startbtn");
