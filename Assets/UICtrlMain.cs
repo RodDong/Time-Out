@@ -51,7 +51,8 @@ public class UICtrlMain : MonoBehaviour
     }
 
     void Start() 
-    { 
+    {
+        DontDestroyOnLoad(gameObject);
         // Get button UI elements
         VisualElement mainRoot = main.GetComponent<UIDocument>().rootVisualElement;
         mainStart = mainRoot.Q<UnityEngine.UIElements.Button>("startbtn");

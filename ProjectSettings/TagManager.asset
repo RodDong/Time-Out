@@ -13,6 +13,7 @@ TagManager:
   - Stair
   - Sand
   - Stone
+  - Spawn
   layers:
   - Default
   - TransparentFX
