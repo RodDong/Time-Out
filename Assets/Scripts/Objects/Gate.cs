@@ -21,7 +21,7 @@ public class Gate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        closedYPos = transform.position.y;
+        closedYPos = transform.localPosition.y;
         openedYPos = closedYPos - transform.GetComponent<Renderer>().bounds.size.y;
         opened = false;
 
@@ -41,14 +41,14 @@ public class Gate : MonoBehaviour
         // bool triggered = inverted ? !controller.triggered : controller.triggered;
         bool triggered = inverted ^ opened;
 
-        Vector3 curPos = transform.position;
+        Vector3 curPos = transform.localPosition;
         if (triggered && curPos.y > openedYPos) {
-            transform.position = new Vector3(curPos.x, curPos.y - speed * Time.deltaTime, curPos.z);
+            transform.localPosition = new Vector3(curPos.x, curPos.y - speed * Time.deltaTime, curPos.z);
             UpdateSound();
         } else if (!triggered && curPos.y < closedYPos) {
-            transform.position = new Vector3(curPos.x, curPos.y + speed * Time.deltaTime, curPos.z);
+            transform.localPosition = new Vector3(curPos.x, curPos.y + speed * Time.deltaTime, curPos.z);
             UpdateSound();
-        }
+        } 
     }
 
     private void Open(int id) {

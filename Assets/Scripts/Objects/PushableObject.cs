@@ -39,7 +39,6 @@ public class PushableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         
-        print("...");
         if (collision.gameObject.tag == "Player") {
             inContact = true;
         }
@@ -58,7 +57,6 @@ public class PushableObject : MonoBehaviour
 
     private void OnCollisionExit(Collision collision) {
         
-        print("...");
         if (collision.gameObject.tag == "Player") {
             inContact = false;
         }
