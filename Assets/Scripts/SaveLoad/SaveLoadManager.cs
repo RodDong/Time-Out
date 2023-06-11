@@ -15,7 +15,7 @@ public class SaveLoadManager : MonoBehaviour
     private GameObject player;
 
     private int curLevelNum;
-    private float distanceToTrigger = 2.0f;
+    private float distanceToTrigger = 5.0f;
 
     void Start()
     {
