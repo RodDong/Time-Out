@@ -22,6 +22,8 @@ public class WallBreak : MonoBehaviour
         print(collision.gameObject.transform.GetComponent<Rigidbody>().velocity.magnitude);
         if (collision.gameObject.transform.GetComponent<Rigidbody>().velocity.magnitude >= velocityRequiredForDestruction)
         {
+            GetComponent<Collider>().isTrigger = true;
+            Destroy(Wall);
             GameObject frac = Instantiate(fractured, transform.position, transform.rotation);
             frac.transform.localScale = transform.localScale;
             foreach (Rigidbody rb in frac.GetComponentsInChildren<Rigidbody>())
@@ -32,7 +34,6 @@ public class WallBreak : MonoBehaviour
 
             explosion.Play();
             wallBreak.start();
-            Destroy(Wall);
             Destroy(gameObject);
         }
     }

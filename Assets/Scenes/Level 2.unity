@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1826858, g: 0.22839618, b: 0.30711183, a: 1}
+  m_IndirectSpecularColor: {r: 0.18268597, g: 0.2283961, b: 0.3071118, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -278,6 +278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &45436413
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec931cfdd67ded48a15236b02128f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 1}
+  force: 0
 --- !u!65 &76365876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -809,6 +811,8 @@ MonoBehaviour:
   inverted: 0
   id: 12
   addhesiveness: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrip: {fileID: 0}
 --- !u!65 &153894935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -929,6 +933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &156215956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1261,6 +1267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &232629765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1381,6 +1389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 21
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &242557626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2377,6 +2387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &395397059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3243,6 +3255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 22
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &521941005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4795,7 +4809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec931cfdd67ded48a15236b02128f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 2}
+  force: 0
 --- !u!65 &656613486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4880,7 +4894,7 @@ GameObject:
   - component: {fileID: 673062645}
   m_Layer: 0
   m_Name: Camera Area 1
-  m_TagString: Untagged
+  m_TagString: CameraCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5189,7 +5203,7 @@ GameObject:
   - component: {fileID: 808385936}
   m_Layer: 0
   m_Name: Camera Area 4
-  m_TagString: Untagged
+  m_TagString: CameraCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5469,7 +5483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec931cfdd67ded48a15236b02128f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 2}
+  force: 0
 --- !u!65 &829047853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5984,7 +5998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec931cfdd67ded48a15236b02128f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 2}
+  force: 0
 --- !u!65 &918065542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7431,6 +7445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 14
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &1360666947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7596,6 +7612,8 @@ MonoBehaviour:
   inverted: 1
   id: 2
   addhesiveness: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrip: {fileID: 0}
 --- !u!65 &1412095168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8571,7 +8589,7 @@ GameObject:
   - component: {fileID: 1597121853}
   m_Layer: 0
   m_Name: Camera Area 3
-  m_TagString: Untagged
+  m_TagString: CameraCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8956,7 +8974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec931cfdd67ded48a15236b02128f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 2}
+  force: 0
 --- !u!65 &1630124970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9077,6 +9095,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 23
   inverted: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &1643153357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9202,6 +9222,8 @@ MonoBehaviour:
   inverted: 0
   id: 13
   addhesiveness: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrip: {fileID: 0}
 --- !u!65 &1687302911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9444,6 +9466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 14
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &1718022410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9769,6 +9793,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 11
   inverted: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &1777918158
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10367,7 +10393,7 @@ GameObject:
   - component: {fileID: 1865586644}
   m_Layer: 0
   m_Name: Camera Area 2
-  m_TagString: Untagged
+  m_TagString: CameraCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10486,6 +10512,20 @@ MonoBehaviour:
       Data3: -1548580479
       Data4: -1113184451
     Path: event:/PlayerWalk_Stairs
+  <playerWalkStone>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <playerWalkSand>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <barrelRoll>k__BackingField:
     Guid:
       Data1: -1338215202
@@ -10515,6 +10555,20 @@ MonoBehaviour:
       Data4: -901035633
     Path: event:/PushWoodBox
   <fire>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <button>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <lever>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -10765,7 +10819,7 @@ GameObject:
   - component: {fileID: 1989554090}
   m_Layer: 0
   m_Name: Camera Area 5
-  m_TagString: Untagged
+  m_TagString: CameraCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10868,6 +10922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 22
   inverted: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorStrips: []
 --- !u!65 &2058824439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11120,7 +11176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec931cfdd67ded48a15236b02128f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: -2, y: 0, z: 0}
+  force: 0
 --- !u!65 &2062231125
 BoxCollider:
   m_ObjectHideFlags: 0
