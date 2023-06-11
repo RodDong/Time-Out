@@ -15,6 +15,9 @@ public class Gate : MonoBehaviour
     private float openedYPos;
     private EventInstance gateOpen;
 
+    [SerializeField] Color color;
+    [SerializeField] List<GameObject> colorStrips;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,11 @@ public class Gate : MonoBehaviour
         GameEvents.current.onTriggerEnter += Open;
         GameEvents.current.onTriggerExit += Close;
         gateOpen = AudioManager.instance.CreateEventInstance(FModEvents.instance.gateOpen);
+
+        foreach (var item in colorStrips) {
+            item.GetComponent<Renderer>().material.color = color;
+        }
+       
     }
 
     // Update is called once per frame

@@ -19,6 +19,9 @@ public class MovingPlatform : MonoBehaviour
 
     [SerializeField] private float addhesiveness = 1.0f;
 
+    [SerializeField] Color color;
+    [SerializeField] GameObject colorStrip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,9 @@ public class MovingPlatform : MonoBehaviour
 
         GameEvents.current.onTriggerEnter += Start;
         GameEvents.current.onTriggerExit += Stop;
+
+        colorStrip.GetComponent<Renderer>().material.color = color;
+        
     }
 
     // Update is called once per frame
