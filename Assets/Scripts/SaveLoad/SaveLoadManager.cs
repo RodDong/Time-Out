@@ -22,7 +22,7 @@ public class SaveLoadManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        state = new GameState();
+        LoadGameStateFromFile();
     }
 
     private void Update()
@@ -110,9 +110,9 @@ public class SaveLoadManager : MonoBehaviour
         return state.GetProgress(level);
     }
 
-    private GameState LoadGameState()
+    private void LoadGameStateFromFile()
     {
-        return FileHandler.ReadFromJSON<GameState>("gamesave.json");
+        state = FileHandler.ReadFromJSON<GameState>("gamesave.json");
     }
 
     // call this when collide with new area, with corresponding level and area numbers
