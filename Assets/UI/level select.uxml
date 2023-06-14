@@ -5,7 +5,7 @@
             <ui:Label tabindex="-1" text="SELECT A LEVEL" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 86px; -unity-font: url(&apos;project://database/Assets/UI/Sofia/OTF/Sofia%20Pro%20Black%20Az.otf?fileID=12800000&amp;guid=dc9ba3bcc97170f48bca1ac378b22497&amp;type=3#Sofia Pro Black Az&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Sofia/TTF/SofiaProBlack%20SDF.asset?fileID=11400000&amp;guid=ab4747d334a9d894ba33a56899274e2c&amp;type=2#SofiaProBlack SDF&apos;); align-self: center; justify-content: space-around; top: 50%;" />
         </ui:VisualElement>
         <ui:VisualElement name="select" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 43%; margin-left: 30%; margin-right: 30%; flex-direction: row; flex-wrap: wrap; justify-content: space-around; align-self: auto; align-items: center; flex-shrink: 1;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="levelicon" class="levelicon" style="align-items: center; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="lvl1" class="levelicon" style="align-items: center; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" class="lvlnum" />
                 <ui:VisualElement name="progress" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-self: center; height: 47px; width: 114px;">
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
@@ -13,7 +13,7 @@
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
             </ui:Button>
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="levelicon" class="levelicon" style="align-items: center; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="lvl2" class="levelicon" style="align-items: center; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" class="lvlnum" />
                 <ui:VisualElement name="progress" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-self: center; height: 47px; width: 114px;">
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
@@ -21,7 +21,7 @@
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
             </ui:Button>
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="levelicon" class="levelicon" style="align-items: center; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="lvl3" class="levelicon" style="align-items: center; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="true" class="lvlnum" />
                 <ui:VisualElement name="progress" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-self: center; height: 47px; width: 114px;">
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
@@ -29,7 +29,7 @@
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
             </ui:Button>
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="levelicon" class="levelicon" style="align-items: center; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="lvl4" class="levelicon" style="align-items: center; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="4" display-tooltip-when-elided="true" class="lvlnum" />
                 <ui:VisualElement name="progress" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-self: center; height: 47px; width: 114px;">
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
@@ -37,7 +37,7 @@
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
             </ui:Button>
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="levelicon" class="levelicon" style="align-items: center; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="lvl5" class="levelicon" style="align-items: center; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="5" display-tooltip-when-elided="true" class="lvlnum" />
                 <ui:VisualElement name="progress" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-self: center; height: 47px; width: 114px;">
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
@@ -45,7 +45,7 @@
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
             </ui:Button>
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="levelicon" class="levelicon" style="align-items: center; justify-content: space-around;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="lvl6" class="levelicon" style="align-items: center; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="6" display-tooltip-when-elided="true" class="lvlnum" />
                 <ui:VisualElement name="progress" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-self: center; height: 47px; width: 114px;">
                     <ui:VisualElement class="progressind" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);" />
