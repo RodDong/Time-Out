@@ -51,7 +51,7 @@ public class PushableObject : MonoBehaviour
             Vector3 forceDirect = transform.position - player.transform.position;
             forceDirect.y = 0;
             forceDirect.Normalize();
-            GetComponent<Rigidbody>().AddForceAtPosition(forceDirect * force * Time.deltaTime, player.transform.position, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForceAtPosition(forceDirect * force * Time.deltaTime, transform.position, ForceMode.Impulse);
         }
     }
 
