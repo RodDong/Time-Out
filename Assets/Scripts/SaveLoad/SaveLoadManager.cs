@@ -9,6 +9,7 @@ using System.Data;
 public class SaveLoadManager : MonoBehaviour
 {
     public GameObject[] spawns { get; private set; }
+    // TO BE UPDATED AS LEVELS ARE ADDED
     public int SPAWNCNT = 12;
 
     [SerializeField]

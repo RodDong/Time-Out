@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class UICtrlMain : MonoBehaviour
@@ -117,12 +118,15 @@ public class UICtrlMain : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        SetInteractive(main, false);
-        SetInteractive(loading, false);
-        SetInteractive(lvlslt, false);
-        SetInteractive(complete, false);
-        SetInteractive(pause, false);
-        SetInteractive(help, false);
+        if (SceneManager.GetActiveScene().name.Contains("Level"))
+        {
+            SetInteractive(main, false);
+            SetInteractive(loading, false);
+            SetInteractive(lvlslt, false);
+            SetInteractive(complete, false);
+            SetInteractive(pause, false);
+            SetInteractive(help, false);
+        }
     }
 
     // For the gameobjects, make sure to set visible state as false whenever leaving its screen (including scene transitions)
