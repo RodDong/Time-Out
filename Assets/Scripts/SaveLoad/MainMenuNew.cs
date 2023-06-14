@@ -8,6 +8,8 @@ public class MainMenuNew : MonoBehaviour
     private SaveLoadManager sl;
     private GameObject player;
 
+    public bool unlockAllLevels;
+
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -33,17 +35,17 @@ public class MainMenuNew : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
-    public void ContinueFromSaved(int level)
+    public bool ContinueFromSaved(int level)
     {
         if (!LvlInBounds(level))
         {
             Debug.LogError("level code " + level + " out of bounds");
-            return;
+            return false;
         }
         int area = sl.GetStateProgress(level);
+        // all areas are unlocked
         if (area == -1)
         {
-            // if all areas are unlocked
             // if next level 1st area also unlocked, player passed this level before, play from start
             if (LvlInBounds(level+1) && sl.GetStateProgress(level+1) != 0)
             {
@@ -55,16 +57,25 @@ public class MainMenuNew : MonoBehaviour
                 ContinueGame(level, 3);
             }
         }
+        // level is locked
         else if (area == 0)
         {
-            // level is locked
-            return;
+            // dev option
+            if (unlockAllLevels)
+            {
+                ContinueGame(level, 1);
+            }
+            else
+            {
+                return false;
+            }
         }
         else if (area > 0)
         {
             // load latest area
             ContinueGame(level, area);
         }
+        return true;
     }
     private IEnumerator LoadScene(string scene, int area)
     {
@@ -90,21 +101,15 @@ public class MainMenuNew : MonoBehaviour
         }
         else if (level == 2)
         {
-            SceneManager.LoadScene("Level 2");
-            if (!player) Debug.LogError("no player");
-            player.transform.position = LoadPos(area);
+            StartCoroutine(LoadScene("Level 2", area));
         }
         else if (level == 3)
         {
-            SceneManager.LoadScene("Level 3");
-            if (!player) Debug.LogError("no player");
-            player.transform.position = LoadPos(area);
+            StartCoroutine(LoadScene("Level 3", area));
         }
         else if (level == 4)
         {
-            SceneManager.LoadScene("Level 4");
-            if (!player) Debug.LogError("no player");
-            player.transform.position = LoadPos(area);
+            StartCoroutine(LoadScene("Level 4", area));
         }
     }
 

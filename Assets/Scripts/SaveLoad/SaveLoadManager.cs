@@ -54,7 +54,7 @@ public class SaveLoadManager : MonoBehaviour
         string lastScene = SceneManager.GetActiveScene().name;
         if (!lastScene.Contains("Level")) yield break;
         GameObject spawnParent = GameObject.FindGameObjectWithTag("Spawn");
-        Debug.Log(spawnParent.transform.childCount);
+        //Debug.Log(spawnParent.transform.childCount);
         spawns = new GameObject[SPAWNCNT];
         for (int i = 0; i < spawnParent.transform.childCount; i++)
         {

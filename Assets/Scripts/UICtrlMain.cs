@@ -7,7 +7,7 @@ public class UICtrlMain : MonoBehaviour
 {
     public MainMenuNew _mm;
 
-    private GameObject main, lvlslt, complete, pause, help;
+    private GameObject main, lvlslt, complete, pause, help, loading;
 
     private GameObject returnTarget;
 
@@ -29,11 +29,13 @@ public class UICtrlMain : MonoBehaviour
         complete.SetActive(true);
         pause.SetActive(true);
         help.SetActive(true);
+        loading.SetActive(true);
 
         SetInteractive(lvlslt, false);
         SetInteractive(complete, false);
         SetInteractive(pause, false);
         SetInteractive(help, false);
+        SetInteractive(loading, false);
     }
 
     void Awake()
@@ -46,12 +48,14 @@ public class UICtrlMain : MonoBehaviour
         complete = transform.Find("complete").gameObject;
         pause = transform.Find("pause").gameObject;
         help = transform.Find("help").gameObject;
+        loading = transform.Find("loading").gameObject;
 
         main.SetActive(true);
         lvlslt.SetActive(true);
         complete.SetActive(true);
         pause.SetActive(true);
         help.SetActive(true);
+        loading.SetActive(true);
     }
 
     void Start() 
@@ -67,8 +71,8 @@ public class UICtrlMain : MonoBehaviour
         VisualElement lvlsltRoot = lvlslt.GetComponent<UIDocument>().rootVisualElement;
         lvlsltBack = lvlsltRoot.Q<UnityEngine.UIElements.Button>("backbutton");
         //lvlsltIcons = lvlsltRoot.Q<VisualElement>("select").Children() as List<UnityEngine.UIElements.Button>;
-        lvlsltIcons = new List<UnityEngine.UIElements.Button>();
-        lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ToList(lvlsltIcons);
+        //lvlsltIcons = new List<UnityEngine.UIElements.Button>();
+        //lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ToList(lvlsltIcons);
 
         VisualElement complRoot = complete.GetComponent<UIDocument>().rootVisualElement;
         complBack = complRoot.Q<UnityEngine.UIElements.Button>("backbutton");
@@ -88,17 +92,18 @@ public class UICtrlMain : MonoBehaviour
         mainCred.clicked += () => LoadCred(main);
 
         lvlsltBack.clicked += () => GoBack(lvlslt);
-        //lvlsltIcons = lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ForEach(() => { }
-        //    );
-        for (int i = 0; i < lvlsltIcons.Count; i++)
-        {
-            // verify this is correct
-            UnityEngine.UIElements.Button btn = lvlsltIcons[i];
-            //Debug.Log(btn.ToString());
-            //btn.name.Substring(3);
-            btn.clicked += () => LoadLevel(lvlslt, i + 1);
-        }
-        lvlsltIcons[0].clicked += () => LoadLevel(lvlslt, 1);
+        lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ForEach(btn =>
+            btn.clicked += () => LoadLevel(lvlslt, int.Parse(btn.name.Substring(3)))
+        ); 
+        //for (int i = 0; i < lvlsltIcons.Count; i++)
+        //{
+        //    // verify this is correct
+        //    UnityEngine.UIElements.Button btn = lvlsltIcons[i];
+        //    //Debug.Log(btn.ToString());
+        //    //btn.name.Substring(3);
+        //    btn.clicked += () => LoadLevel(lvlslt, i + 1);
+        //}
+        //lvlsltIcons[0].clicked += () => LoadLevel(lvlslt, 1);
 
         complBack.clicked += () => LoadPage(complete, main);
         complCont.clicked += () => LoadNextLvl();
@@ -108,6 +113,16 @@ public class UICtrlMain : MonoBehaviour
         pauseEnd.clicked += () => EndGame();
 
         helpBack.clicked += () => GoBack(help);
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        SetInteractive(main, false);
+        SetInteractive(loading, false);
+        SetInteractive(lvlslt, false);
+        SetInteractive(complete, false);
+        SetInteractive(pause, false);
+        SetInteractive(help, false);
     }
 
     // For the gameobjects, make sure to set visible state as false whenever leaving its screen (including scene transitions)
@@ -137,8 +152,17 @@ public class UICtrlMain : MonoBehaviour
     {
         if (_mm.LvlInBounds(level))
         {
-            _mm.ContinueFromSaved(level);
-            SetInteractive(fromPage, false);
+            if (_mm.ContinueFromSaved(level))
+            {
+                // load level was successful
+                Debug.Log("Loading level: " + level);
+                SetInteractive(fromPage, false);
+                SetInteractive(loading, true);
+            }
+            else
+            {
+                Debug.Log("Level " + level + " locked");
+            }
         }
         else
         {
