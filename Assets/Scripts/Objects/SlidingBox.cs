@@ -44,7 +44,7 @@ public class SlidingBox : MonoBehaviour
         }
         else if(rb.velocity == Vector3.zero)
         {
-            Debug.Log(rb.velocity);
+            //Debug.Log(rb.velocity);
             slidingBox.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }

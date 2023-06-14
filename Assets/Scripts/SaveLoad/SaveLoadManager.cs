@@ -9,6 +9,7 @@ using System.Data;
 public class SaveLoadManager : MonoBehaviour
 {
     public GameObject[] spawns { get; private set; }
+    public int SPAWNCNT = 12;
 
     [SerializeField]
     private GameState state;
@@ -21,12 +22,14 @@ public class SaveLoadManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         state = new GameState();
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        SpawnUpdate(spawns);
+        if (SceneManager.GetActiveScene().name.Contains("Level") && spawns != null)
+        {
+            SpawnUpdate(spawns);
+        }
     }
 
     private void SpawnUpdate(GameObject[] spawns)
@@ -35,23 +38,35 @@ public class SaveLoadManager : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, spawns[i].transform.position) < distanceToTrigger)
             {
-                state.UpdateState(curLevelNum, i + 1);
+                UpdateGameState(curLevelNum, i + 1);
             }
         }
-        if (Vector3.Distance(player.transform.position, spawns[4].transform.position) < distanceToTrigger)
+        if (Vector3.Distance(player.transform.position, spawns[3].transform.position) < distanceToTrigger)
         {
-            state.UpdateState(curLevelNum + 1, 1);
+
+            UpdateGameState(curLevelNum + 1, 1);
             //TODO: Portal Interaction
         }
+    }
+
+    public IEnumerator FetchSpawn()
+    {
+        string lastScene = SceneManager.GetActiveScene().name;
+        if (!lastScene.Contains("Level")) yield break;
+        GameObject spawnParent = GameObject.FindGameObjectWithTag("Spawn");
+        Debug.Log(spawnParent.transform.childCount);
+        spawns = new GameObject[SPAWNCNT];
+        for (int i = 0; i < spawnParent.transform.childCount; i++)
+        {
+            spawns[i] = spawnParent.transform.GetChild(i).gameObject;
+        }
+        player = GameObject.FindGameObjectWithTag("Player");
+        yield return new WaitForEndOfFrame();
     }
 
     void OnLevelWasLoaded(int level)
     {
         string lastScene = SceneManager.GetActiveScene().name;
-
-        GameObject spawnParent = GameObject.FindGameObjectWithTag("Spawn");
-        spawns = spawnParent.GetComponentsInChildren<GameObject>();
-
         if (lastScene == "Level 1")
         {
             UpdateGameState(1, 1);
@@ -89,7 +104,12 @@ public class SaveLoadManager : MonoBehaviour
         FileHandler.SaveToJSON<GameState>(state, "gamesave.json");
     }
 
-    public GameState LoadGameState()
+    public int GetStateProgress(int level)
+    {
+        return state.GetProgress(level);
+    }
+
+    private GameState LoadGameState()
     {
         return FileHandler.ReadFromJSON<GameState>("gamesave.json");
     }
@@ -128,7 +148,6 @@ public class GameState
         lvl4.Add(false);
         lvl4.Add(false);
         lvl4.Add(false);
-
     }
 
     // Set the unlocked status of the level area
@@ -183,6 +202,34 @@ public class GameState
         else
         {
             Debug.LogError("Update gamestate level code out of bounds");
+        }
+    }
+
+    // Get the progress in current level
+    public int GetProgress(int level)
+    {
+        if (level == 1)
+        {
+            // first area encountered that still has the next area locked
+            // -1 -> all areas unlocked, 0 -> no area is unlocked (level locked)
+            return lvl1.FindIndex(b => !b);
+        }
+        else if (level == 2)
+        {
+            return lvl2.FindIndex(b => !b);
+        }
+        else if (level == 3)
+        {
+            return lvl3.FindIndex(b => !b);
+        }
+        else if (level == 4)
+        {
+            return lvl4.FindIndex(b => !b);
+        }
+        else
+        {
+            Debug.LogError("Update gamestate level code out of bounds");
+            return -2;
         }
     }
 }
