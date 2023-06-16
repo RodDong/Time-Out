@@ -16,6 +16,7 @@ public class Lever : Triggerable
     private EventInstance lever;
 
     void Start() {
+        LeverStick.GetComponentsInChildren<Renderer>()[1].material.color = color;
         LeverBase.GetComponent<Renderer>().material.color = color;
         lever = AudioManager.instance.CreateEventInstance(FModEvents.instance.lever);
     }
