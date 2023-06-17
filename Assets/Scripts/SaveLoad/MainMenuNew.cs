@@ -91,6 +91,11 @@ public class MainMenuNew : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (!player) Debug.LogError("no player");
         player.transform.position = LoadPos(area);
+        if (SceneManager.GetActiveScene().name.Contains("Level"))
+        {
+            sl.BGM.start();
+            sl.BGM.release();
+        }
     }
 
     public void ContinueGame(int level, int area)

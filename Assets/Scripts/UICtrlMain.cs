@@ -148,8 +148,16 @@ public class UICtrlMain : MonoBehaviour
     public void LoadPage(GameObject fromPage, GameObject toPage)
     {
         returnTarget = fromPage;
-        SetInteractive(fromPage, false);
-        SetInteractive(toPage, true);
+        if (fromPage)
+        {
+            SetInteractive(fromPage, false);
+        }
+
+        if (toPage)
+        {
+            SetInteractive(toPage, true);
+        }
+        
     }
 
     public void LoadLevel(GameObject fromPage, int level)
@@ -212,7 +220,17 @@ public class UICtrlMain : MonoBehaviour
 
     public void LoadNextLvl()
     {
-        Debug.Log("unimplemented");
+        if (SceneManager.GetActiveScene().name.Contains("Level"))
+        {
+            string curLevel = SceneManager.GetActiveScene().name;
+            int curLevelNum = curLevel[curLevel.Length - 1] - '0';
+            LoadLevel(complete, curLevelNum + 1);
+        }
+        else
+        {
+            Debug.LogError("Tried to Load Next Level in Main Menu");
+        }
+        
     }
 
     public void Unpause()

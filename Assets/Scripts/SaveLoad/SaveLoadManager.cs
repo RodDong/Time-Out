@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Linq;
 using System.Data;
+using FMOD.Studio;
 
 public class SaveLoadManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class SaveLoadManager : MonoBehaviour
     [SerializeField]
     private GameState state;
     private GameObject player;
+    private UICtrlMain uiCtrlMain;
+    private GameObject complete;
+
+    public EventInstance BGM { get; private set; }
 
     private int curLevelNum;
     private float distanceToTrigger = 5.0f;
@@ -42,12 +47,14 @@ public class SaveLoadManager : MonoBehaviour
                 UpdateGameState(curLevelNum, i + 1);
             }
         }
+
+        //Portal
         if (Vector3.Distance(player.transform.position, spawns[3].transform.position) < distanceToTrigger)
         {
 
             UpdateGameState(curLevelNum + 1, 1);
-            //TODO: Portal Interaction
-            //TODO: Return to Main Menu
+            BGM.stop(STOP_MODE.ALLOWFADEOUT);
+            uiCtrlMain.LoadPage(null, complete);
         }
     }
 
@@ -63,6 +70,9 @@ public class SaveLoadManager : MonoBehaviour
             spawns[i] = spawnParent.transform.GetChild(i).gameObject;
         }
         player = GameObject.FindGameObjectWithTag("Player");
+        uiCtrlMain = GameObject.FindFirstObjectByType<UICtrlMain>();
+        complete = uiCtrlMain.transform.Find("complete").gameObject;
+        BGM = AudioManager.instance.CreateEventInstance(FModEvents.instance.BackGroundMusic);
         yield return new WaitForEndOfFrame();
     }
 
