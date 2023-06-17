@@ -19,6 +19,7 @@ public class FModEvents : MonoBehaviour
     [field: SerializeField] public EventReference fire { get; private set; }
     [field: SerializeField] public EventReference button { get; private set; }
     [field: SerializeField] public EventReference lever { get; private set; }
+    [field: SerializeField] public EventReference BackGroundMusic { get; private set; }
     public static FModEvents instance { get; private set; }
 
     private void Awake()

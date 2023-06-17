@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FModBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638218705461284942
+  lastModified: 638225581143412629
   FileSizes: []
   Exists: 1
 --- !u!114 &-7593955616276677086
@@ -153,6 +153,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4200
+--- !u!114 &-313239794667393070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BackGroundMusic
+  m_EditorClassIdentifier: 
+  Path: event:/BackGroundMusic
+  Guid:
+    Data1: -972621166
+    Data2: 1162518192
+    Data3: 666894218
+    Data4: -1281258914
+  Banks:
+  - {fileID: 2974646497173404809}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 414716
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,12 +209,13 @@ MonoBehaviour:
   - {fileID: 3382776420863681750}
   - {fileID: 6437054561542478343}
   - {fileID: 3274848214257943234}
+  - {fileID: -313239794667393070}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8167209874878841944}
   StringsBanks:
   - {fileID: 8432573391426985687}
-  cacheTime: 638218705462292901
+  cacheTime: 638225586416246268
   cacheVersion: 131603
 --- !u!114 &3787482729462123
 MonoBehaviour:
@@ -258,7 +286,7 @@ MonoBehaviour:
   Path: Assets/FModBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638218705462292901
+  lastModified: 638225586416246268
   FileSizes: []
   Exists: 1
 --- !u!114 &3274848214257943234
@@ -411,8 +439,8 @@ MonoBehaviour:
   Path: Assets/FModBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638218705461294948
+  lastModified: 638225581143432639
   FileSizes:
   - Name: 
-    Value: 1284
+    Value: 1342
   Exists: 1
