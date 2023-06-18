@@ -197,9 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   id: 0
-  timer: 1
+  timer: 3
   fireAnimation: {fileID: 1254061298802871853}
-  igniteTime: 0.5
+  igniteTime: 2
   nodes: []
 --- !u!135 &-5461973057594356172
 SphereCollider:
