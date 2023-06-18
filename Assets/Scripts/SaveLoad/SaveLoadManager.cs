@@ -32,7 +32,7 @@ public class SaveLoadManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name.Contains("Level") && spawns != null)
+        if (spawns != null)
         {
             SpawnUpdate(spawns);
         }
