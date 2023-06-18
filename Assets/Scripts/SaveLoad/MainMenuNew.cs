@@ -89,8 +89,9 @@ public class MainMenuNew : MonoBehaviour
         // Wait until the level finish loading
         while (!asyncLoadLevel.isDone)
             yield return null;
-        yield return sl.FetchSpawn();
         // Wait a frame so every Awake and Start method is called
+        yield return new WaitForEndOfFrame();
+        yield return sl.FetchSpawn();
         yield return new WaitForEndOfFrame();
         player = GameObject.FindWithTag("Player");
         if (!player) Debug.LogError("no player");

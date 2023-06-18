@@ -267,7 +267,8 @@ public class UICtrlMain : MonoBehaviour
             /*_mm.ContinueFromSaved(lastScene[lastScene.Length - 1] - '0');*/
             LoadLevel(pause, lastScene[lastScene.Length - 1] - '0');
         }
-        
+        Time.timeScale = 1;
+
     }
 
     public void EndGame()
