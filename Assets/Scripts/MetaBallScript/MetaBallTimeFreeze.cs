@@ -15,7 +15,7 @@ public class MetaBallTimeFreeze : MonoBehaviour
         velocity = gameObject.GetComponent<Rigidbody>().velocity;
         angularVelocity = gameObject.GetComponent<Rigidbody>().angularVelocity;
         tf = GameObject.FindAnyObjectByType<TimeFreeze>();
-        frozen = true;
+        frozen = false;
         initialContraints = gameObject.GetComponent<Rigidbody>().constraints;
     }
 

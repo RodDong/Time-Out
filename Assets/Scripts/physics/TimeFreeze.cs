@@ -106,7 +106,7 @@ public class TimeFreeze : MonoBehaviour
         
         bool playerIsMoving = player.GetComponent<PlayerController>().GetIsMoving();
 
-        if (NearZeroVector(playerVelocity) && !playerIsMoving)
+        if (!playerIsMoving)
         {
             if (!freezed)
             {

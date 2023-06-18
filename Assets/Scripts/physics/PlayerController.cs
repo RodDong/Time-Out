@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
             moveHorizontal = -temp;
         }
 
-        isMoving = !(moveHorizontal == 0.0f && moveVertical == 0.0f);
+        isMoving = !(Mathf.Abs(moveHorizontal) <= 0.1f && Mathf.Abs(moveVertical) <= 0.1f);
 
 
         if (Input.GetKey(KeyCode.E))

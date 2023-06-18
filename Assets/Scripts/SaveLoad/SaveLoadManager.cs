@@ -22,7 +22,7 @@ public class SaveLoadManager : MonoBehaviour
     public EventInstance BGM { get; private set; }
 
     private int curLevelNum;
-    private float distanceToTrigger = 5.0f;
+    private float distanceToTrigger = 3.0f;
 
     void Start()
     {

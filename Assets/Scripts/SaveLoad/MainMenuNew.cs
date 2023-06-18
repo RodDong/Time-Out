@@ -92,11 +92,15 @@ public class MainMenuNew : MonoBehaviour
         // Wait a frame so every Awake and Start method is called
         yield return new WaitForEndOfFrame();
         yield return sl.FetchSpawn();
-        yield return new WaitForEndOfFrame();
         player = GameObject.FindWithTag("Player");
         if (!player) Debug.LogError("no player");
         player.transform.position = LoadPos(area);
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
+        
+        masterBus.setVolume(0.0f);
+        yield return new WaitForSeconds(2.0f);
+        masterBus.setVolume(1.0f);
+
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             sl.BGM.start();

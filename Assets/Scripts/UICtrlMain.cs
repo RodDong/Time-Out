@@ -245,14 +245,14 @@ public class UICtrlMain : MonoBehaviour
     public void Pause()
     {
         SetInteractive(pause, true);
-        _mm.masterBus.setPaused(true);
+        _mm.masterBus.setVolume(0.0f);
         Time.timeScale = 0;
     }
 
     public void Unpause()
     {
         SetInteractive(pause, false);
-        _mm.masterBus.setPaused(false);
+        _mm.masterBus.setVolume(1.0f);
         Time.timeScale = 1;
     }
 
