@@ -118,6 +118,10 @@ public class SaveLoadManager : MonoBehaviour
 
     public int GetStateProgress(int level)
     {
+        if (state == null)
+        {
+            NewGame();
+        }
         return state.GetProgress(level);
     }
 

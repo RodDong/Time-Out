@@ -11,6 +11,10 @@ public class MainMenuNew : MonoBehaviour
 
     public bool unlockAllLevels;
 
+    public const float defaultVolume = 1.0f;
+    string masterBusString = "bus:/";
+    public FMOD.Studio.Bus masterBus { get; private set; }
+
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -91,6 +95,7 @@ public class MainMenuNew : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (!player) Debug.LogError("no player");
         player.transform.position = LoadPos(area);
+        masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             sl.BGM.start();

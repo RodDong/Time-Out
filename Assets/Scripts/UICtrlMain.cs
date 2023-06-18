@@ -114,6 +114,15 @@ public class UICtrlMain : MonoBehaviour
         pauseEnd.clicked += () => EndGame();
 
         helpBack.clicked += () => GoBack(help);
+            
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
     private void OnLevelWasLoaded(int level)
@@ -233,14 +242,32 @@ public class UICtrlMain : MonoBehaviour
         
     }
 
+    public void Pause()
+    {
+        SetInteractive(pause, true);
+        _mm.masterBus.setPaused(true);
+        Time.timeScale = 0;
+    }
+
     public void Unpause()
     {
-        Debug.Log("unimplemented");
+        SetInteractive(pause, false);
+        _mm.masterBus.setPaused(false);
+        Time.timeScale = 1;
     }
 
     public void Retry()
     {
-        Debug.Log("unimplemented");
+        string lastScene = SceneManager.GetActiveScene().name;
+        if (!lastScene.Contains("Level")) {
+            Debug.Log("Tried to Retry in Main Menu Scene");
+        }
+        else
+        {
+            /*_mm.ContinueFromSaved(lastScene[lastScene.Length - 1] - '0');*/
+            LoadLevel(pause, lastScene[lastScene.Length - 1] - '0');
+        }
+        
     }
 
     public void EndGame()
