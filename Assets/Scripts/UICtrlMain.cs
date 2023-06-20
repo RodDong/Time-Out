@@ -8,7 +8,7 @@ public class UICtrlMain : MonoBehaviour
 {
     public MainMenuNew _mm;
 
-    private GameObject main, lvlslt, complete, pause, help, loading;
+    private GameObject main, lvlslt, complete, pause, help, help2, loading;
 
     private GameObject returnTarget;
 
@@ -18,10 +18,13 @@ public class UICtrlMain : MonoBehaviour
         lvlsltBack,
         complBack, complCont,
         pauseCont, pauseRetry, pauseEnd,
-        helpBack;
+        helpBack, helpNext,
+        help2Back, help2Prev;
 
     [HideInInspector]
     public List<UnityEngine.UIElements.Button> lvlsltIcons;
+
+    private bool paused;
 
     private void OnEnable()
     {
@@ -30,12 +33,14 @@ public class UICtrlMain : MonoBehaviour
         complete.SetActive(true);
         pause.SetActive(true);
         help.SetActive(true);
+        help2.SetActive(true);
         loading.SetActive(true);
 
         SetInteractive(lvlslt, false);
         SetInteractive(complete, false);
         SetInteractive(pause, false);
         SetInteractive(help, false);
+        SetInteractive(help2, false);
         SetInteractive(loading, false);
     }
 
@@ -49,6 +54,7 @@ public class UICtrlMain : MonoBehaviour
         complete = transform.Find("complete").gameObject;
         pause = transform.Find("pause").gameObject;
         help = transform.Find("help").gameObject;
+        help2 = transform.Find("help2").gameObject;
         loading = transform.Find("loading").gameObject;
 
         main.SetActive(true);
@@ -56,7 +62,10 @@ public class UICtrlMain : MonoBehaviour
         complete.SetActive(true);
         pause.SetActive(true);
         help.SetActive(true);
+        help2.SetActive(true);
         loading.SetActive(true);
+
+        paused = false;
     }
 
     void Start() 
@@ -86,6 +95,11 @@ public class UICtrlMain : MonoBehaviour
 
         VisualElement helpRoot = help.GetComponent<UIDocument>().rootVisualElement;
         helpBack = helpRoot.Q<UnityEngine.UIElements.Button>("backbutton");
+        helpNext = helpRoot.Q<UnityEngine.UIElements.Button>("nexthelpbtn");
+
+        VisualElement help2Root = help2.GetComponent<UIDocument>().rootVisualElement;
+        help2Back = help2Root.Q<UnityEngine.UIElements.Button>("backbutton");
+        help2Prev = help2Root.Q<UnityEngine.UIElements.Button>("prevhelpbtn");
 
         // Add on-click responses
         mainStart.clicked += () => LoadPage(main, lvlslt);
@@ -114,7 +128,10 @@ public class UICtrlMain : MonoBehaviour
         pauseEnd.clicked += () => EndGame();
 
         helpBack.clicked += () => GoBack(help);
-            
+        helpNext.clicked += () => Help1to2();
+
+        help2Back.clicked += () => GoBack(help);
+        help2Prev.clicked += () => Help2to1();
     }
 
     private void Update()
@@ -123,18 +140,25 @@ public class UICtrlMain : MonoBehaviour
         {
             Pause();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Unpause();
+        }
     }
+
+    // unity built-in
+    // called when a new scene finished loading
 
     private void OnLevelWasLoaded(int level)
     {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             SetInteractive(main, false);
-            SetInteractive(loading, false);
             SetInteractive(lvlslt, false);
             SetInteractive(complete, false);
             SetInteractive(pause, false);
             SetInteractive(help, false);
+            SetInteractive(loading, false);
         }
     }
 
@@ -198,6 +222,7 @@ public class UICtrlMain : MonoBehaviour
         SetInteractive(lvlslt, true);
     }
 
+    // used for loading help from UI pages other than help2
     public void LoadHelp(GameObject fromPage)
     {
         // specify from which scene and UI screen was help loaded
@@ -206,6 +231,19 @@ public class UICtrlMain : MonoBehaviour
         returnTarget = fromPage;
         SetInteractive(fromPage, false);
         SetInteractive(help, true);
+    }
+
+    // below two used for switching between different pages of help
+    public void Help2to1()
+    {
+        SetInteractive(help, true);
+        SetInteractive(help2, false);
+    }
+
+    public void Help1to2()
+    {
+        SetInteractive(help, false);
+        SetInteractive(help2, true);
     }
 
     public void LoadCred(GameObject fromPage)
@@ -239,21 +277,29 @@ public class UICtrlMain : MonoBehaviour
         {
             Debug.LogError("Tried to Load Next Level in Main Menu");
         }
-        
+
     }
 
     public void Pause()
     {
-        SetInteractive(pause, true);
-        _mm.masterBus.setVolume(0.0f);
-        Time.timeScale = 0;
+        if (!paused)
+        {
+            SetInteractive(pause, true);
+            _mm.masterBus.setVolume(0.0f);
+            Time.timeScale = 0;
+            paused = true;
+        }
     }
 
     public void Unpause()
     {
-        SetInteractive(pause, false);
-        _mm.masterBus.setVolume(1.0f);
-        Time.timeScale = 1;
+        if (paused)
+        {
+            SetInteractive(pause, false);
+            _mm.masterBus.setVolume(1.0f);
+            Time.timeScale = 1;
+            paused = false;
+        }
     }
 
     public void Retry()
@@ -268,11 +314,13 @@ public class UICtrlMain : MonoBehaviour
             LoadLevel(pause, lastScene[lastScene.Length - 1] - '0');
         }
         Time.timeScale = 1;
-
+        paused = false;
     }
 
     public void EndGame()
     {
-        Debug.Log("unimplemented");
+        LoadPage(pause, main);
+        Time.timeScale = 1;
+        // TODO
     }
 }
