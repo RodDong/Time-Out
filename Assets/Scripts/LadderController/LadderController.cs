@@ -10,7 +10,7 @@ public class LadderController : MonoBehaviour
         goodLadder.SetActive(false);
         brokenLadder.SetActive(false);
         List<bool> level1WallStatus = FileHandler.ReadListFromJSON<bool>("level1bonus.json");
-        if (level1WallStatus[0])
+        if (!level1WallStatus[0])
         {
             goodLadder.SetActive(true);
         }
