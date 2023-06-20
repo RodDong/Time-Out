@@ -154,11 +154,11 @@ public class UICtrlMain : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             SetInteractive(main, false);
-            SetInteractive(loading, false);
             SetInteractive(lvlslt, false);
             SetInteractive(complete, false);
             SetInteractive(pause, false);
             SetInteractive(help, false);
+            SetInteractive(loading, false);
         }
     }
 
@@ -314,11 +314,13 @@ public class UICtrlMain : MonoBehaviour
             LoadLevel(pause, lastScene[lastScene.Length - 1] - '0');
         }
         Time.timeScale = 1;
-
+        paused = false;
     }
 
     public void EndGame()
     {
-        Debug.Log("unimplemented");
+        LoadPage(pause, main);
+        Time.timeScale = 1;
+        // TODO
     }
 }
