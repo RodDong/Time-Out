@@ -14,7 +14,7 @@ public class SaveLoadManager : MonoBehaviour
     public int SPAWNCNT = 12;
 
     [SerializeField]
-    private GameState state;
+    public GameState state { get; private set; }
     private GameObject player;
     private UICtrlMain uiCtrlMain;
     private GameObject complete;
@@ -118,10 +118,6 @@ public class SaveLoadManager : MonoBehaviour
 
     public int GetStateProgress(int level)
     {
-        if (state == null)
-        {
-            NewGame();
-        }
         return state.GetProgress(level);
     }
 

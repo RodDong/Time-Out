@@ -105,6 +105,7 @@ public class UICtrlMain : MonoBehaviour
 
         // Add on-click responses
         mainStart.clicked += () => LoadPage(main, lvlslt);
+        mainStart.clicked += () => _mm.NewGame();
         mainHelp.clicked += () => LoadPage(main, help);
         mainCred.clicked += () => LoadCred(main);
 

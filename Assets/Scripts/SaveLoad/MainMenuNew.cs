@@ -36,8 +36,10 @@ public class MainMenuNew : MonoBehaviour
 
     public void NewGame()
     {
-        sl.NewGame();
-        SceneManager.LoadScene("Level 1");
+        if(sl.state == null)
+        {
+            sl.NewGame();
+        }
     }
 
     public bool ContinueFromSaved(int level)

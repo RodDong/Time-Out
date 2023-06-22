@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &745905084
 Transform:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &960267986
 Transform:
   m_ObjectHideFlags: 0
@@ -811,11 +811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPAWNCNT: 12
-  state:
-    lvl1: 010000
-    lvl2: 000000
-    lvl3: 000000
-    lvl4: 000000
 --- !u!114 &2103613969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,4 +823,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7f66902d5419548add7d933b3e3731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockAllLevels: 1
+  unlockAllLevels: 0
