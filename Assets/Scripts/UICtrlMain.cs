@@ -111,7 +111,7 @@ public class UICtrlMain : MonoBehaviour
 
         lvlsltBack.clicked += () => GoBack(lvlslt);
         lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ForEach(btn =>
-            btn.clicked += () => LoadLevel(lvlslt, int.Parse(btn.name.Substring(3)))
+            btn.clicked += () => LoadLevel(lvlslt, int.Parse(btn.name.Substring(3)), false)
         ); 
         //for (int i = 0; i < lvlsltIcons.Count; i++)
         //{
@@ -196,12 +196,12 @@ public class UICtrlMain : MonoBehaviour
         
     }
 
-    public void LoadLevel(GameObject fromPage, int level)
+    public void LoadLevel(GameObject fromPage, int level, bool isRetry)
     {
         Time.timeScale = 1;
         if (_mm.LvlInBounds(level))
         {
-            if (_mm.ContinueFromSaved(level))
+            if (_mm.ContinueFromSaved(level, isRetry))
             {
                 // load level was successful
                 Debug.Log("Loading level: " + level);
@@ -276,7 +276,7 @@ public class UICtrlMain : MonoBehaviour
         {
             string curLevel = SceneManager.GetActiveScene().name;
             int curLevelNum = curLevel[curLevel.Length - 1] - '0';
-            LoadLevel(complete, curLevelNum + 1);
+            LoadLevel(complete, curLevelNum + 1, false);
         }
         else
         {
@@ -316,7 +316,7 @@ public class UICtrlMain : MonoBehaviour
         else
         {
             /*_mm.ContinueFromSaved(lastScene[lastScene.Length - 1] - '0');*/
-            LoadLevel(pause, lastScene[lastScene.Length - 1] - '0');
+            LoadLevel(pause, lastScene[lastScene.Length - 1] - '0', true);
         }
         Time.timeScale = 1;
         paused = false;

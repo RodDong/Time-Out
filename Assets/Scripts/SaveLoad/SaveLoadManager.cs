@@ -162,6 +162,31 @@ public class GameState
         lvl4.Add(false);
     }
 
+    public void ResetLevel(int level)
+    {
+        if (level == 1)
+        {
+            lvl1 = Enumerable.Repeat(false, lvl1.Count).ToList();
+        }
+        else if (level == 2)
+        {
+            lvl2 = Enumerable.Repeat(false, lvl2.Count).ToList();
+        }
+        else if (level == 3)
+        {
+            lvl3 = Enumerable.Repeat(false, lvl3.Count).ToList();
+        }
+        else if (level == 4)
+        {
+            lvl4 = Enumerable.Repeat(false, lvl4.Count).ToList();
+        }
+        else
+        {
+            Debug.LogError("Reset level gamestate level code out of bounds");
+            return;
+        }
+    }
+
     // Set the unlocked status of the level area
     // PREREQ: level area exist
     public void UpdateState(int level, int area)
