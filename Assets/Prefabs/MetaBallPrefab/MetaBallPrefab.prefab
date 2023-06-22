@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2344521945724378394}
   - component: {fileID: 7954536058470769461}
   - component: {fileID: 4852191719938431331}
-  - component: {fileID: 6193085786531005558}
   - component: {fileID: -4059297888118179190}
+  - component: {fileID: -514958089582743528}
   m_Layer: 9
   m_Name: MetaBallPrefab
   m_TagString: WaterBall
@@ -105,18 +105,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6193085786531005558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2928613404069158726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a52a693771c589439b20c38102e355b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &-4059297888118179190
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -134,9 +122,21 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.2
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-514958089582743528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928613404069158726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfacaa17956801468e4e49a796f42e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

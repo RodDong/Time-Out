@@ -156,10 +156,10 @@ public class MCBlob : MonoBehaviour
     void LateUpdate()
     {
         BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
-        
+
 
         BlobObjectsLocations = BlobObjectsLocations.Skip(1).ToArray();
-        
+
 
         UpdateBlobs();
         doFrame();
