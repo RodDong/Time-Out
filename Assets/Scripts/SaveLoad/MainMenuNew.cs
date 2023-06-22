@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -39,7 +40,35 @@ public class MainMenuNew : MonoBehaviour
         if(sl.state == null)
         {
             sl.NewGame();
+            initializeLevelBonus();
         }
+    }
+
+    private void initializeLevelBonus()
+    {
+        List<bool> level1Bonus = new List<bool>();
+        level1Bonus.Add(false);
+        level1Bonus.Add(false);
+        level1Bonus.Add(false);
+        FileHandler.SaveToJSON<bool>(level1Bonus, "level1bonus.json");
+
+        List<bool> level2Bonus = new List<bool>();
+        level2Bonus.Add(false);
+        level2Bonus.Add(false);
+        level2Bonus.Add(false);
+        FileHandler.SaveToJSON<bool>(level2Bonus, "level2bonus.json");
+
+        List<bool> level3Bonus = new List<bool>();
+        level3Bonus.Add(false);
+        level3Bonus.Add(false);
+        level3Bonus.Add(false);
+        FileHandler.SaveToJSON<bool>(level1Bonus, "level3bonus.json");
+
+        List<bool> level4Bonus = new List<bool>();
+        level4Bonus.Add(false);
+        level4Bonus.Add(false);
+        level4Bonus.Add(false);
+        FileHandler.SaveToJSON<bool>(level1Bonus, "level4bonus.json");
     }
 
     public bool ContinueFromSaved(int level)

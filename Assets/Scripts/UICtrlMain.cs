@@ -104,8 +104,8 @@ public class UICtrlMain : MonoBehaviour
         help2Prev = help2Root.Q<UnityEngine.UIElements.Button>("prevhelpbtn");
 
         // Add on-click responses
-        mainStart.clicked += () => LoadPage(main, lvlslt);
         mainStart.clicked += () => _mm.NewGame();
+        mainStart.clicked += () => LoadSelect(main);
         mainHelp.clicked += () => LoadPage(main, help);
         mainCred.clicked += () => LoadCred(main);
 
@@ -198,6 +198,7 @@ public class UICtrlMain : MonoBehaviour
 
     public void LoadLevel(GameObject fromPage, int level)
     {
+        Time.timeScale = 1;
         if (_mm.LvlInBounds(level))
         {
             if (_mm.ContinueFromSaved(level))
@@ -325,7 +326,8 @@ public class UICtrlMain : MonoBehaviour
     public void EndGame()
     {
         LoadPage(pause, main);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
+        paused = false;
         // TODO
     }
 
@@ -341,10 +343,10 @@ public class UICtrlMain : MonoBehaviour
                 return;
             }
             // load progress from distinct files
-            List<bool> bonus = FileHandler.ReadFromJSON<List<bool>>("level" + lvl + "bonus.json");
+            List<bool> bonus = FileHandler.ReadListFromJSON<bool>("level" + lvl + "bonus.json");
             // Get progress child of btn and for each child of progress, update its visual by index
             VisualElement progress = btn.ElementAt(1);
-            btn.style.backgroundColor = Color.white;
+            //btn.style.backgroundColor = Color.white;
             for (int i = 0; i < bonus.Count; i++)
             {
                 bool b = bonus[i];
