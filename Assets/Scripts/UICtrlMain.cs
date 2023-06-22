@@ -341,10 +341,22 @@ public class UICtrlMain : MonoBehaviour
                 return;
             }
             // load progress from distinct files
-            List<bool> lvlNbonus = FileHandler.ReadFromJSON<List<bool>>("level" + lvl + "bonus.json");
-            // TODO: Get progress child of btn and for each child of progress, update its visual by index
-            // where 0th is indicated in gameState (all true + next lvl 1st true if level complete)
-            // and 1st 2nd are simply stored in the read booleans
+            List<bool> bonus = FileHandler.ReadFromJSON<List<bool>>("level" + lvl + "bonus.json");
+            // Get progress child of btn and for each child of progress, update its visual by index
+            VisualElement progress = btn.ElementAt(1);
+            btn.style.backgroundColor = Color.white;
+            for (int i = 0; i < bonus.Count; i++)
+            {
+                bool b = bonus[i];
+                VisualElement dot = progress.ElementAt(i);
+                if (b)
+                {
+                    dot.style.backgroundColor = Color.white;
+                } else
+                {
+                    dot.style.backgroundColor = Color.black;
+                }
+            }
         }
 
         lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ForEach(btn =>
