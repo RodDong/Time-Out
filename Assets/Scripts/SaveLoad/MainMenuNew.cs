@@ -71,7 +71,11 @@ public class MainMenuNew : MonoBehaviour
         FileHandler.SaveToJSON<bool>(level1Bonus, "level4bonus.json");
     }
 
+<<<<<<< HEAD
     public bool ContinueFromSaved(int level)
+=======
+    public bool ContinueFromSaved(int level, bool isRetry)
+>>>>>>> 40026474fd8f38329badc544834e87f251cc5e3a
     {
         if (!LvlInBounds(level))
         {
@@ -82,9 +86,12 @@ public class MainMenuNew : MonoBehaviour
         // all areas are unlocked
         if (area == -1)
         {
-            // if next level 1st area also unlocked, player passed this level before, play from start
-            if (LvlInBounds(level+1) && sl.GetStateProgress(level+1) != 0)
+            // if next level 1st area also unlocked and is not retry, player passed this level before
+            // play from start and reset save for this level
+            if (LvlInBounds(level+1) && sl.GetStateProgress(level+1) != 0 && !isRetry)
             {
+                sl.state.ResetLevel(level);
+                sl.SaveGameState();
                 ContinueGame(level, 1);
             }
             // else play from last area
