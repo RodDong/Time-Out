@@ -6,7 +6,7 @@ using System.Linq;
 
 public class GenerateMetaBalls : MonoBehaviour
 {
-
+   
     [SerializeField] int row;
     [SerializeField] float radius;
     [SerializeField] GameObject metaBallPrefab;
@@ -32,7 +32,6 @@ public class GenerateMetaBalls : MonoBehaviour
                 GameObject curSphere = Instantiate(metaBallPrefab, parent_Transform);
                 curSphere.transform.localPosition = curPos;
                 curPos.z -= radius * 2;
-
             }
             curPos.x += radius * 2;
         }
@@ -99,7 +98,7 @@ public class GenerateMetaBalls : MonoBehaviour
 
     [SerializeField] public SphereCollider[] BlobObjectsLocations;
 
-
+    
 
     //Unity and Sample Specific
     void Start()
