@@ -12,14 +12,15 @@ public class Level1Bonus : MonoBehaviour
     private void SaveBonusStatus() {
         print("saving");
         List<bool> bonus = new List<bool>();
-        bonus.Add(wall != null);
-        bonus.Add(wall2 != null);
+        bonus.Add(true);
+        bonus.Add(wall == null);        // if true, has badge
+        bonus.Add(wall2 == null);
         FileHandler.SaveToJSON<bool>(bonus, "level1bonus.json");
     }
 
     public List<bool> GetBonusStatus()
     {
-        return new List<bool> { wall != null, wall2 != null };
+        return new List<bool> { true, wall == null, wall2 == null };
     }
 
     public void OnTriggerEnter(Collider other) {

@@ -12,6 +12,8 @@ public class UICtrlMain : MonoBehaviour
 
     private GameObject returnTarget;
 
+    private VisualElement mainRoot, lvlsltRoot, complRoot, pauseRoot, helpRoot, help2Root;
+
     [HideInInspector]
     public UnityEngine.UIElements.Button
         mainStart, mainHelp, mainCred,
@@ -73,31 +75,31 @@ public class UICtrlMain : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // Get button UI elements
-        VisualElement mainRoot = main.GetComponent<UIDocument>().rootVisualElement;
+        mainRoot = main.GetComponent<UIDocument>().rootVisualElement;
         mainStart = mainRoot.Q<UnityEngine.UIElements.Button>("startbtn");
         mainHelp = mainRoot.Q<UnityEngine.UIElements.Button>("helpbtn");
         mainCred = mainRoot.Q<UnityEngine.UIElements.Button>("credbtn");
 
-        VisualElement lvlsltRoot = lvlslt.GetComponent<UIDocument>().rootVisualElement;
+        lvlsltRoot = lvlslt.GetComponent<UIDocument>().rootVisualElement;
         lvlsltBack = lvlsltRoot.Q<UnityEngine.UIElements.Button>("backbutton");
         //lvlsltIcons = lvlsltRoot.Q<VisualElement>("select").Children() as List<UnityEngine.UIElements.Button>;
         //lvlsltIcons = new List<UnityEngine.UIElements.Button>();
         //lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ToList(lvlsltIcons);
 
-        VisualElement complRoot = complete.GetComponent<UIDocument>().rootVisualElement;
+        complRoot = complete.GetComponent<UIDocument>().rootVisualElement;
         complBack = complRoot.Q<UnityEngine.UIElements.Button>("backbutton");
         complCont = complRoot.Q<UnityEngine.UIElements.Button>("contbutton");
 
-        VisualElement pauseRoot = pause.GetComponent<UIDocument>().rootVisualElement;
+        pauseRoot = pause.GetComponent<UIDocument>().rootVisualElement;
         pauseCont = pauseRoot.Q<UnityEngine.UIElements.Button>("contbtn");
         pauseRetry = pauseRoot.Q<UnityEngine.UIElements.Button>("retrybtn");
         pauseEnd = pauseRoot.Q<UnityEngine.UIElements.Button>("endbtn");
 
-        VisualElement helpRoot = help.GetComponent<UIDocument>().rootVisualElement;
+        helpRoot = help.GetComponent<UIDocument>().rootVisualElement;
         helpBack = helpRoot.Q<UnityEngine.UIElements.Button>("backbutton");
         helpNext = helpRoot.Q<UnityEngine.UIElements.Button>("nexthelpbtn");
 
-        VisualElement help2Root = help2.GetComponent<UIDocument>().rootVisualElement;
+        help2Root = help2.GetComponent<UIDocument>().rootVisualElement;
         help2Back = help2Root.Q<UnityEngine.UIElements.Button>("backbutton");
         help2Prev = help2Root.Q<UnityEngine.UIElements.Button>("prevhelpbtn");
 
@@ -218,6 +220,7 @@ public class UICtrlMain : MonoBehaviour
 
     public void LoadSelect(GameObject fromPage)
     {
+        UpdateProgressVisuals();
         returnTarget = fromPage;
         SetInteractive(fromPage, false);
         SetInteractive(lvlslt, true);
@@ -318,10 +321,46 @@ public class UICtrlMain : MonoBehaviour
         paused = false;
     }
 
+    // Returns from pause to main menu
     public void EndGame()
     {
         LoadPage(pause, main);
         Time.timeScale = 1;
         // TODO
+    }
+
+    // Updates progress indicators in level select
+    // To be called whenever level select is loaded (made interactive)
+    private void UpdateProgressVisuals()
+    {
+        void UpdateLevelSpecificVisuals(UnityEngine.UIElements.Button btn, int lvl)
+        {
+            if (lvl < 1 || lvl > 4)
+            {
+                Debug.LogError("Attempting to update progress visual for an invalid level: " + lvl);
+                return;
+            }
+            // load progress from distinct files
+            List<bool> bonus = FileHandler.ReadFromJSON<List<bool>>("level" + lvl + "bonus.json");
+            // Get progress child of btn and for each child of progress, update its visual by index
+            VisualElement progress = btn.ElementAt(1);
+            btn.style.backgroundColor = Color.white;
+            for (int i = 0; i < bonus.Count; i++)
+            {
+                bool b = bonus[i];
+                VisualElement dot = progress.ElementAt(i);
+                if (b)
+                {
+                    dot.style.backgroundColor = Color.white;
+                } else
+                {
+                    dot.style.backgroundColor = Color.black;
+                }
+            }
+        }
+
+        lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ForEach(btn =>
+            UpdateLevelSpecificVisuals(btn, int.Parse(btn.name.Substring(3)))
+        );
     }
 }
