@@ -71,7 +71,11 @@ public class MainMenuNew : MonoBehaviour
         FileHandler.SaveToJSON<bool>(level1Bonus, "level4bonus.json");
     }
 
+<<<<<<< HEAD
+    public bool ContinueFromSaved(int level)
+=======
     public bool ContinueFromSaved(int level, bool isRetry)
+>>>>>>> 40026474fd8f38329badc544834e87f251cc5e3a
     {
         if (!LvlInBounds(level))
         {
