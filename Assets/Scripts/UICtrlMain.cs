@@ -220,6 +220,7 @@ public class UICtrlMain : MonoBehaviour
 
     public void LoadSelect(GameObject fromPage)
     {
+        UpdateProgressVisuals();
         returnTarget = fromPage;
         SetInteractive(fromPage, false);
         SetInteractive(lvlslt, true);
@@ -349,5 +350,5 @@ public class UICtrlMain : MonoBehaviour
         lvlsltRoot.Query<UnityEngine.UIElements.Button>(className: "levelicon").ForEach(btn =>
             UpdateLevelSpecificVisuals(btn, int.Parse(btn.name.Substring(3)))
         );
-
+    }
 }
