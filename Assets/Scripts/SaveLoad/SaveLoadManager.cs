@@ -54,7 +54,7 @@ public class SaveLoadManager : MonoBehaviour
 
             UpdateGameState(curLevelNum + 1, 1);
             BGM.stop(STOP_MODE.ALLOWFADEOUT);
-            uiCtrlMain.LoadPage(null, complete);
+            uiCtrlMain.LoadComplete(curLevelNum);
         }
     }
 

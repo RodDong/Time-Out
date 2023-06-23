@@ -1,12 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheets/mainmenu.uss?fileID=7433441132597879392&amp;guid=4c94c10c78d68394aa06b6bf93d8c8e0&amp;type=3#mainmenu" />
     <ui:VisualElement name="bg" class="background" style="flex-grow: 1; background-color: rgb(255, 255, 255);">
-        <ui:VisualElement name="title" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;">
-            <ui:Label tabindex="-1" text="LEVEL COMPLETE!" display-tooltip-when-elided="true" name="title" class="textfont" style="align-self: center; top: 40%; font-size: 84px;" />
+        <ui:VisualElement name="title" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 30%;">
+            <ui:Label tabindex="-1" text="LEVEL COMPLETE!" display-tooltip-when-elided="true" name="title" class="textfont" style="align-self: center; top: 50%; font-size: 84px; position: absolute;" />
         </ui:VisualElement>
-        <ui:VisualElement name="options" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; align-items: center;">
-            <ui:Button text="CONTINUE" display-tooltip-when-elided="true" name="contbutton" class="button menuopt" style="top: 35%; font-size: 54px; height: 15%;" />
-            <ui:Button text="BACK TO MENU" display-tooltip-when-elided="true" name="backbutton" class="button menuopt" style="top: 35%; font-size: 54px; height: 15%;" />
+        <ui:VisualElement name="badges" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 40%; padding-left: 20%; padding-right: 20%; flex-direction: row;">
+            <ui:VisualElement name="b1" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/images/badge1.png?fileID=2800000&amp;guid=8403e6380e159304b92bc64e50af79fc&amp;type=3#badge1&apos;); -unity-background-scale-mode: scale-to-fit; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; padding-top: 0; padding-left: 0; padding-right: 0; padding-bottom: 0; opacity: 1; display: flex; visibility: visible;" />
+            <ui:VisualElement name="b2" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/images/badge2.png?fileID=2800000&amp;guid=037711774940d59428aa22752156d2b4&amp;type=3#badge2&apos;); -unity-background-scale-mode: scale-to-fit; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;" />
+            <ui:VisualElement name="b3" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/UI/images/badge3.png?fileID=2800000&amp;guid=009830f14d585fe4d9a32467b4fa5e07&amp;type=3#badge3&apos;); -unity-background-scale-mode: scale-to-fit; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="options" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 30%; align-items: center;">
+            <ui:Button text="CONTINUE" display-tooltip-when-elided="true" name="contbutton" class="button menuopt" style="top: 30%; font-size: 54px; height: 15%; position: absolute;" />
+            <ui:Button text="BACK TO MENU" display-tooltip-when-elided="true" name="backbutton" class="button menuopt" style="top: 55%; font-size: 54px; height: 15%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

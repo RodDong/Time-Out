@@ -14,6 +14,8 @@ public class UICtrlMain : MonoBehaviour
 
     private VisualElement mainRoot, lvlsltRoot, complRoot, pauseRoot, helpRoot, help2Root;
 
+    private List<VisualElement> badges;
+
     [HideInInspector]
     public UnityEngine.UIElements.Button
         mainStart, mainHelp, mainCred,
@@ -89,6 +91,17 @@ public class UICtrlMain : MonoBehaviour
         complRoot = complete.GetComponent<UIDocument>().rootVisualElement;
         complBack = complRoot.Q<UnityEngine.UIElements.Button>("backbutton");
         complCont = complRoot.Q<UnityEngine.UIElements.Button>("contbutton");
+        if (complRoot.Q("badges") == null)
+        {
+            Debug.LogWarning("cannot find visualelement badges");
+        }
+        else
+        {
+            badges = new List<VisualElement>(3);
+        badges.Add(complRoot.Q("b1"));
+        badges.Add(complRoot.Q("b2"));
+        badges.Add(complRoot.Q("b3"));
+        }
 
         pauseRoot = pause.GetComponent<UIDocument>().rootVisualElement;
         pauseCont = pauseRoot.Q<UnityEngine.UIElements.Button>("contbtn");
@@ -236,6 +249,37 @@ public class UICtrlMain : MonoBehaviour
         returnTarget = fromPage;
         SetInteractive(fromPage, false);
         SetInteractive(help, true);
+    }
+
+    // used for loading complete from within a level after its been completed
+    public void LoadComplete(int lvl)
+    {
+        if (lvl < 1 || lvl > 4)
+        {
+            Debug.LogError("Attempting to load the complete UI page for an invalid level: " + lvl);
+            return;
+        }
+        returnTarget = null;
+        List<bool> bonus = FileHandler.ReadListFromJSON<bool>("level" + lvl + "bonus.json");
+        if (bonus.Count != badges.Count)
+        {
+            Debug.LogError("UI badges front/backend count mismatch");
+            Debug.LogError("bonus count: " + bonus.Count + " | badges count: " + badges.Count);
+            SetInteractive(complete, true);
+            return;
+        }
+        for (int i = 0; i < badges.Count; i++)
+        {
+            if (bonus[i])
+            {
+                badges[i].style.opacity = 1f;
+            }
+            else
+            {
+                badges[i].style.opacity = 0.33f;
+            }
+        }
+        SetInteractive(complete, true);
     }
 
     // below two used for switching between different pages of help
