@@ -228,6 +228,7 @@ public class UICtrlMain : MonoBehaviour
         }
         else
         {
+            LoadCred(fromPage);
             Debug.LogWarning("Level " + level + " is not in range");
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
+using UnityEngine.Android;
 
 public class Gate : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class Gate : MonoBehaviour
     [SerializeField] Color color;
     [SerializeField] List<GameObject> colorStrips;
 
+    public bool GetOpened()
+    {
+        return opened;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,11 @@ public class Gate : MonoBehaviour
             item.GetComponent<Renderer>().material.color = color;
         }
        
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        opened = false;
     }
 
     // Update is called once per frame

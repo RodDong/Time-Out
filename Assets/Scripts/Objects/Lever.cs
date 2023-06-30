@@ -12,6 +12,7 @@ public class Lever : Triggerable
     [SerializeField] GameObject LeverStick;
     [SerializeField] GameObject LeverBase;
     private bool inRange = false;
+    public bool interacted = false;
 
     private EventInstance lever;
 
@@ -29,7 +30,7 @@ public class Lever : Triggerable
 
         if (Input.GetKeyUp(KeyCode.E) && inRange)
         {
-
+            interacted = true;
             triggered = !triggered;
             if (triggered)
             {

@@ -18,14 +18,17 @@ public class AssignWater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnTriggerEnter(Collider other) {
-        
-        if (other.tag == "WaterBall") {
-            
-            if (!waterParent.activeSelf) {
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.tag == "WaterBall")
+        {
+
+            if (!waterParent.activeSelf)
+            {
                 waterParent.SetActive(true);
             }
 
@@ -36,10 +39,12 @@ public class AssignWater : MonoBehaviour
             int x = waterParent.transform.childCount;
             waterParentMCBlob.isoLevel = 0.0094f * Mathf.Pow(x, 3) - 0.1043f * Mathf.Pow(x, 2) + 0.4807f * x + 2.0178f;
             Debug.Log("numChild" + x + "isoLevel" + waterParentMCBlob.isoLevel);
-            
+
             int index = 0;
-            for (int i = 0; i < oldWater.BlobObjectsLocations.Length; i++) {
-                if (oldWater.BlobObjectsLocations[i] == (SphereCollider)other) {
+            for (int i = 0; i < oldWater.BlobObjectsLocations.Length; i++)
+            {
+                if (oldWater.BlobObjectsLocations[i] == (SphereCollider)other)
+                {
                     index = i;
                     print(index);
                     break;

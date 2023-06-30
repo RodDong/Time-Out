@@ -34,11 +34,18 @@ public class Button : Triggerable
     }
 
     private void OnTriggerEnter(Collider other) {
-        inRange = true;
+        if(other.tag == "Player")
+        {
+            inRange = true;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inRange = false;
+        if (other.tag == "Player")
+        {
+            inRange = true;
+        }
     }
 }

@@ -31,8 +31,10 @@ public class MovingPlatform : MonoBehaviour
 
         GameEvents.current.onTriggerEnter += Start;
         GameEvents.current.onTriggerExit += Stop;
-
-        colorStrip.GetComponent<Renderer>().material.color = color;
+        if(colorStrip != null)
+        {
+            colorStrip.GetComponent<Renderer>().material.color = color;
+        }
         
     }
 

@@ -15,6 +15,19 @@ public class PressurePad : Triggerable
             count.Add(id, 0);
     }
 
+    private void clearCount()
+    {
+        for (int i = 0; i < count.Count; i++)
+        {
+            count[i] = 0;
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        clearCount();
+    }
+
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Ground" || other.tag == "CameraCollider") {
