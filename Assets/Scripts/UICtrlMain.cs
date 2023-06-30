@@ -299,7 +299,7 @@ public class UICtrlMain : MonoBehaviour
     public void LoadCred(GameObject fromPage)
     {
         //fromPage.SetActive(false);
-        Debug.Log("unimplemented");
+        Application.Quit();
     }
 
     // return target should be non-null

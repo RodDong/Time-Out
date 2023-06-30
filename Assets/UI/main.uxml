@@ -8,7 +8,7 @@
         <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 25%; height: 100%; flex-direction: column; align-items: center; justify-content: space-around; top: auto; bottom: auto; margin-bottom: 0; transform-origin: center; scale: 1 1; min-height: 0; min-width: 0; align-self: center; flex-shrink: 1; width: 100%;">
             <ui:Button text="START" display-tooltip-when-elided="true" name="startbtn" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
             <ui:Button text="HELP" display-tooltip-when-elided="true" name="helpbtn" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
-            <ui:Button text="CREDIT" display-tooltip-when-elided="true" name="credbtn" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
+            <ui:Button text="QUIT" display-tooltip-when-elided="true" name="credbtn" class="button menuopt" style="width: 30%; -unity-font-style: normal; font-size: 54px;" />
         </ui:VisualElement>
         <ui:VisualElement name="Spacing" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 20%; flex-basis: 25%;" />
     </ui:VisualElement>
